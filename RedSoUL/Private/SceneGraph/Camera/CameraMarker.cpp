@@ -143,7 +143,7 @@ CameraMarker::world_to_camera_transform () const
             scaled_upward_axis.z * scaled_upward_axis_scale,
             -origin_translate.dot(scaled_upward_axis) * scaled_upward_axis_scale
         );
-        m_camera_transform[0] = float_4::make
+        m_camera_transform[2] = float_4::make
         (
             scaled_forward_axis.x * scaled_forward_axis_scale,
             scaled_forward_axis.y * scaled_forward_axis_scale,
