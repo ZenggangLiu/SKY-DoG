@@ -124,6 +124,12 @@
     <Filter Include="Private\SceneGraph\Camera">
       <UniqueIdentifier>{4b15c48f-346c-44f5-a1bb-854122798a82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public\SceneGraph\Geometry">
+      <UniqueIdentifier>{3f86ed39-8925-4a42-a7a7-9d25aa3be731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\SceneGraph\Geometry">
+      <UniqueIdentifier>{cb1dccf0-667e-4a8f-9ccd-a7314eb57c25}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Public\SceneGraph\Light">
       <UniqueIdentifier>{abdc19b0-6670-4c65-9a6e-1135436e421a}</UniqueIdentifier>
     </Filter>
@@ -408,6 +414,9 @@
     <ClInclude Include="Public\SceneGraph\Camera\PerspectiveCamera.hpp">
       <Filter>Public\SceneGraph\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="Public\SceneGraph\Geometry\GeometryData.hpp">
+      <Filter>Public\SceneGraph\Geometry</Filter>
+    </ClInclude>
     <ClInclude Include="Public\SceneGraph\Light\LightMarker.hpp">
       <Filter>Public\SceneGraph\Light</Filter>
     </ClInclude>
@@ -553,6 +562,9 @@
     </ClCompile>
     <ClCompile Include="Private\SceneGraph\GameScene.cpp">
       <Filter>Private\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\SceneGraph\Geometry\GeometryData.cpp">
+      <Filter>Private\SceneGraph\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="Private\SceneGraph\Light\LightMarker.cpp">
       <Filter>Private\SceneGraph\Light</Filter>

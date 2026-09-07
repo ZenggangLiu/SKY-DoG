@@ -92,6 +92,7 @@
     <ClInclude Include="Public\SceneGraph\Camera\OrthogonalCamera.hpp" />
     <ClInclude Include="Public\SceneGraph\Camera\PerspectiveCamera.hpp" />
     <ClInclude Include="Public\SceneGraph\GameScene.hpp" />
+    <ClInclude Include="Public\SceneGraph\Geometry\GeometryData.hpp" />
     <ClInclude Include="Public\SceneGraph\Light\LightMarker.hpp" />
     <ClInclude Include="Public\SceneGraph\Light\LightType.hpp" />
     <ClInclude Include="Public\SceneGraph\Light\PointLight.hpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="Private\SceneGraph\Camera\OrthogonalCamera.cpp" />
     <ClCompile Include="Private\SceneGraph\Camera\PerspectiveCamera.cpp" />
     <ClCompile Include="Private\SceneGraph\GameScene.cpp" />
+    <ClCompile Include="Private\SceneGraph\Geometry\GeometryData.cpp" />
     <ClCompile Include="Private\SceneGraph\Light\LightMarker.cpp" />
     <ClCompile Include="Private\SceneGraph\Light\PointLight.cpp" />
     <ClCompile Include="Private\SceneGraph\Light\RangedLight.cpp" />

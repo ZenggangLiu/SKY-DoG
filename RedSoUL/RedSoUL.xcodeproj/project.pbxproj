@@ -257,6 +257,10 @@
 		BDA8962A2F74F48400B0683B /* X2TeaCodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA896282F74F48400B0683B /* X2TeaCodec.cpp */; };
 		BDA8962D2F74F4C100B0683B /* X2TeaCodec.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDA8962C2F74F4C100B0683B /* X2TeaCodec.hpp */; };
 		BDA8962E2F74F4C100B0683B /* X2TeaCodec.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDA8962C2F74F4C100B0683B /* X2TeaCodec.hpp */; };
+		BDB47A95304ECB8300BE2867 /* GeometryData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47A94304ECB8300BE2867 /* GeometryData.hpp */; };
+		BDB47A96304ECB8300BE2867 /* GeometryData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47A94304ECB8300BE2867 /* GeometryData.hpp */; };
+		BDB47A99304ECBAA00BE2867 /* GeometryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */; };
+		BDB47A9A304ECBAA00BE2867 /* GeometryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */; };
 		BDC05CAD2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CAE2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CB02FC59D5F005CCA1C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */; };
@@ -457,6 +461,9 @@
 		BDA896282F74F48400B0683B /* X2TeaCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = X2TeaCodec.cpp; path = Private/Codec/X2TeaCodec.cpp; sourceTree = "<group>"; };
 		BDA8962C2F74F4C100B0683B /* X2TeaCodec.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = X2TeaCodec.hpp; path = Public/Codec/X2TeaCodec.hpp; sourceTree = "<group>"; };
 		BDA896322F74F6E900B0683B /* Quaternion_derivation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = Quaternion_derivation.txt; path = ../Document/Quaternion_derivation.txt; sourceTree = "<group>"; };
+		BDB47A94304ECB8300BE2867 /* GeometryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GeometryData.hpp; path = Public/SceneGraph/Geometry/GeometryData.hpp; sourceTree = "<group>"; };
+		BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GeometryData.cpp; path = Private/SceneGraph/Geometry/GeometryData.cpp; sourceTree = "<group>"; };
+		BDB47A9B304ECBBD00BE2867 /* MARKER.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = MARKER.txt; path = Private/SceneGraph/MARKER.txt; sourceTree = "<group>"; };
 		BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GameScene.hpp; path = Public/SceneGraph/GameScene.hpp; sourceTree = "<group>"; };
 		BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GameScene.cpp; path = Private/SceneGraph/GameScene.cpp; sourceTree = "<group>"; };
 		BDC05CB22FC59E16005CCA1C /* ObjectMarker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = ObjectMarker.cpp; path = Private/SceneGraph/ObjectMarker.cpp; sourceTree = "<group>"; };
@@ -633,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				BD72C0CC2FD2E38900491766 /* Camera */,
+				BDB47A93304ECB6900BE2867 /* Geometry */,
 				BDA3D1B62FFA5FC9001075BB /* Light */,
 				BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */,
 				BD5510002FB91E0000110001 /* ObjectMarker.hpp */,
@@ -646,7 +654,9 @@
 		BD55101B2FB91E0000110001 /* SceneGraph */ = {
 			isa = PBXGroup;
 			children = (
+				BDB47A9B304ECBBD00BE2867 /* MARKER.txt */,
 				BD3F04A12FE7F19B0062ACC2 /* Camera */,
+				BDB47A97304ECB9300BE2867 /* Geometry */,
 				BDA3D1BD2FFA61AD001075BB /* Light */,
 				BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */,
 				BD54E2252FC07755009DBD8C /* MarkerTypeDepot.hpp */,
@@ -970,6 +980,22 @@
 			name = Document;
 			sourceTree = "<group>";
 		};
+		BDB47A93304ECB6900BE2867 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				BDB47A94304ECB8300BE2867 /* GeometryData.hpp */,
+			);
+			name = Geometry;
+			sourceTree = "<group>";
+		};
+		BDB47A97304ECB9300BE2867 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */,
+			);
+			name = Geometry;
+			sourceTree = "<group>";
+		};
 		BDC9CB2B2F978B8B0042BF24 /* ImageFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1119,6 +1145,7 @@
 				BDA3D21530288E1D001075BB /* RenderTextureId.hpp in Headers */,
 				BD326F322F495429007EE8EC /* RingBuffer.hpp in Headers */,
 				BDA3D2013022F2A9001075BB /* HdrColor.hpp in Headers */,
+				BDB47A95304ECB8300BE2867 /* GeometryData.hpp in Headers */,
 				BDA3D1C23000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB342F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2A2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
@@ -1223,6 +1250,7 @@
 				BDA3D21630288E1D001075BB /* RenderTextureId.hpp in Headers */,
 				BD326F332F495429007EE8EC /* RingBuffer.hpp in Headers */,
 				BDA3D2023022F2A9001075BB /* HdrColor.hpp in Headers */,
+				BDB47A96304ECB8300BE2867 /* GeometryData.hpp in Headers */,
 				BDA3D1C33000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB352F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2B2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
@@ -1357,6 +1385,7 @@
 				BD58B0882F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB42F6E528C000B085D /* MathUtilities.cpp in Sources */,
 				BD8FB83D2F8510D600EE67B4 /* AABB.cpp in Sources */,
+				BDB47A9A304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
 				BD326F2F2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8132F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
 				BD0E41202F79245600CFA766 /* Ray3D.cpp in Sources */,
@@ -1420,6 +1449,7 @@
 				BD58B0872F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB32F6E528C000B085D /* MathUtilities.cpp in Sources */,
 				BD8FB83C2F8510D600EE67B4 /* AABB.cpp in Sources */,
+				BDB47A99304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
 				BD326F2E2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8122F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
 				BD0E411F2F79245600CFA766 /* Ray3D.cpp in Sources */,

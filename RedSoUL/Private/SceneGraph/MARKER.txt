@@ -1,0 +1,53 @@
+
++----- SCENEOBJECT -----+
+| Message Table(MsgId)  |
++-----------------------+
+| Self Name             |
++-----------------------+
+| Marker List           |
+|                       |
++------- ANY MARKER ----+-+
+| Owner                   |
++-------------------------+
+| Name                    |
+|                         |
++------- TRANSFORM -------+                         DEFINE_MARKER_TYPE_INFO(...)
+| Marker Type Info        |-----------------------+ 使用MarkerTypeDepot注册它的MarkerTypeInfo
++-------------------------+                       |
+| Message Id              |                       |
++-------------------------+                       |
+| Transform Change:       |                       |
+| Trigger Message(Id)     |                       |
++-------------------------+                       |
+                                                  v
+                                     每个具体的MarkerType在Depot中有一个对于的MarkerTypeInfo
++------ MARKERTYPEINFO ------+       +------ MARKERTYPEDEPOT ------+
+| FATHER Name                |       | Type Info Table             |
++----------------------------+       +-----------------------------+
+| SELF Name                  | <---- | Register MarkerTypeInfo     |
++----------------------------+       +-----------------------------+
+| Support Multiple Instance  |       | Create Marker(Name)         |
++----------------------------+       +-----------------------------+
+| Create Function            |       | Destroy Marker(Name, Obj)   |
++----------------------------+       +-----------------------------+
+| Destroy Function           |                    ^
++----------------------------+                    |
+| Isa Function(TypeName)     |                    |
++----------------------------+                    |
+                                                  |
+                                                  | 遍历Marker List中的每一项:
+                                                  | - 从Depot中得到对应的MarkerTypeInfo
++--------------- SCENEOBJECT --------------+      | - 调用其Isa()
+| Find Marker<MarkerType>:                 |      |
+| Find Marker<TransformMarker>             | -----+
++------------------------------------------+
+| Marker List:                             |
+| { "TransformMarker", TransformMarker* }  |
++------------------------------------------+
+
+
++--------------- SCENEOBJECT --------------+             +------ MARKERTYPEDEPOT ------+
+| Add Marker<MarkerType>:                  |             | Type Info Table             |
+| Add Marker<TransformMarker>              | ----------> +-----------------------------+
++------------------------------------------+             | Create Marker(Name)         |
+CALL MarkerTypeDepot::create_marker("TransformMarker")   +-----------------------------+

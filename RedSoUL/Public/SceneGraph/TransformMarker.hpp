@@ -250,11 +250,9 @@ private:
     static constexpr uint16_t INIT_TRANSFORM_MARKER_COUNT = 100;
 
     /// Marker类型信息
-    static
-    const MarkerTypeInfo  ms_type_info;
+    static const MarkerTypeInfo ms_type_info;
     /// 消息Id
-    static
-    const MessageId       ms_message_id;
+    static const MessageId      ms_message_id;
 
     // --- CACHED WORLD TRANSFORM --- //
     /// 世界转换矩阵: 本地 --> 世界
