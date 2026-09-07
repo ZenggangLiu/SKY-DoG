@@ -1,4 +1,4 @@
-﻿/// Library headers"
+/// Library headers"
 #include "Assert/RuntimeAssert.hpp"
 #include "Math/MathDefines.hpp" /// DEGREE_TO_RADIAN
 #include "Math/MathUtilities.hpp"
@@ -9,7 +9,8 @@
 #include "SceneGraph/Light/SpotLight.hpp"
 
 
-DEFINE_MARKER_TYPE_INFO(Spotight, Spotight::create, Spotight::destroy);
+DEFINE_MARKER_TYPE_INFO(
+    Spotight, Spotight::create, Spotight::destroy, false);
 
 
 float

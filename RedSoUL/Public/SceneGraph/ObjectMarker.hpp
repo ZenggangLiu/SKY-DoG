@@ -64,13 +64,34 @@ public:
     MarkerTypeInfo (
         const char * const   marker_name,
         const CreateFuncPtr  create_func,
-        const DestroyFuncPtr destroy_func);
+        const DestroyFuncPtr destroy_func,
+        const bool           support_multi);
 #else
     MarkerTypeInfo (
         const StaticStringIdT marker_name_id,
         const CreateFuncPtr   create_func,
-        const DestroyFuncPtr  destroy_func);
+        const DestroyFuncPtr  destroy_func,
+        const bool            support_multi);
 #endif
+
+    /// 检查当前类型是否为指定类型或者其子类
+    ///
+    /// @param[in]  type_name_id
+    ///     准备检查的类型名称Id
+    bool
+    isa (
+        const StaticStringIdT type_name_id) const;
+
+    bool
+    is_abstract () const;
+
+    /// 检查是否不支持创建多个实体
+    bool
+    not_support_multiple () const;
+
+    /// 检查是否支持创建多个实体
+    bool
+    support_multiple () const;
 
     CreateFuncPtr
     create_function () const;
@@ -83,6 +104,7 @@ public:
 
 
 private:
+    /// Abstract类型: Create/Destroy Function为NULL
     const CreateFuncPtr   m_create_func;
     const DestroyFuncPtr  m_destroy_func;
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
@@ -90,6 +112,8 @@ private:
 #else
     const StaticStringIdT m_marker_name_id;
 #endif
+    /// 标记是否支持创建多个实体
+    const bool            m_support_multiple;
 };
 
 

@@ -1,4 +1,4 @@
-﻿/// Library headers
+/// Library headers
 #include "Assert/RuntimeAssert.hpp"
 #include "Memory/BlockAllocator.hpp"
 #include "SceneGraph/MarkerTypeDepot.hpp"
@@ -7,7 +7,8 @@
 #include "SceneGraph/Light/PointLight.hpp"
 
 
-DEFINE_MARKER_TYPE_INFO(PointLight, PointLight::create, PointLight::destroy);
+DEFINE_MARKER_TYPE_INFO(
+    PointLight, PointLight::create, PointLight::destroy, false);
 
 
 ObjectMarker *

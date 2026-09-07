@@ -71,40 +71,57 @@ class SceneObject
 public:
     /// Marker消息处理函数
     ///
+    /// @param[in]  message_id
+    ///     监听的消息Id
     /// @param[in]  marker_object
-    ///     作为监听器的Marker实例
-    typedef void (*MessageFunction)(ObjectMarker * const marker_object);
+    ///     监听器实例(Marker实例)
+    typedef void (*MessageFunction)(
+        const MessageId message_id, ObjectMarker * const marker_object);
 
     /// 获取指定属性
     ///
-    /// @param[in]  type_name
-    ///     属性类型的名称
     /// @return
     ///     第一个指定类型的属性实例, 如果此物体有此属性
-    ///     nullptr,                如果此物体无此属性
+    ///     nullptr,              如果此物体无此属性
     ///
     /// 使用方法:
     /// TransformMarker * const transform =
-    ///     scene_object->find_marker(TransformMarker);
-    #define find_marker(type_name) \
-        /* NOTE: 使用Templated Function来提供CAST的支持 */ \
-        find_marker_with_nameid_and_cast<type_name>( \
-            STATIC_STRING_HASH(STRINGIFY(type_name)))
+    ///     scene_object->find_marker<TransformMarker>();
+    template <typename MarkerType>
+    INLINE_FUNCTION
+    const MarkerType *
+    find_marker () const
+    {
+        return static_cast<const MarkerType*>(
+            find_marker_with_nameid(MarkerType::ms_type_info.marker_name_id()));
+    }
+
+    template <typename MarkerType>
+    INLINE_FUNCTION
+    MarkerType *
+    find_marker ()
+    {
+        return const_cast<MarkerType*>(
+            static_cast<const SceneObject*>(this)->find_marker<MarkerType>());
+    }
 
     /// 添加指定属性
     ///
-    /// @param[in]  type_name
-    ///     属性类型的名称
     /// @return
     ///     新添加的属性实例, 如果成功
-    ///     nullptr,         如果失败
+    ///     nullptr,       如果失败
     ///
     /// 使用方法:
-    /// PerspectiveCamera * const camera = scene_object->add_marker(PerspectiveCamera);
-    #define add_marker(type_name) \
-        /* NOTE: 使用Templated Function来提供CAST的支持 */ \
-        add_marker_with_nameid_and_cast<type_name>( \
-            STATIC_STRING_HASH(STRINGIFY(type_name)))
+    /// PerspectiveCamera * const camera =
+    ///     scene_object->add_marker<PerspectiveCamera>();
+    template <typename MarkerType>
+    INLINE_FUNCTION
+    MarkerType *
+    add_marker ()
+    {
+        return static_cast<MarkerType*>(
+            add_marker_with_nameid(MarkerType::ms_type_info.marker_name_id()));
+    }
 
     /// 获取下一个可用的消息Id
     static
@@ -140,19 +157,31 @@ public:
         const float aspect_ratio,
         const float near_plane_dist);
 
-    /// 注册一个Marker消息监听器
+    /// 注册一个消息监听器
+    /// NOTE: 同一Marker只可以在一个Id上注册一个监听函数
     ///
     /// @param[in]  message_id
     ///     希望监听的消息Id
     /// @param[in]  marker_objc
     ///     监听器(其它Marker)实例
-    /// @param[in]  mesasge_func
+    /// @param[in]  message_func
     ///     消息处理函数
     void
     register_message_observer (
         const MessageId       message_id,
         ObjectMarker * const  marker_objc,
-        const MessageFunction mesasge_func);
+        const MessageFunction message_func);
+
+    /// 注销一个消息监听器
+    ///
+    /// @param[in]  message_id
+    ///     希望监听的消息Id
+    /// @param[in]  marker_objc
+    ///     监听器(其它Marker)实例
+    void
+    remove_message_observer (
+        const MessageId      message_id,
+        ObjectMarker * const marker_objc);
 
     /// 触发Marker消息
     void
@@ -179,25 +208,10 @@ private:
     SceneObject & operator = (
         const SceneObject &) = delete;
 
-    template <typename MarkerType>
-    INLINE_FUNCTION
-    const MarkerType *
-    find_marker_with_nameid_and_cast (
-        const StaticStringIdT name_id) const
-    {
-        return (const MarkerType*)find_marker_with_nameid(name_id);
-    }
-
-    template <typename MarkerType>
-    INLINE_FUNCTION
-    MarkerType *
-    find_marker_with_nameid_and_cast (
-        const StaticStringIdT name_id)
-    {
-        return (MarkerType*)find_marker_with_nameid(name_id);
-    }
-
     /// 获取指定类型的属性实例
+    ///
+    /// @param[in]  name_id
+    ///     Marker类型名称的Id
     const ObjectMarker *
     find_marker_with_nameid (
         const StaticStringIdT name_id) const;
@@ -206,25 +220,13 @@ private:
     find_marker_with_nameid (
         const StaticStringIdT name_id);
 
-    template <typename MarkerType>
-    INLINE_FUNCTION
-    MarkerType *
-    add_marker_with_nameid_and_cast (
-        const StaticStringIdT marker_name_id)
-    {
-        return (MarkerType*)add_marker_with_nameid(*this, marker_name_id);
-    }
-
     /// 添加指定类型的属性
     ///
-    /// @param[in]  marker_owner
-    ///     Marker的所有者
-    /// @param[in]  marker_name_id
+    /// @param[in]  name_id
     ///     Marker类型名称的Id
     ObjectMarker *
     add_marker_with_nameid (
-        SceneObject &         marker_owner,
-        const StaticStringIdT marker_name_id);
+        const StaticStringIdT name_id);
 
 private:
     friend class GameScene;
@@ -233,6 +235,9 @@ private:
     {
         SceneObject * const scene_objc;
         const MessageId     message_id;
+        /// MessageId的Padding:
+        /// - 由于我们将对MessageKey使用Hash。如果没有Padding, 此处的数据UNDEFINED。
+        const uint32_t      padding;
 
         INLINE_FUNCTION
         MessageKey (
@@ -240,7 +245,8 @@ private:
             const MessageId     _message_id)
         :
             scene_objc(_scene_objc),
-            message_id(_message_id)
+            message_id(_message_id),
+            padding(0)
         {
 
         }
@@ -276,8 +282,8 @@ private:
 
     struct MessageObserverInfo
     {
-        ObjectMarker * const  marker_objc;
-        MessageFunction const message_func;
+        ObjectMarker *  marker_objc;
+        MessageFunction message_func;
 
         INLINE_FUNCTION
         MessageObserverInfo (

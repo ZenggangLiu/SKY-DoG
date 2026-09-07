@@ -1,13 +1,16 @@
 /// Library headers
 #include "Assert/RuntimeAssert.hpp"
 #include "Common/CompilerDefines.hpp" /// BUILD_MODE
-#include "SceneGraph/MarkerTypeDepot.hpp"
 #include "SceneGraph/Camera/OrthogonalCamera.hpp"
 #include "SceneGraph/Camera/PerspectiveCamera.hpp"
+#include "SceneGraph/MarkerTypeDepot.hpp"
 #include "SceneGraph/TransformMarker.hpp"
 #include "Text/StaticString.hpp"
 /// Self header
 #include "SceneGraph/SceneObject.hpp"
+
+
+SceneObject::MessageTableT SceneObject::ms_message_table;
 
 
 MessageId
@@ -36,7 +39,7 @@ SceneObject::owner_scene ()
 const TransformMarker &
 SceneObject::transform () const
 {
-    const TransformMarker * const transform_marker = find_marker(TransformMarker);
+    const TransformMarker * const transform_marker = find_marker<TransformMarker>();
     RUNTIME_ASSERT(transform_marker, "SceneObject has no TransformMarker!!");
 
     return *transform_marker;
@@ -57,16 +60,16 @@ SceneObject::add_orthogonal_camera (
     const float near_plane_dist,
     const float far_plane_dist)
 {
-    OrthogonalCamera * const camera = add_marker(OrthogonalCamera);
-    if (camera)
+    OrthogonalCamera * const camera_marker = add_marker<OrthogonalCamera>();
+    if (camera_marker)
     {
-        camera->set_view_volume_width(view_width);
-        camera->set_aspect_ratio(aspect_ratio);
-        camera->set_near_plane_distance(near_plane_dist);
-        camera->set_far_plane_distance(far_plane_dist);
+        camera_marker->set_view_volume_width(view_width);
+        camera_marker->set_aspect_ratio(aspect_ratio);
+        camera_marker->set_near_plane_distance(near_plane_dist);
+        camera_marker->set_far_plane_distance(far_plane_dist);
     }
 
-    return camera;
+    return camera_marker;
 }
 
 
@@ -76,15 +79,15 @@ SceneObject::add_perspective_camera (
     const float aspect_ratio,
     const float near_plane_dist)
 {
-    PerspectiveCamera * const camera = add_marker(PerspectiveCamera);
-    if (camera)
+    PerspectiveCamera * const camera_marker = add_marker<PerspectiveCamera>();
+    if (camera_marker)
     {
-        camera->set_field_of_view(fov_degrees);
-        camera->set_aspect_ratio(aspect_ratio);
-        camera->set_near_plane_distance(near_plane_dist);
+        camera_marker->set_field_of_view(fov_degrees);
+        camera_marker->set_aspect_ratio(aspect_ratio);
+        camera_marker->set_near_plane_distance(near_plane_dist);
     }
 
-    return camera;
+    return camera_marker;
 }
 
 
@@ -92,7 +95,38 @@ void
 SceneObject::register_message_observer (
     const MessageId       message_id,
     ObjectMarker * const  marker_objc,
-    const MessageFunction mesasge_fuc)
+    const MessageFunction message_func)
+{
+    /// 创建Message Key
+    const MessageKey msg_key(this, message_id);
+    /// 查找是否有监听器注册在此Id上
+    const MessageTableT::iterator observer_list = ms_message_table.find(msg_key);
+    if (observer_list == ms_message_table.end())
+    {
+        MessageObserverInfoListT new_list;
+        new_list.push_back(MessageObserverInfo(marker_objc, message_func));
+        ms_message_table.emplace(msg_key, new_list);
+    }
+    /// 有监听器注册在此Id上: 确保监听器不可以重复注册
+    else
+    {
+        MessageObserverInfoListT & registered_observers = observer_list->second;
+#if (BUILD_MODE == DEBUG_BUILD_MODE)
+        for (const auto & observer : registered_observers)
+        {
+            RUNTIME_ASSERT(observer.marker_objc != marker_objc,
+                           "Double message observer registration!!");
+        }
+#endif
+        registered_observers.push_back(MessageObserverInfo(marker_objc, message_func));
+    }
+}
+
+
+void
+SceneObject::remove_message_observer (
+    const MessageId      message_id,
+    ObjectMarker * const marker_objc)
 {
     /// 创建Message Key
     const MessageKey msg_key(this, message_id);
@@ -100,22 +134,25 @@ SceneObject::register_message_observer (
     const MessageTableT::iterator observer_list = ms_message_table.find(msg_key);
     if (observer_list == ms_message_table.end())
     {
-        MessageObserverInfoListT new_list;
-        new_list.push_back(MessageObserverInfo(marker_objc, mesasge_fuc));
-        ms_message_table.emplace(msg_key, new_list);
+        RUNTIME_ASSERT(false, "The message observer is not registered!!");
     }
     else
     {
-        MessageObserverInfoListT & exist_list = observer_list->second;
-#if (BUILD_MODE == DEBUG_BUILD_MODE)
-        for (const auto observer : exist_list)
+        MessageObserverInfoListT & registered_observers = observer_list->second;
+        for (MessageObserverInfoListT::iterator observer = registered_observers.begin();
+             observer != registered_observers.end(); ++observer)
         {
-            RUNTIME_ASSERT(observer.marker_objc  != marker_objc &&
-                           observer.message_func != mesasge_fuc,
-                           "Double messge observer registration!!");
+            if (observer->marker_objc == marker_objc)
+            {
+                registered_observers.erase(observer);
+                if (registered_observers.empty())
+                {
+                    ms_message_table.erase(msg_key);
+                }
+                return;
+            }
         }
-#endif
-        exist_list.push_back(MessageObserverInfo(marker_objc, mesasge_fuc));
+        RUNTIME_ASSERT(false, "The message observer is not registered!!");
     }
 }
 
@@ -132,7 +169,7 @@ SceneObject::trigger_message (
     {
         for (auto & observer : observer_list->second)
         {
-            observer.message_func(observer.marker_objc);
+            observer.message_func(message_id, observer.marker_objc);
         }
     }
 }
@@ -148,10 +185,10 @@ SceneObject::SceneObject (
     m_layer_id(0),
     m_is_enabled(true)
 {
-    TransformMarker * const transform = add_marker(TransformMarker);
+    TransformMarker * const transform_marker = add_marker<TransformMarker>();
     if (father_object)
     {
-        father_object->transform().attach(*transform);
+        father_object->transform().attach(*transform_marker);
     }
 }
 
@@ -179,9 +216,21 @@ SceneObject::find_marker_with_nameid (
     {
         for (const auto marker : m_marker_list)
         {
-            if (marker->m_marker_name_id == name_id)
+            /// 获取当前Marker的TypeInfo
+            const MarkerTypeInfo * const marker_info =
+                MarkerTypeDepot::ref().type_info(marker->m_marker_name_id);
+            if (marker_info)
             {
-                return marker;
+                /// 当前Marker为指定类型或者其子类
+                if (marker_info->isa(name_id))
+                {
+                    return marker;
+                }
+            }
+            else
+            {
+                RUNTIME_ASSERT(false, "Current marker does not have a type info!!");
+                break;
             }
         }
         return nullptr;
@@ -200,25 +249,37 @@ SceneObject::find_marker_with_nameid (
 
 ObjectMarker *
 SceneObject::add_marker_with_nameid (
-    SceneObject &         marker_owner,
-    const StaticStringIdT marker_name_id)
+    const StaticStringIdT name_id)
 {
-    /// 添加TransformMarker时, 属性列表必须为空
-    if (m_marker_list.size() &&
-        marker_name_id == TransformMarker::ms_type_info.marker_name_id())
+    /// 先判断是否此类Marker已经存在
+    ObjectMarker * const exist_marker = find_marker_with_nameid(name_id);
+    if (exist_marker)
     {
-        return nullptr;
-    }
-    else
-    {
-        ObjectMarker * const marker =
-            MarkerTypeDepot::ref().create_marker(marker_owner, marker_name_id);
-        RUNTIME_ASSERT(marker, "Can not create new marker!!");
-
-        if (marker)
+        /// 获取对应的TypeInfo
+        const MarkerTypeInfo * const marker_info =
+            MarkerTypeDepot::ref().type_info(name_id);
+        if (marker_info)
         {
-            m_marker_list.push_back(marker);
+            if (marker_info->not_support_multiple())
+            {
+                RUNTIME_ASSERT(false,
+                               "Can not create multiple instances of this Marker!!");
+                return exist_marker;
+            }
         }
-        return marker;
+        else
+        {
+            RUNTIME_ASSERT(false, "Marker does not have a type info!!");
+            return nullptr;
+        }
     }
+
+    /// 创建新的Marker实例
+    ObjectMarker * const marker = MarkerTypeDepot::ref().create_marker(*this, name_id);
+    RUNTIME_ASSERT(marker, "Can not create new marker!!");
+    if (marker)
+    {
+        m_marker_list.push_back(marker);
+    }
+    return marker;
 }

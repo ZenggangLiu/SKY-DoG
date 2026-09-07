@@ -12,7 +12,7 @@
 
 
 DEFINE_MARKER_TYPE_INFO(
-    PerspectiveCamera, PerspectiveCamera::create, PerspectiveCamera::destroy);
+    PerspectiveCamera, PerspectiveCamera::create, PerspectiveCamera::destroy, false);
 
 
 float

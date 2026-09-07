@@ -10,7 +10,8 @@
 #include "SceneGraph/Light/SunLight.hpp"
 
 
-DEFINE_MARKER_TYPE_INFO(SunLight, SunLight::create, SunLight::destroy);
+DEFINE_MARKER_TYPE_INFO(
+    SunLight, SunLight::create, SunLight::destroy, false);
 
 
 float_3

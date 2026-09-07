@@ -42,13 +42,16 @@ class SceneObject;
 
 
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
-    #define DEFINE_MARKER_TYPE_INFO(marker_class, create_func, destroy_func) \
+    #define DEFINE_MARKER_TYPE_INFO( \
+        marker_class, create_func, destroy_func, support_multi) \
     const MarkerTypeInfo marker_class::ms_type_info( \
-        STRINGIFY(marker_class), create_func, destroy_func);
+        STRINGIFY(marker_class), create_func, destroy_func, support_multi);
 #else
-    #define DEFINE_MARKER_TYPE_INFO(marker_class, create_func, destroy_func) \
+    #define DEFINE_MARKER_TYPE_INFO( \
+        marker_class, create_func, destroy_func, support_multi) \
     const MarkerTypeInfo marker_class::ms_type_info( \
-        STATIC_STRING_HASH(STRINGIFY(marker_class)), create_func, destroy_func);
+        STATIC_STRING_HASH( \
+            STRINGIFY(marker_class)), create_func, destroy_func, support_multi);
 #endif
 
 
@@ -61,6 +64,14 @@ public:
     static
     MarkerTypeDepot &
     ref ();
+
+    /// 获取指定名称的TypeInfo
+    ///
+    /// @return
+    ///     nullptr, 如果无指定名称的Type
+    const MarkerTypeInfo *
+    type_info (
+        const StaticStringIdT marker_name_id) const;
 
     /// 注册一个新的属性类型
     void

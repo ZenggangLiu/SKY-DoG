@@ -8,7 +8,7 @@
 
 
 DEFINE_MARKER_TYPE_INFO(
-    OrthogonalCamera, OrthogonalCamera::create, OrthogonalCamera::destroy);
+    OrthogonalCamera, OrthogonalCamera::create, OrthogonalCamera::destroy, false);
 
 
 float

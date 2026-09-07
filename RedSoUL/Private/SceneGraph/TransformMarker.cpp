@@ -17,7 +17,7 @@
 // MARK: == TransformMarker ==
 /// const MarkerTypeInfo TransformMarker::ms_type_info(...);
 DEFINE_MARKER_TYPE_INFO(
-    TransformMarker, TransformMarker::create, TransformMarker::destroy);
+    TransformMarker, TransformMarker::create, TransformMarker::destroy, false);
 
 const MessageId TransformMarker::ms_message_id = SceneObject::next_marker_message_id();
 
@@ -289,10 +289,11 @@ TransformMarker::local_to_world_transform () const
                 m_world_transform = local_to_father;
             }
         }
+        /// 先复位Dirty标记: 为了避免TriggerMessage的过程中再次调用
+        /// local_to_world_transform()
+        m_is_world_transform_dirty = false;
         /// 发送变换更新消息
         m_marker_owner.trigger_message(ms_message_id);
-        /// 复位Dirty标记
-        m_is_world_transform_dirty = false;
     }
 
     return m_world_transform;

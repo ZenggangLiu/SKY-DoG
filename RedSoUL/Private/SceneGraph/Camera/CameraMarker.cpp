@@ -45,18 +45,22 @@ CameraMarker::CameraMarker (
     /// 注册Transform更新监听
     m_marker_owner.register_message_observer(
         TransformMarker::message_id(), this,
-        [](ObjectMarker * const marker_object) -> void
+        [](const MessageId message_id, ObjectMarker * const marker_object) -> void
         {
             CameraMarker * const camera_marker =
                 static_cast<CameraMarker*>(marker_object);
-            camera_marker->on_world_transform_updated();
+            if (message_id == TransformMarker::message_id())
+            {
+                camera_marker->on_world_transform_updated();
+            }
         });
 }
 
 
 CameraMarker::~CameraMarker ()
 {
-
+    /// 注销Transform更新监听
+    m_marker_owner.remove_message_observer(TransformMarker::message_id(), this);
 }
 
 
