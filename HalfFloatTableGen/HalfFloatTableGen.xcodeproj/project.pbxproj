@@ -56,11 +56,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BDB47AB13055564B00BE2867 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		BDA3D1EA301DF938001075BB /* HalfFloatTableGen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDA3D1F2301DF938001075BB /* Build configuration list for PBXNativeTarget "HalfFloatTableGen" */;
 			buildPhases = (
+				BDB47AB13055564B00BE2867 /* Headers */,
 				BDA3D1E7301DF938001075BB /* Sources */,
 				BDA3D1E8301DF938001075BB /* Frameworks */,
 				BDA3D1E9301DF938001075BB /* CopyFiles */,
