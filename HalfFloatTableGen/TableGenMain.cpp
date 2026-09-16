@@ -1,5 +1,5 @@
 /// System headers
-#include <cstdio>   /// std::printf, std::vsnprintf
+#include <cstdio>   /// std::snprintf
 #include <fstream>  /// std::fstream
 #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
 #include <intrin.h> /// _BitScanForward/_BitScanReverse()
@@ -1094,7 +1094,7 @@ private:
     ///   Mod[Offset[Exponent(HALF)] + Mantissa(HALF)]
     std::vector<uint32_t> m_h2f_mod_table;
 
-    // MARK: === 生成 FLOAT --> HALF 转换表格 ===
+    // === FLOAT --> HALF 表格 ===
 
     /// 1. one to one mappings:
     ///  i)   +ZERO: 0x0000 0000 ---> 0x0000
@@ -1151,9 +1151,9 @@ private:
 
 
 
-//--------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
 // MAIN ENTRY
-//--------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
 // MARK: - 程序主入口
 
 int32_t
@@ -1163,7 +1163,8 @@ main (
 {
     if (argc < 2)
     {
-        std::printf("Usage: HalfFloatTableGen output_file_path(absolute|relative)\n");
+        std::cout << "Usage: HalfFloatTableGen output_file_path(absolute|relative)"
+                  << std::endl;
         return -1;
     }
 
@@ -1191,7 +1192,8 @@ main (
     }
     else
     {
-        std::printf("'%s' can not be opened for output.\n", argv[1]);
+        std::cout << "'" << argv[1] << "'"
+                  << " can not be opened for output." << std::endl;
         return -1;;
     }
 }
