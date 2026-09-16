@@ -83,16 +83,16 @@ public:
 #else
         static constexpr uint32_t HAMMERSLEY_SEED = FOUR_CC_32('H', 'M', 'L', 'Y');
 #endif // #if (USE_RANDOM_SEED == 1)
-        m_random_seed = HAMMERSLEY_SEED;
+        m_hammersley_seed = HAMMERSLEY_SEED;
 
         /// 创建Randome Number Generator以及Distribution
-        std::mt19937 random_num_gen(m_random_seed);
+        std::mt19937 random_num_gen(m_hammersley_seed);
         /// 使用16位随机Scramble: [0, 2^16): 因为#Sample最多为2^16
         std::uniform_int_distribution<uint32_t> random_num_dist(
             0, std::numeric_limits<uint16_t>::max());
 
         std::cout << "Generating Hammersley Sample Points..." << std::endl;
-        std::cout << "[Random Seed]: " << m_random_seed       << std::endl;
+        std::cout << "[Seed]: "        << m_hammersley_seed   << std::endl;
         std::cout << "[#Sample]: "     << SAMPLE_TOTAL_COUNT  << ", ";
         std::cout << "[#Set]: "        << SAMPLE_SET_COUNT    << ", ";
         std::cout << "[#Sample/Set]: " << SET_SAMPLE_COUNT    << std::endl;
@@ -194,21 +194,22 @@ public:
         m_file_stream << "#include \"DataType/Float2D.hpp\"\n";
         m_file_stream << "\n\n";
 
-        m_file_stream << "/// 采样组(SET)的总数\n";
-        m_file_stream << "static constexpr uint32_t SAMPLE_SET_COUNT = "
+        m_file_stream << "/// Hammersley采样组(SET)的总数\n";
+        m_file_stream << "static constexpr uint32_t HAMMERSLEY_SAMPLE_SET_COUNT = "
                       << SAMPLE_SET_COUNT << "U;\n";
-        m_file_stream << "/// 每组中Sample的总数\n";
-        m_file_stream << "static constexpr uint32_t SET_SAMPLE_COUNT = "
+        m_file_stream << "/// Hammersley每组中Sample的总数\n";
+        m_file_stream << "static constexpr uint32_t HAMMERSLEY_SET_SAMPLE_COUNT = "
                       << SET_SAMPLE_COUNT << "U;\n";
 
-        m_file_stream << "/// Sample数组(=== 所有组连续存储 ===):\n";
+        m_file_stream << "/// Hammersley单位正方形(Unit Square)上所有Sample的数据\n";
+        m_file_stream << "/// Note: 所有Sample Set连续存储:\n";
         m_file_stream << "/// SET0                      SET10\n";
         m_file_stream << "/// +----+----+----+----+     +----+----+----+----+\n";
         m_file_stream << "/// | S0 | S1 | S2 | S3 | ... | P0 | P1 | P2 | P3 |\n";
         m_file_stream << "/// +----+----+----+----+     +----+----+----+----+\n";
         m_file_stream << "///\n";
-        m_file_stream << "/// Random Seed: " << m_random_seed << std::endl;
-        m_file_stream << "static constexpr float_2 SAMPLE_POINT_ARRAY[] =\n";
+        m_file_stream << "/// Hammersley Seed: " << m_hammersley_seed << std::endl;
+        m_file_stream << "static constexpr float_2 HAMMERSLEY_UNIT_SQUARE_SAMPLE_ARRAY[] =\n";
         m_file_stream << "{\n";
         for (uint32_t set_idx = 0; set_idx < SAMPLE_SET_COUNT; ++set_idx)
         {
@@ -308,7 +309,8 @@ private:
     ScrambleArrayT m_scramble_array;
     /// 输出文件
     std::fstream   m_file_stream;
-    uint32_t       m_random_seed;
+    /// 计算Hammersley采样数据使用的随机Seed
+    uint32_t       m_hammersley_seed;
     /// 标记输出文件是否成功打开
     bool           m_is_ready;
 };
