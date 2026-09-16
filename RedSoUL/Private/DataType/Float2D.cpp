@@ -7,10 +7,6 @@
 #include "DataType/Float2D.hpp"
 
 
-const float_2 float_2::ONE { 1,  1 };
-const float_2 float_2::ZERO{ 0,  0 };
-
-
 float_2
 float_2::make (
     const float x,

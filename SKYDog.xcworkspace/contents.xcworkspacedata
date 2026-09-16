@@ -5,6 +5,9 @@
       location = "group:HalfFloatTableGen/HalfFloatTableGen.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:SamplePointGen/SamplePointGen.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MoonGeiST/MoonGeiST.xcodeproj">
    </FileRef>
    <FileRef

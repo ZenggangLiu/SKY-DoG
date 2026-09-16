@@ -1,0 +1,37 @@
+=== SAMPLING ===
+1. 为了避免出现Aliasing, 我们保存多个(例如8个)Sample Set
+2. Good Sampling的特点:
+   + 在2D Unit Square中均匀分布: 无Clumping/Gap
+   + 如果投射到X/Y方向上, 依旧均匀分布
+   + Sample Point之间的距离最小
+   + Sample Point在X/Y方向上不可以规律分布(Regular Spacing)
+ 3. Radical Inverse Function: 基数反转函数
+    对任何一个整数i, 如果Base为b, 最多使用m个Digital:
+        ──┐k=m
+    i = >     aₖ * bᵏ
+        ──┘k=0
+
+    例如, 27使用Base为2, 使用8个数字表示: 0001 1011.0000 0000
+    i = a0*2^0 + a1*2^1 + a2*2^2 + ... + am*2^m
+    27 = 1*2^0 + 1*2^1 + 0*2^2 + 1*2^3 + 1*2^4 + 0*2^5 + 0*2^6 + 0*2^7
+
+    Radical Inverse Function Φ为:即将i相对于小数点翻转
+             ──┐k=m
+    Φ_b(i) = >     aₖ * b⁻⁽ᵏ⁺¹⁾
+             ──┘k=0
+
+    例如: 27使用Base为2, 使用8个数字表示Φ为:
+    0001 1011.0000 0000 --> 0000 0000.1101 1000
+    Φ(i) = a0*2^-1 + a1*2^-2 + a2*2^-3 + ... + am*2^-(m+1)
+    Φ₂(27) = 0000 0000.1101 1000
+           = 1*2^-1 + 1*2^-2 + 0*2^-3 + 1*2^-4 + 1*2^-5 + 0*2^-6 + 0*2^-7 + 0*2^-8
+           = 16/32  + 8/32   + 0/32   + 2/32   + 1/32
+           = 0.84375
+4. Hammersley Sequence: Unit Square上: [0,1] x [0, 1]
+- Sample(xᵢ, yᵢ): n为每个SET中Sample的总数
+                     i
+  Pᵢ = (xᵢ, yᵢ) = ( ───, Φ₂(i XOR scramble) )
+                     n
+- 对于一个固定的n, Hammersley只有一个Sequence。并且以(0, 0), (1, 1)的对角线对齐
+- 对于多个Sample Set中所有的Sample的访问次序, 即Index进行Shuffle。这样可以保证访问到所有Sample, 并且又具有随机性
+

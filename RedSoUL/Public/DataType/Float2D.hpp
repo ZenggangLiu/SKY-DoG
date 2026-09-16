@@ -49,11 +49,6 @@ struct alignas(8) float_2
     /// 纬度
     static constexpr uint8_t DIMENSION = 2;
 
-    /// 全一向量
-    static const float_2 ONE;   /// [ 1,  1 ]
-    /// 全零向量
-    static const float_2 ZERO;  /// [ 0,  0 ]
-
     union
     {
         struct
