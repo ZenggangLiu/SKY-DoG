@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedSoUL", "RedSoUL\RedSoUL.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HalfFloatTableGen", "HalfFloatTableGen\HalfFloatTableGen.vcxproj", "{EBEDE66B-514C-4940-9509-782D80231142}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SamplePointGen", "SamplePointGen\SamplePointGen.vcxproj", "{99297394-5EE0-427D-BF8A-A0CCCD91CD1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -39,6 +41,10 @@ Global
 		{EBEDE66B-514C-4940-9509-782D80231142}.Debug|x64.Build.0 = Debug|x64
 		{EBEDE66B-514C-4940-9509-782D80231142}.Release|x64.ActiveCfg = Release|x64
 		{EBEDE66B-514C-4940-9509-782D80231142}.Release|x64.Build.0 = Release|x64
+		{99297394-5EE0-427D-BF8A-A0CCCD91CD1B}.Debug|x64.ActiveCfg = Debug|x64
+		{99297394-5EE0-427D-BF8A-A0CCCD91CD1B}.Debug|x64.Build.0 = Debug|x64
+		{99297394-5EE0-427D-BF8A-A0CCCD91CD1B}.Release|x64.ActiveCfg = Release|x64
+		{99297394-5EE0-427D-BF8A-A0CCCD91CD1B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
