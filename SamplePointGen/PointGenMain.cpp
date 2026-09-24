@@ -350,6 +350,6 @@ main (
     {
         std::cout << "'" << argv[1] << "'"
                   << " can not be opened for output." << std::endl;
-        return -1;;
+        return -1;
     }
 }
