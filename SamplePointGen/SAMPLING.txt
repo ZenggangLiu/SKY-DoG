@@ -1,11 +1,14 @@
-=== SAMPLING ===
+======== SAMPLING ========
+
 1. 为了避免出现Aliasing, 我们保存多个(例如8个)Sample Set
+
 2. Good Sampling的特点:
    + 在2D Unit Square中均匀分布: 无Clumping/Gap
    + 如果投射到X/Y方向上, 依旧均匀分布
    + Sample Point之间的距离最小
    + Sample Point在X/Y方向上不可以规律分布(Regular Spacing)
- 3. Radical Inverse Function: 基数反转函数
+
+3. Radical Inverse Function: 基数反转函数
     对任何一个整数i, 如果Base为b, 最多使用m个Digital:
         ──┐k=m
     i = >     aₖ * bᵏ
@@ -27,6 +30,7 @@
            = 1*2^-1 + 1*2^-2 + 0*2^-3 + 1*2^-4 + 1*2^-5 + 0*2^-6 + 0*2^-7 + 0*2^-8
            = 16/32  + 8/32   + 0/32   + 2/32   + 1/32
            = 0.84375
+
 4. Hammersley Sequence: Unit Square上: [0,1] x [0, 1]
 - Sample(xᵢ, yᵢ): n为每个SET中Sample的总数
                      i
@@ -34,4 +38,80 @@
                      n
 - 对于一个固定的n, Hammersley只有一个Sequence。并且以(0, 0), (1, 1)的对角线对齐
 - 对于多个Sample Set中所有的Sample的访问次序, 即Index进行Shuffle。这样可以保证访问到所有Sample, 并且又具有随机性
+
+5. 如果X, Y为两个随机变量(Random Variable), p(x, y)表示:
+   - X = x(X为x)
+   - Y = y(Y为y)
+   时候的Join概率(密度)为多少
+
+6. 如果X, Y之间无关联: p(x, y) = p(x) * p(y)
+
+7. 如果X, Y之间有关联: p(x, y) = p(x) * p(y｜x)
+
+8. p(y｜x)表示在X = x(X为x)的所有事件中, Y = y(Y为y)的概率(密度)为多少
+
+9. 如果已知一个Carnonical Uniform Random Varable ξ,
+   使用--- Inverse Method ---来求得预期的概率(密度)函数p(x)
+例如: 如何计算ω的概率密度, 使其按照cosⁿ(θ)的形式分布: 即 p(ω) ∝ cosⁿ(θ)
+由于: Solid Angle ω = A/(r*r),
+因此: dω = dA/(r*r) = r*sin(θ)*dφ * r*dθ /(r*r)
+--> dω = sin(θ)*dθ*dφ
+详见Solid_Angle_定义.png文件
+
+- 概率密度函数(PDF)为:
+  p(ω) = k*cosⁿ(θ)
+  dω = sin(θ)*dθ*dφ
+
+a. 先对p(ω)进行归一化
+   ⌠           ⌠                            ⌠2π       ⌠π/2
+   ⎮ p(ω)*dω = ⎮ k*cosⁿ(θ) * sin(θ)*dθ*dφ = ⎮  k*dφ * ⎮   cosⁿ(θ)*sin(θ)*dθ = 1
+   ⌡Ω          ⌡Ω                           ⌡0        ⌡0
+
+   由于[cosⁿ⁺¹(θ)]' = -(n+1)*cosⁿ(θ)*sin(θ)
+
+                          ⎮π/2
+   k*2π * -cosⁿ⁺¹(θ)/(n+1)⎮   = -k*2π/(n+1) * [cosⁿ⁺¹(π/2) - cosⁿ⁺¹(0)] = 1
+                          ⎮0
+   = -k*2π/(n+1) * [0 - 1] = 1 --> k = (n+1)/2π
+   得到:
+           n+1
+   p(ω) = ───── * cosⁿ(θ)
+           2π
+
+b. 计算CDF(ω)
+            ⌠ω             ⌠ω
+            ⎮              ⎮   n+1
+   CDF(ω) = ⎮  p(ω‘)*dω’ = ⎮  ─────*cosⁿ(θ') * sin(θ’)*dθ‘*dφ’
+            ⎮              ⎮   2π
+            ⌡0             ⌡0
+
+            ⌠φ            ⌠θ
+            ⎮    1        |
+          = ⎮  ────*dφ’ * ⎮  (n+1)*cosⁿ(θ')*sin(θ’)*dθ‘
+            ⎮   2π        |
+            ⌡0            ⌡0
+
+              φ 
+          = ───── * -[cosⁿ⁺¹(θ) - cosⁿ⁺¹(0)]
+             2π 
+
+              φ 
+          = ───── * [1 - cosⁿ⁺¹(θ)]
+             2π 
+
+          = CDF(φ) * CDF(θ) <--- 由于φ, θ无关
+因此:
+       φ 
+ξ1 = ─────         --> φ = 2π*ξ1
+      2π
+
+ξ2 = 1 - cosⁿ⁺¹(θ) --> θ = arcos( (1 - ξ2)^[1/(n+1)] )
+最终:
+φ = 2π * ξ1
+θ = arcos( (1 - ξ2)^[1/(n+1)] )
+
+对于n = 1: 即 p(ω) = 1/π * cos(θ)
+ω的概率密度按照cos(θ)的形式分布, 得到:
+φ = 2π * ξ1
+θ = arcos[√(1 − ξ2)]
 

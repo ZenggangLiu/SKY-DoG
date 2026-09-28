@@ -1,6 +1,8 @@
 /// System headers
 #include <algorithm> /// std::find
+#include <cassert>   /// assert macro
 #include <chrono>    /// std::chrono::high_resolution_clock
+#include <cmath>     /// std::acos, std::sqrt
 #include <cstdio>    /// std::snprintf
 #include <fstream>   /// std::fstream
 #include <iomanip>   /// std::uppercase
@@ -12,6 +14,7 @@
 /// Lib headers
 #include "Common/CommonDefines.hpp"
 #include "DataType/Float2D.hpp"
+#include "Math/MathDefines.hpp" /// TWO_PI
 
 
 #define USE_RANDOM_SEED 1
@@ -73,8 +76,9 @@ public:
         return m_is_ready;
     }
 
+    /// 生成Unit Square上的所有Sample
     void
-    generate_all_sample_points ()
+    generate_unit_square_samples ()
     {
 #if (USE_RANDOM_SEED == 1)
         using namespace std::chrono;
@@ -100,6 +104,9 @@ public:
         /// 清除旧数据
         m_sample_array.clear();
         m_scramble_array.clear();
+
+        /// 清除所有Mapping数据
+        m_spherical_mapping.clear();
 
         /// 生成Sample Point
         /// 遍历所有SET
@@ -165,6 +172,108 @@ public:
         std::cout << "Generation Done." << std::endl;
     }
 
+    /// 将Unit Square上的Sample映射到Hemi-Sphere上
+    void map_onto_hemisphere ()
+    {
+        assert(m_spherical_mapping.size() == SAMPLE_TOTAL_COUNT);
+
+        std::cout << "Mappinging Sample Points onto Hemi-Sphere..." << std::endl;
+
+        /// 清除Mapping数据
+        m_spherical_mapping.clear();
+
+        for (uint32_t set_idx = 0; set_idx < SAMPLE_SET_COUNT; ++set_idx)
+        {
+            for (uint32_t sample_idx = 0; sample_idx < SET_SAMPLE_COUNT; ++sample_idx)
+            {
+                /// Sample的全局索引
+                const uint32_t global_sample_idx =
+                    set_idx * SET_SAMPLE_COUNT + sample_idx;
+                /// 提取Unit Square上的Sample: (ξ1, ξ2)
+                const float_2 sample_point = m_sample_array[global_sample_idx];
+                /// Mapping
+                /// φ = 2π * ξ1
+                /// θ = arcos[√(1 − ξ2)]
+                const float phi   = TWO_PI * sample_point.x;
+                const float theta =
+                    std::acos(std::sqrt(1.0f - sample_point.y));
+                /// 存储顺序: (φ, θ)
+                m_spherical_mapping.push_back(float_2{ phi, theta });
+            }
+        }
+
+        /// 生成GeoGebra 3D调试用的Sample Point文件(TXT文件):
+        /// L =
+        /// {
+        ///     (x0, y0, z0),
+        ///     (x1, y1, z1),
+        ///         ...
+        ///     (xn, yn, zn)
+        /// }
+        ///
+        char buffer[128];
+        for (uint32_t set_idx = 0; set_idx < SAMPLE_SET_COUNT; ++set_idx)
+        {
+            std::fstream pnt_file_stream;
+            std::snprintf(buffer, sizeof(buffer),
+                          "./Hammersley_Spherical_Sample_Point_Array_SET_%u.txt",
+                          set_idx);
+            pnt_file_stream.open(buffer, std::fstream::out | std::fstream::trunc);
+            if (pnt_file_stream.is_open())
+            {
+                pnt_file_stream << "L =" << std::endl;
+                pnt_file_stream << "{"   << std::endl;
+
+                for (uint32_t sample_idx = 0;
+                     sample_idx < SET_SAMPLE_COUNT; ++sample_idx)
+                {
+                    /// Sample的全局索引
+                    const uint32_t global_idx = set_idx * SET_SAMPLE_COUNT + sample_idx;
+                    /// (φ, θ)
+                    const float_2 sample_point = m_spherical_mapping[global_idx];
+                    /// 计算(x, y, z)
+                    /// NOTE: GeoGebra 3D使用如下坐标系, φ从Y轴向X轴绕
+                    ///
+                    /// ^ Z
+                    /// |   / Y
+                    /// |  /
+                    /// | /
+                    /// |/
+                    /// o-------- X
+                    ///
+                    /// x = sin(θ)sin(φ)
+                    /// y = sin(θ)cos(φ)
+                    /// z = cos(θ)
+                    ///
+                    const float sin_phi   = std::sin(sample_point.x);
+                    const float cos_phi   = std::cos(sample_point.x);
+                    const float sin_theta = std::sin(sample_point.y);
+                    const float cos_theta = std::cos(sample_point.y);
+                    const float x = sin_theta * sin_phi;
+                    const float y = sin_theta * cos_phi;
+                    const float z = cos_theta;
+                    std::snprintf(buffer, sizeof(buffer),
+                                  "    (%.8f, %.8f, %.8f)", x, y, z);
+                    /// (x0, y0, z0)
+                    pnt_file_stream << buffer;
+                    /// 判断是否输出尾部的逗号','
+                    if (sample_idx < (SET_SAMPLE_COUNT - 1))
+                    {
+                        pnt_file_stream << ",";
+                    }
+                    pnt_file_stream << std::endl;
+                }
+                pnt_file_stream << "}" << std::endl;
+                pnt_file_stream.close();
+            }
+            else
+            {
+                break;
+            }
+        }
+        std::cout << "Mapping Done." << std::endl;
+    }
+
     void
     write_to_file ()
     {
@@ -201,6 +310,7 @@ public:
         m_file_stream << "static constexpr uint32_t HAMMERSLEY_SET_SAMPLE_COUNT = "
                       << SET_SAMPLE_COUNT << "U;\n";
 
+        /// 输出Unit Square上的Sample
         m_file_stream << "/// Hammersley单位正方形(Unit Square)上所有Sample的数据\n";
         m_file_stream << "/// Note: 所有Sample Set连续存储:\n";
         m_file_stream << "/// SET0                      SET10\n";
@@ -209,7 +319,8 @@ public:
         m_file_stream << "/// +----+----+----+----+     +----+----+----+----+\n";
         m_file_stream << "///\n";
         m_file_stream << "/// Hammersley Seed: " << m_hammersley_seed << std::endl;
-        m_file_stream << "static constexpr float_2 HAMMERSLEY_UNIT_SQUARE_SAMPLE_ARRAY[] =\n";
+        m_file_stream << "static constexpr float_2 ";
+        m_file_stream << "HAMMERSLEY_UNIT_SQUARE_SAMPLE_ARRAY[] =\n";
         m_file_stream << "{\n";
         for (uint32_t set_idx = 0; set_idx < SAMPLE_SET_COUNT; ++set_idx)
         {
@@ -247,6 +358,54 @@ public:
             }
         }
         m_file_stream << "};\n";
+
+        /// 输出所有Mapping数据
+        if (m_spherical_mapping.size() == SAMPLE_TOTAL_COUNT)
+        {
+            m_file_stream << "\n\n";
+            m_file_stream << "/// Hammersley半球(Hemi-Sphere)上所有Sample的数据\n";
+            m_file_stream << "/// Note: 所有Sample Set连续存储, 存储顺序(φ, θ):\n";
+            m_file_stream << "/// - (φ1, θ1) ... (φn, θn)\n";
+            m_file_stream << "static constexpr float_2 ";
+            m_file_stream << "HAMMERSLEY_SPHERICAL_SAMPLE_ARRAY[] =\n";
+            m_file_stream << "{\n";
+            for (uint32_t set_idx = 0; set_idx < SAMPLE_SET_COUNT; ++set_idx)
+            {
+                std::snprintf(
+                    buffer, sizeof(buffer), "    /// Sample Set(%u)\n", set_idx);
+                m_file_stream << buffer;
+                for (uint32_t sample_idx = 0;
+                     sample_idx < SET_SAMPLE_COUNT; ++sample_idx)
+                {
+                    /// 为每行输出开始
+                    if ((sample_idx % SAMPLE_COUNT_PER_OUTPUT_LINE) == 0)
+                    {
+                        if (sample_idx)
+                        {
+                            m_file_stream << "\n";
+                        }
+
+                        m_file_stream << "    ";
+                    }
+
+                    /// Sample的全局索引
+                    const uint32_t global_sample_idx =
+                        set_idx * SET_SAMPLE_COUNT + sample_idx;
+                    std::snprintf(buffer, sizeof(buffer), "{ % .8ff, % .8ff }",
+                                  m_spherical_mapping[global_sample_idx].x,
+                                  m_spherical_mapping[global_sample_idx].y);
+                    m_file_stream << buffer << ", ";
+                }
+
+                m_file_stream << "\n";
+
+                if (set_idx != (SAMPLE_SET_COUNT-1))
+                {
+                    m_file_stream << "\n";
+                }
+            }
+            m_file_stream << "};\n";
+        }
     }
 
 
@@ -307,6 +466,9 @@ private:
     /// +----+----+----+----+     +----+----+----+----+
     SampleArrayT   m_sample_array;
     ScrambleArrayT m_scramble_array;
+    /// --- 各种Mapping的Sample数组 ---
+    /// 存储顺序: (φ, θ)
+    SampleArrayT   m_spherical_mapping;
     /// 输出文件
     std::fstream   m_file_stream;
     /// 计算Hammersley采样数据使用的随机Seed
@@ -337,8 +499,11 @@ main (
     PointGenerator pnt_generator(argv[1]);
     if (pnt_generator.is_ready())
     {
-        /// 创建所有Sample
-        pnt_generator.generate_all_sample_points();
+        /// 创建Unit Square上所有Sample
+        pnt_generator.generate_unit_square_samples();
+
+        /// Mapping到Hemi-Sphere
+        pnt_generator.map_onto_hemisphere();
 
         /// 输出生成结果
         pnt_generator.write_to_file();
