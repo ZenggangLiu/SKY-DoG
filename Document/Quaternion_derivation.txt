@@ -179,7 +179,7 @@ W: C.w*Q.w + C.x*Q.x + C.y*Q.y + C.z*Q.z
 = 0 + 0 + 0 + 1
 = 1
 
-结果：
+结果:
 I: -C.y*Q.z + C.z*Q.y + C.x*Q.w - C.w*Q.x
 = (1 - 2*Q.y*Q.y - 2*Q.z*Q.z)*P.x +
   2*Q.x*Q.y*P.y - 2*Q.z*Q.w*P.y +

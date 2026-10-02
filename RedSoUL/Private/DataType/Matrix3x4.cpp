@@ -383,11 +383,11 @@ matrix_3x4::rotation () const
     /// 4*z*z = -e00 - e11 + e22 + 1
     ///       = -(e00 + e11) + (1 + e22)
     ///
-    /// 参考：
+    /// 参考:
     /// - Document/Quaternion_matrix.pdf
     /// - https://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/
     ///
-    /// 首先判断是否w足够大： e00 + e11 + e22 > 0。 这是为了防止除以过小的w。
+    /// 首先判断是否w足够大: e00 + e11 + e22 > 0。 这是为了防止除以过小的w。
     /// 4*w*w = e00 + e11 + e22 + 1
     ///       = 1 - 2*y*y - 2*z*z + 1 - 2*x*x - 2*z*z + 1 - 2*x*x - 2*y*y + 1
     ///       = 4 - 4*y*y - 4*z*z - 4*x*x

@@ -36,7 +36,7 @@
 ///
 enum class ThreadStackSize
 {
-    /// NOTE：
+    /// NOTE:
     /// - iOS: 堆栈的长度将rounded up到页的边界(16k页)
     /// - Mac: 堆栈的长度将rounded up到页的边界(AppleSilicon:16k页, IntelSilicon:4k页)
     /// - Win: 堆栈的长度将rounded up到64k(allocation granularity)

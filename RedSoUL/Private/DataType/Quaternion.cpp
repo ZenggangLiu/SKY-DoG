@@ -520,10 +520,10 @@ quaternion::euler_angles ()const
     /// - Pitch: [-0.5π, +0.5π]
     /// - Yaw:   [   -π,    +π]
     /// - Roll:  [   -π,    +π]
-    /// 例如：对于Pitch 180°的旋转，我们可以通过先180° Yaw，再180° Roll来得到
+    /// 例如: 对于Pitch 180°的旋转，我们可以通过先180° Yaw，再180° Roll来得到
     ///
-    /// 我们内部的旋转角合成顺序： 偏航 * 俯仰 * 翻滚： Ry * Rx * Rz
-    /// Ry * Rx * Rz的结果为：
+    /// 我们内部的旋转角合成顺序: 偏航 * 俯仰 * 翻滚: Ry * Rx * Rz
+    /// Ry * Rx * Rz的结果为:
     /// | e00   e01   e02 |       | cycr + syspsr    -cysr + syspcr   sycp |
     /// | e10   e11   e12 |   =   | cpsr             cpcr             -sp  |
     /// | e20   e21   e22 |       | -sycr + cyspsr   sysr + cyspcr    cycp |
@@ -532,7 +532,7 @@ quaternion::euler_angles ()const
     /// sin(89.9°)
     static constexpr float SIN_89_9_DEGREES = 0.99999847691f;
 
-    /// 任何一个四元数Q := { <x, y, z>, w }可以表示为：
+    /// 任何一个四元数Q := { <x, y, z>, w }可以表示为:
     /// | e00   e01   e02 |       | 1 - 2*y*y - 2*z*z   2*x*y - 2*z*w       2*x*z + 2*y*w     |
     /// | e10   e11   e12 |   =   | 2*x*y + 2*z*w       1 - 2*x*x - 2*z*z   2*y*z - 2*x*w     |
     /// | e20   e21   e22 |       | 2*x*z - 2*y*w       2*y*z + 2*x*w       1 - 2*x*x - 2*y*y |

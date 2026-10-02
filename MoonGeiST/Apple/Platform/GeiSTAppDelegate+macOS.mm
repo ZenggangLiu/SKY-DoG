@@ -22,7 +22,7 @@
 
 /// 确定是否当最后一个Windows关闭时，此App退出
 /// @return
-///     YES：表示退出
+///     YES: 表示退出
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *)sender
 {
     return YES;
@@ -30,7 +30,7 @@
 
 
 /// 程序启动完成
-/// 执行任务：
+/// 执行任务:
 /// - RedSoUL初始化
 /// - 加载Assets
 /// - 创建RenderLoop
@@ -41,7 +41,7 @@
 
 
 /// UnHide程序(如果程序处在Hidden状态)
-/// 执行任务：与“Hide程序”的任务相反
+/// 执行任务: 与“Hide程序”的任务相反
 /// - 加载游戏进度
 /// - 启动/恢复Audio，Physics
 /// - 启动/恢复GameLoop
@@ -55,7 +55,7 @@
 
 
 /// Hide程序(使用Command + H)
-/// 执行任务：
+/// 执行任务:
 /// - 暂停RenderLoop
 /// - 暂停GameLoop
 /// - 暂停Audio，Physics

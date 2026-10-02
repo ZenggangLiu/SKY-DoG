@@ -40,11 +40,11 @@ struct matrix_3x4;
 /// 四行四列矩阵(ROW Major)
 ///
 /// NOTE:
-/// matrix_4x4定义为POD/Aggregate类型：16位字节对齐
+/// matrix_4x4定义为POD/Aggregate类型: 16位字节对齐
 /// - NO constructor, NO copy constructor, NO operator=(),
 ///   NO protect/private data, NO base class, NO virtual functions
-/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制：
-///   例如：
+/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制:
+///   例如:
 ///   matrix_4x4 source;
 ///   matrix_4x4 copy = source; <-- 使用std::memcpy()进行复制, 内部使用SSE
 ///

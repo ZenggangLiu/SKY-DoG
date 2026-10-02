@@ -72,7 +72,7 @@ fetch_working_folder_name ()
         NSFileManager * const file_manager = [NSFileManager defaultManager];
         /// 获得当前工作目录
         NSString * working_folder = [file_manager currentDirectoryPath];
-        /// 检查当前工作目录是否为Root："/"
+        /// 检查当前工作目录是否为Root: "/"
         /// 如果是Root，我们将其指向Bundle目录
         if ([working_folder isEqualToString: @"/"] == YES)
         {

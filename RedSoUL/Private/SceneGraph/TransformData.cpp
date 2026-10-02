@@ -255,7 +255,7 @@ TransformData::set_euler_angle (
     RUNTIME_ASSERT(stored_loc != std::fmod(angle_degs, 360.0f),
                    "We can not set the same angle!!");
 
-    /// 保存新的角度：确保角度在[0, 360)之间
+    /// 保存新的角度: 确保角度在[0, 360)之间
     stored_loc = std::fmod(angle_degs, 360.0f);
     /// 设置Dirty标记
     m_is_combined_rotation_dirty = true;

@@ -85,7 +85,7 @@ public:
     /// @return
     ///      True    如果目录创建成功
     ///      False   如果目录创建失败
-    /// NOTE：此函数会创建所有路径参考的中间目录
+    /// NOTE: 此函数会创建所有路径参考的中间目录
     static
     bool
     create_folder (

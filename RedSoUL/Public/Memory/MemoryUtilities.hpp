@@ -38,8 +38,8 @@ struct MemoryUtility
     /// 获得此进程/程序的内存使用情况
     ///
     /// @return
-    ///      如果申请成功：<- [ true,  使用的物理内存(字节), 使用的虚拟内存(字节) ]
-    ///      如果申请失败：<- [ false, 0,                 0                ]
+    ///      如果申请成功: <- [ true,  使用的物理内存(字节), 使用的虚拟内存(字节) ]
+    ///      如果申请失败: <- [ false, 0,                 0                 ]
     static
     std::tuple<bool, uint64_t, uint64_t>
     memory_usage ();
@@ -75,10 +75,10 @@ struct MemoryUtility
     /// @param[in]  page_count
     ///      内存页的数目
     /// @return
-    ///      如果申请成功：<- [ 申请的内存地址, 申请的内存长度(字节长度) ]
-    ///      如果申请失败：<- [ nullptr,     0                    ]
+    ///      如果申请成功: <- [ 申请的内存地址, 申请的内存长度(字节长度) ]
+    ///      如果申请失败: <- [ nullptr,     0                    ]
     /// @example:
-    ///     例如：申请16个虚拟内存页：
+    ///     例如: 申请16个虚拟内存页:
     ///     const void * alloc_addr; uint32_t alloc_size;
     ///     std::tie(alloc_addr, alloc_size) = MemoryUtility::allocate_vm_pages(16);
     static

@@ -15,7 +15,7 @@
 /// PPM 文件定义:
 /// https://en.wikipedia.org/wiki/Netpbm_format
 ///
-/// PMM数据排布：
+/// PMM数据排布:
 ///
 /// 上方------------ > 右侧
 ///  |
@@ -91,7 +91,7 @@ struct PpmFileStream
         ppm_stream << buffer << LINE_FEED;
 
         /// 输出图形数据
-        /// NOTE: 由于PPM使用如下坐标系存储数据：
+        /// NOTE: 由于PPM使用如下坐标系存储数据:
         ///
         /// 上方------------ > 右侧
         ///  |
@@ -216,7 +216,7 @@ PpmFile::write_to (
     const bool             use_alpha,
     const bool             use_binary)
 {
-    /// Rbg8 每个Channel所能表示的最大数值： (1 << 8)  - 1: 255
+    /// Rbg8 每个Channel所能表示的最大数值: (1 << 8)  - 1: 255
     static constexpr uint32_t MAXIMAL_CHANNEL_VALUE_RGB8 = (1 << 8) - 1;
 
     RUNTIME_ASSERT( abs_file_name, "File name can not be NULL!!");

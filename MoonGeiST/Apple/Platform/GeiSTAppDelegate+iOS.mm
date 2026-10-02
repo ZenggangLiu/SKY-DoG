@@ -20,7 +20,7 @@
 
 
 /// 程序启动完成
-/// 执行任务：
+/// 执行任务:
 /// - RedSoUL初始化
 /// - 加载Assets
 /// X 创建RenderLoop, 放在ViewController::viewDidLoad中处理
@@ -33,7 +33,7 @@
 
 
 /// 进入前台
-/// 执行任务：与“Hide程序”的任务相反
+/// 执行任务: 与“Hide程序”的任务相反
 /// - 加载游戏进度
 /// - 启动/恢复Audio，Physics
 /// - 启动/恢复GameLoop
@@ -45,7 +45,7 @@
 
 
 /// 进入后台
-/// 执行任务：
+/// 执行任务:
 /// - 暂停RenderLoop
 /// - 暂停GameLoop
 /// - 暂停Audio，Physics

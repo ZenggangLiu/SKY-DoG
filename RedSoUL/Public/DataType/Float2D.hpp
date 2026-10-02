@@ -36,11 +36,11 @@
 /// 二维向量
 ///
 /// NOTE:
-/// float_2定义为POD/Aggregate类型：8位字节对齐
+/// float_2定义为POD/Aggregate类型: 8位字节对齐
 /// - NO constructor, NO copy constructor, NO operator=(),
 ///   NO protect/private data, NO base class, NO virtual functions
-/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制：
-///   例如：
+/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制:
+///   例如:
 ///   float_2 source;
 ///   float_2 copy = source; <-- 使用std::memcpy()进行复制, 内部使用SSE
 ///

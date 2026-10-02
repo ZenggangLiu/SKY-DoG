@@ -167,7 +167,7 @@ uint32_t
 MathUtility::bits_from_float32 (
     const float float_value)
 {
-    /// 现代C++标准不允许：
+    /// 现代C++标准不允许:
     /// - CASTING: 从一个类型Pointer到另一个类型Pointer。例如pointer(float) to point(uint32_t)
     /// - READING: 从UNION中读取一个成员, 如果其它成员已赋值
     /// 使用std::memcpy()
@@ -183,7 +183,7 @@ float
 MathUtility::float32_from_bits (
     const uint32_t f32_bits)
 {
-    /// 现代C++标准不允许：
+    /// 现代C++标准不允许:
     /// - CASTING: 从一个类型Pointer到另一个类型Pointer。例如pointer(float) to point(uint32_t)
     /// - READING: 从UNION中读取一个成员, 如果其它成员已赋值
     /// 使用std::memcpy()

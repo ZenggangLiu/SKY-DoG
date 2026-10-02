@@ -36,11 +36,11 @@
 /// 三维向量
 ///
 /// NOTE:
-/// float_3定义为POD/Aggregate类型：16位字节对齐, 以支持SIMD运算
+/// float_3定义为POD/Aggregate类型: 16位字节对齐, 以支持SIMD运算
 /// - NO constructor, NO copy constructor, NO operator=(),
 ///   NO protect/private data, NO base class, NO virtual functions
-/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制：
-///   例如：
+/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制:
+///   例如:
 ///   float_3 source;
 ///   float_3 copy = source; <-- 使用std::memcpy()进行复制, 内部使用SSE
 ///

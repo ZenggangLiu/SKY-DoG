@@ -43,7 +43,7 @@ find_last_set_bit_position (
         return (int32_t)set_pos;
     }
 #else
-    /// fls()：
+    /// fls():
     /// - one based的位置，如果输入数据不为0
     /// - 零，             如果输入的数据为0
     return fls((int32_t)data) - 1;
@@ -388,7 +388,7 @@ public:
         m_file_stream << "\n";
 
         // normalised number: [1024, 2047]: i << 13, where i:[0, 3FF]
-        m_file_stream << "    /// normalised的数值: [1024, 2047]: 我们将i的数值向左移动13位：i << 13\n";
+        m_file_stream << "    /// normalised的数值: [1024, 2047]: 我们将i的数值向左移动13位: i << 13\n";
         m_file_stream << "    /// - 这里 i为[0, 3FF]中的数值\n";
         m_file_stream << "    ";
 
@@ -579,7 +579,7 @@ private:
             m_h2f_mod_table.push_back(float_value);
         }
 
-        /// normalised的数值: [1024, 2047]: 我们将i的数值向左移动13位：i << 13, 这里 i为[0, 3FF]中的数值
+        /// normalised的数值: [1024, 2047]: 我们将i的数值向左移动13位: i << 13, 这里 i为[0, 3FF]中的数值
         for (uint32_t i = 0; i <= 0x3FF; ++i)
         {
             m_h2f_mod_table.push_back(i << 13);

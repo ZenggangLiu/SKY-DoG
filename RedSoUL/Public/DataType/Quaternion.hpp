@@ -53,11 +53,11 @@
 ///   即: { -Sin(ϕ/2)*U, Cos(ϕ/2) } == { Sin(-ϕ/2)*U, Cos(-ϕ/2) }
 ///
 /// NOTE:
-/// quaternion定义为POD/Aggregate类型：16位字节对齐
+/// quaternion定义为POD/Aggregate类型: 16位字节对齐
 /// - NO constructor, NO copy constructor, NO operator=(),
 ///   NO protect/private data, NO base class, NO virtual functions
-/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制：
-///   例如：
+/// - 缺省的opeartor=()将使用std::memcpy()逐字节复制:
+///   例如:
 ///   quaternion source;
 ///   quaternion copy = source; <-- 使用std::memcpy()进行复制, 内部使用SSE
 ///
@@ -130,7 +130,7 @@ struct alignas(16) quaternion
     /// - 非均匀角速度(Non-Constant Angular Velocity)
     /// - 最小转矩(Minimal Torque)
     /// NOTE:
-    /// - 当两个四元数夹角ω小于30度时, 不使用Slerp(球面插值)：
+    /// - 当两个四元数夹角ω小于30度时, 不使用Slerp(球面插值):
     /// - 在通常的Animation系统中, 连续的需要插值的四元数间的夹角ω不大
     static
     quaternion
@@ -186,7 +186,7 @@ struct alignas(16) quaternion
         const uint8_t idx);
 
     /// 计算当前四元数与另一个四元数R的乘积(复合旋转)
-    /// C ：= THIS * R
+    /// C := THIS * R
     ///
     /// NOTE:
     /// 复合旋转为: 先使用R进行旋转, 再使用THIS旋转

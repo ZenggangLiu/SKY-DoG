@@ -78,8 +78,8 @@ RenderMeshDepot::create_unit_square ()
     ///     0---------------2
     /// (-0.5, 0, -0.5)
     ///
-    /// 三角面I：  <0, 1, 2>
-    /// 三角面II： <2 ,1, 3>
+    /// 三角面I:  <0, 1, 2>
+    /// 三角面II: <2 ,1, 3>
 
     /// 顶点列表
     static constexpr VertexLayoutT VERTEX_LIST[] =
@@ -153,8 +153,8 @@ RenderMeshDepot::create_unit_square_uv ()
     ///     0---------------2
     /// (-0.5, 0, -0.5)
     ///
-    /// 三角面I：  <0, 1, 2>
-    /// 三角面II： <2 ,1, 3>
+    /// 三角面I:  <0, 1, 2>
+    /// 三角面II: <2 ,1, 3>
 
     /// 顶点列表
     static constexpr VertexLayoutT VERTEX_LIST[] =

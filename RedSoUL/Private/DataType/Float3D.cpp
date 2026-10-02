@@ -187,7 +187,7 @@ float_3::cross (
     ///   /ϕ| h        /
     ///  +--+---------+-->
     ///        v2
-    /// 它的面积为：|v2| * h。此处h := |v1|*sin(ϕ)
+    /// 它的面积为: |v2| * h。此处h := |v1|*sin(ϕ)
     /// 因此这个四边形的面积为|v1 x v2|: 即: v1与v2的Cross Product的绝对值
     const float cross_x = (y * vec.z) - (z * vec.y);
     const float cross_y = (z * vec.x) - (x * vec.z);
@@ -232,7 +232,7 @@ float_3
 float_3::perpendicular_vec ()const
 {
     /// NOTE: 有无穷多个向量与当前向量垂直,
-    /// 我们尽量：使Cross(Perp, THIS)指向上方
+    /// 我们尽量: 使Cross(Perp, THIS)指向上方
     ///
     /// 先计算一个不平行的参考轴
     const float_3 ref_vec = (std::fabsf(y) < 0.99f)

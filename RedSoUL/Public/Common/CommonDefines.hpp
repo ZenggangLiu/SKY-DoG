@@ -80,7 +80,7 @@
 
 /// 链接Token: COMBINE(t1, t2) --> t1t2
 #if !defined(COMBINE)
-/// NOTE: 由于 ## 将抑制对于宏的替代：
+/// NOTE: 由于 ## 将抑制对于宏的替代:
 /// 如果我们直接定义 #define COMBINE(x, y) x ## y
 /// x 与 y 将不会进行宏扩展
     #define  COMBINE(token1, token2) _TOKEN_COMBINE(token1, token2)
@@ -88,7 +88,7 @@
 #endif /// !defined(COMBINE)
 
 
-/// 将SOMETHING字符串化：STRINGIGY(SOMETHING) --> "SOMETHING"
+/// 将SOMETHING字符串化: STRINGIGY(SOMETHING) --> "SOMETHING"
 #if !defined(STRINGIFY)
     #define  STRINGIFY(SOMETHING) _STRINGIFY(SOMETHING)
     #define _STRINGIFY(SOMETHING)  #SOMETHING
@@ -120,7 +120,7 @@
 
 /// 将指定的数值调整到指定的Alignment的倍数
 ///
-/// 例如：
+/// 例如:
 /// ALIGN_UP(1, 4)          --> 4
 /// ALIGN_UP(4, 4)          --> 4
 /// ALIGN_UP(5, 4)          --> 8

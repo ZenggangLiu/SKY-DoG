@@ -171,7 +171,7 @@ RingBuffer::read_data_in_bytes (
             /// 计算Mod后, 数据读入位置索引
             const uint64_t data_read_index = m_data_read_pos & m_modulo_mask;
 
-            /// 计算最多可以往后读入多少字节：从当前ReadIndex开始一直到Buffer末尾
+            /// 计算最多可以往后读入多少字节: 从当前ReadIndex开始一直到Buffer末尾
             const uint64_t read_bytes_to_buffer_end =
                 (uint64_t)std::min(exp_data_size_in_bytes, m_buffer_size - data_read_index);
             /// 复制随后的数据
@@ -225,7 +225,7 @@ RingBuffer::save_data_in_bytes (
         /// 计算Mod后, 数据写出位置索引
         const uint64_t data_save_index = m_data_save_pos & m_modulo_mask;
 
-        /// 计算最多可以往后写出多少字节：从当前SaveIndex开始一直到Buffer末尾
+        /// 计算最多可以往后写出多少字节: 从当前SaveIndex开始一直到Buffer末尾
         const uint64_t save_bytes_to_buffer_end =
             (uint64_t)std::min(exp_data_size_in_bytes, m_buffer_size - data_save_index);
         /// 依次写出数据

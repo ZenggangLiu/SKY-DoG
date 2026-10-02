@@ -11,8 +11,8 @@
 
 /// PThread的回调函数类型
 /// NOTE: 内部的回调返回值类型为uint32_t。
-///       PThread将uint32_t整数作为void*看待：(void*)(uint64_t)1234。此处exit_code为1234
-///       所以在wait_for_exit()中必须将其CAST回Int：(uint32_t)(uint64_t)exit_code
+///       PThread将uint32_t整数作为void*看待: (void*)(uint64_t)1234。此处exit_code为1234
+///       所以在wait_for_exit()中必须将其CAST回Int: (uint32_t)(uint64_t)exit_code
 typedef void* (*pthread_start_routine) (void*);
 
 
@@ -33,14 +33,14 @@ WorkerThread::start ()
     RUNTIME_ASSERT(m_state == ThreadState::CREATED_THREAD_STATE,
                    "The thread is NOT in the 'CREATED' state!!");
 
-    /// 设置堆栈长度: 堆栈的长度(字节长度)：0表示使用缺省长度
+    /// 设置堆栈长度: 堆栈的长度(字节长度): 0表示使用缺省长度
     const size_t stack_size = (m_stack_size == ThreadStackSize::DEFAULT_THREAD_STACK_SIZE)
                             ? 0 : (size_t)m_stack_size;
 
 #if (OS_TYPE == OS_TYPE_WIN)
     /// 创建一个挂起的OS线程
     m_handle = CreateThread(nullptr,    /* 此句柄不可继承 */
-                            stack_size, /* 保留的堆栈长度：0为缺省长度 */
+                            stack_size, /* 保留的堆栈长度: 0为缺省长度 */
                             (LPTHREAD_START_ROUTINE)&WorkerThread::ThreadProc,
                             this, /* 传入ThreadProc()的参数 */
                             /* 挂起此线程，并且设定保留的堆栈长度 */
@@ -112,8 +112,8 @@ WorkerThread::suspend ()
                    "The thread is NOT in the 'RUNNING' state!!");
 
 #if (OS_TYPE == OS_TYPE_WIN)
-    /// 挂起线程：SuspendThread()返回之前挂起的计数，-1表示调用失败
-    /// NOTE：在返回前，将暂停线程的运行
+    /// 挂起线程: SuspendThread()返回之前挂起的计数，-1表示调用失败
+    /// NOTE: 在返回前，将暂停线程的运行
     if (SuspendThread(m_handle) != (DWORD)(-1))
     {
         set_thread_state(ThreadState::SUSPENDED_THREAD_STATE);
@@ -141,7 +141,7 @@ WorkerThread::resume ()
 
 #if (OS_TYPE == OS_TYPE_WIN)
     /// 启动线程: ResumeThread()返回之前挂起的计数，-1表示调用失败
-    /// NOTE：ResumeThread()在返回之前，将运行挂起的线程
+    /// NOTE: ResumeThread()在返回之前，将运行挂起的线程
     if (ResumeThread(m_handle) != (DWORD)(-1))
     {
         set_thread_state(ThreadState::RUNNING_THREAD_STATE);
@@ -185,7 +185,7 @@ uint32_t
 WorkerThread::ThreadProc (
     void * const self_thread)
 {
-    /// 不同的线程入口：
+    /// 不同的线程入口:
     /// PThread: void* ThreadProc(void* )
     /// Windows: DWORD ThreadProc(LPVOID)
     ///
@@ -195,7 +195,7 @@ WorkerThread::ThreadProc (
 
 #if (BUILD_MODE == DEBUG_BUILD_MODE)
     /// 设置线程名称
-    /// NOTE：macOS, iOS, Windows只能设置当前运行的线程的名字，所以将名称设置放在ThreadProc中
+    /// NOTE: macOS, iOS, Windows只能设置当前运行的线程的名字，所以将名称设置放在ThreadProc中
     ///
 #if (OS_TYPE == OS_TYPE_WIN)
 #pragma pack(push,8)
@@ -203,7 +203,7 @@ WorkerThread::ThreadProc (
         {
             DWORD   dwType;     /// Must be 0x1000.
             LPCSTR  szName;     /// Pointer to name (in user addr space).
-            DWORD   dwThreadID; /// Thread ID：-1表示当前线程
+            DWORD   dwThreadID; /// Thread ID: -1表示当前线程
             DWORD   dwFlags;    /// Reserved for future use, must be zero.
         } THREADNAME_INFO;
 #pragma pack(pop)
@@ -257,7 +257,7 @@ WorkerThread::cleanup (
     /// 标记状态
     set_thread_state(ThreadState::DEAD_THREAD_STATE);
     /// 清理线程的资源(如果此线程已经退出)
-    /// NOTE：如果线程正在忙碌，此函数将Blocking
+    /// NOTE: 如果线程正在忙碌，此函数将Blocking
     ExitThread(exit_code);
 
 #else /// macOS, iOS, Linux
@@ -266,7 +266,7 @@ WorkerThread::cleanup (
     /// 标记状态
     set_thread_state(ThreadState::DEAD_THREAD_STATE);
     /// 清理线程的资源(如果此线程已经退出)
-    /// NOTE：如果线程正在忙碌，此函数将Blocking
+    /// NOTE: 如果线程正在忙碌，此函数将Blocking
     pthread_exit((void*)(uint64_t)exit_code); /// 强行将uint32_t整数作为void*指针返回
 #endif /// (OS_TYPE == OS_TYPE_WIN)
 }

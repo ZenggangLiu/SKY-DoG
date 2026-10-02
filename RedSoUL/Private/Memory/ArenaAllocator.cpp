@@ -106,7 +106,7 @@ ArenaAllocator::allocate (
         {
             /// 用来进行内存分配的Memory Block的索引: 对于上例中的Block C
             int32_t used_block_idx = m_free_block_head;
-            /// 刚刚忽略的Block：对于上例中的Block B
+            /// 刚刚忽略的Block: 对于上例中的Block B
             int32_t skip_block_idx = used_block_idx;
             /// 如果当前Block的空闲空间太小，查找其后续的Block
             while (IS_VALID_BLOCK_IDX(used_block_idx) &&
@@ -237,6 +237,6 @@ ArenaAllocator::alloc_in_head_block (
         }
     }
 
-    /// NOTE：如果此Block无法满足内存申请，将放回缺省的数值：nullptr
+    /// NOTE: 如果此Block无法满足内存申请，将放回缺省的数值: nullptr
     return alloc_addr;
 }

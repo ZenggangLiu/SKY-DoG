@@ -52,7 +52,7 @@ RuntimeAssert (
         /// 输出信息
 #if (OS_TYPE == OS_TYPE_WIN)
     #if defined(UNICODE)
-        /// 转换：ANSI --> WCHAR
+        /// 转换: ANSI --> WCHAR
         const int32_t wchar_length =
             (int32_t)MultiByteToWideChar(CP_ACP, 0, buffer + msgIdx, -1, nullptr, 0);
         const std::wstring utf16_string(wchar_length, L'\0');

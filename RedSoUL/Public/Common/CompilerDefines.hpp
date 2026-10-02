@@ -35,7 +35,7 @@
     /// - VS2015 defines __cplusplus as 199711L,
     ///   which has support on c++14 in addition to c++11
     #if defined(_MSC_VER) && _MSC_VER >= 1900
-        /// 所以，从VS2015起，我们认为 C++11 完全支持：MSVC++ 14.0
+        /// 所以，从VS2015起，我们认为 C++11 完全支持: MSVC++ 14.0
         ///     _MSC_VER == 1900 (Visual Studio 2015)
         ///we consider starting from vs 2015 a full support on c++ 11
         #define CXX_STANDARD_VER 2011

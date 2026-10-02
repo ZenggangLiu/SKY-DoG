@@ -38,7 +38,7 @@
 
 /// Single Producer - Single Consumer Ring Buffer
 ///
-/// 调用流程：
+/// 调用流程:
 /// - Consumer: read_data(), read_data(), ..., read_data(), finish_read()
 /// - Producer: save_data(), save_data(), ..., save_data(), finish_save()
 ///
@@ -113,7 +113,7 @@ public:
 
 
 private:
-    /// Ring Buffer读/写头的类型(NOTE：按照Cache Line边界对齐(64 Bytes对齐)
+    /// Ring Buffer读/写头的类型(NOTE: 按照Cache Line边界对齐(64 Bytes对齐)
 #define AccessHeadT    alignas(64) std::atomic<uint64_t>
 #define ConstUInt32T   const uint32_t
 #define ConstUInt64T   const uint64_t
@@ -177,7 +177,7 @@ private:
 // TEMPLATED FUNCTION IMPLEMENTATION                                              //
 //------------------------------------------------------------------------------- //
 
-/// 通用readData函数：uint64_t, const char*, CustomType
+/// 通用readData函数: uint64_t, const char*, CustomType
 template <typename T>
 INLINE_FUNCTION
 bool
@@ -198,7 +198,7 @@ bool
 RingBuffer::read_data (
     std::string & output_string_ref)
 {
-    /// 目前字符串的保存格式：
+    /// 目前字符串的保存格式:
     /// +----------------------+-----------------+
     /// | String Length(Bytes) | String contents |
     /// +----------------------+-----------------+
@@ -222,7 +222,7 @@ bool
 RingBuffer::read_data (const char *&);
 
 
-/// 通用saveData函数：uint64_t, const char*, CustomType
+/// 通用saveData函数: uint64_t, const char*, CustomType
 template<typename T>
 INLINE_FUNCTION
 bool
@@ -233,7 +233,7 @@ RingBuffer::save_data (
 }
 
 
-/// 禁止直接使用rvalue：例如函数名称
+/// 禁止直接使用rvalue: 例如函数名称
 /// NOTE: 如果开启，saveData(const T&) 必须改为 --> saveData(T&)
 /// template<typename T>
 /// bool saveData(T&&) = delete;
@@ -246,7 +246,7 @@ bool
 RingBuffer::save_data (
     const char * const & c_string_ref)
 {
-    /// 目前字符串的保存格式：
+    /// 目前字符串的保存格式:
     /// +----------------------+-----------------+
     /// | String Length(Bytes) | String contents |
     /// +----------------------+-----------------+

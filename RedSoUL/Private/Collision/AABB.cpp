@@ -19,7 +19,7 @@ AABB::longest_axis () const
     /// Epsilon: 1毫米
     static constexpr float SHIFT_EPSILON = 1.0f / 1000.0f;
 
-    /// 计算对角线方向上的偏移：为了打破x,y,z坐标相同的僵局
+    /// 计算对角线方向上的偏移: 为了打破x,y,z坐标相同的僵局
     const float_3 shift_vec = float_3::make_random_unit_vec() * SHIFT_EPSILON;
 
     /// 计算对角线向量
@@ -41,7 +41,7 @@ AABB::diagonal_vec () const
 float
 AABB::area () const
 {
-    /// 包围盒采用如下顶点编号：
+    /// 包围盒采用如下顶点编号:
     ///
     ///              ^ Y
     ///              |     / Z
@@ -59,7 +59,7 @@ AABB::area () const
     /// 计算由顶点0到顶点7的对角线向量
     const float_3 diag_vec = diagonal_vec();
 
-    /// 计算地面：0451
+    /// 计算地面: 0451
     ///   ^ z
     ///   |
     /// 4 +------------* 5
@@ -69,7 +69,7 @@ AABB::area () const
     /// 对角线.x * 对角线.z
     const float area_0451 = diag_vec.x * diag_vec.z;
 
-    /// 计算左面：0264
+    /// 计算左面: 0264
     ///   ^ y
     ///   |
     /// 2 +------------* 6
@@ -79,7 +79,7 @@ AABB::area () const
     /// 对角线.z * 对角线.y
     const float area_0264 = diag_vec.z * diag_vec.y;
 
-    /// 计算前面：0231
+    /// 计算前面: 0231
     ///   ^ y
     ///   |
     /// 2 +------------* 3
@@ -146,7 +146,7 @@ AABB::calc_hit_time (
     /// t0y = (Ymin.y - O.y) / D.y
     /// t0z = (Zmin.z - O.z) / D.z
     /// 
-    /// 离开点的t1：
+    /// 离开点的t1:
     /// t1x = (Xmax.x - O.x) / D.x
     /// t1y = (Ymax.y - O.y) / D.y
     /// t1z = (Zmax.z - O.z) / D.z
@@ -159,7 +159,7 @@ AABB::calc_hit_time (
 
     /// X轴向的平面(Xmin, Xmax平面):
     {
-        /// 计算: Ray的方向的倒数：1/Ray.d
+        /// 计算: Ray的方向的倒数: 1/Ray.d
         /// NOTE:
         /// * 如果D.x == +0 --> 1/D.x = +INF
         /// * 如果D.x == -0 --> 1/D.x = -INF

@@ -38,14 +38,14 @@
 ///      NOTE: 此大小必须为Page size的整数倍
 /// @param[in]  alloc_flag
 ///      申请时候使用的Flag
-///      参考：VM allocation flags
-///      - VM_FLAGS_FIXED：尽可能在指定地址处申请内存空间
-///      - VM_FLAGS_ANYWHERE：在任意地方申请内存空间
-///      - VM_FLAGS_PURGABLE：此申请的内存空间在回收的时候不用Page out出去
-///      - VM_FLAGS_OVERWRITE|VM_FLAGS_FIXED：在指定地址申请内存空间，并且替换此处当前申请的空间
+///      参考: VM allocation flags
+///      - VM_FLAGS_FIXED: 尽可能在指定地址处申请内存空间
+///      - VM_FLAGS_ANYWHERE: 在任意地方申请内存空间
+///      - VM_FLAGS_PURGABLE: 此申请的内存空间在回收的时候不用Page out出去
+///      - VM_FLAGS_OVERWRITE|VM_FLAGS_FIXED: 在指定地址申请内存空间，并且替换此处当前申请的空间
 /// @param[in, out] alloc_addr
-///      如果alloc_flag为VM_FLAGS_ANYWHERE： 用来保存申请的地址
-///      如果alloc_flag为VM_FLAGS_FIXED：    目标地址
+///      如果alloc_flag为VM_FLAGS_ANYWHERE: 用来保存申请的地址
+///      如果alloc_flag为VM_FLAGS_FIXED:    目标地址
 ///
 static
 bool
@@ -242,9 +242,9 @@ MemoryUtility::allocate_vm_pages (
 
     const uint32_t alloc_size = page_count * page_size();
 #if (OS_TYPE == OS_TYPE_WIN)
-    /// NOTE：
-    /// - MEM_COMMIT：分配虚拟空间
-    /// === 起始时，内存统计(页字节数： 4096) ===
+    /// NOTE:
+    /// - MEM_COMMIT: 分配虚拟空间
+    /// === 起始时，内存统计(页字节数: 4096) ===
     /// [虚拟内存]: 0.43Mb, [物理内存]: 2.58Mb
     /// === 使用了ALLOC函数 ===
     /// [虚拟内存]: 4.45Mb, [物理内存]: 2.62Mb <-- 虚拟内存增加，物理内存不变
@@ -253,8 +253,8 @@ MemoryUtility::allocate_vm_pages (
     /// === RELEASE ===
     /// [虚拟内存]: 4.45Mb, [物理内存]: 2.62Mb
     ///
-    /// - MEM_RESERVE：不分配虚拟空间，但是无法访问此内存空间
-    /// === 起始时，内存统计(页字节数： 4096) ===
+    /// - MEM_RESERVE: 不分配虚拟空间，但是无法访问此内存空间
+    /// === 起始时，内存统计(页字节数: 4096) ===
     /// [虚拟内存]: 0.43Mb, [物理内存]: 2.58Mb
     /// === ALLOC ===
     /// [虚拟内存]: 0.44Mb, [物理内存]: 2.62Mb
@@ -298,7 +298,7 @@ MemoryUtility::release_vm_pages (
                    "We can JUST allocate 4G at most");
 
 #if (OS_TYPE == OS_TYPE_WIN)
-    /// 调用错误放回：0
+    /// 调用错误放回: 0
     /// NOTE: If dwFreeType is MEM_RELEASE, dwSize must be 0 (zero).
     return VirtualFree(alloc_addr, 0, MEM_RELEASE) != 0;
 #elif defined(__APPLE__)

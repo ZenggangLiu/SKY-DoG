@@ -202,9 +202,9 @@ MathUtility::equal (
     const float b,
     const float epsilon /* = EPSILON */)
 {
-    /// 参考：
+    /// 参考:
     /// - Real Time Collision Detection
-    /// 11.3.1：Tolerance Comparison for Floating-point Values
+    /// 11.3.1: Tolerance Comparison for Floating-point Values
     ///
     /// 我们使用如下方式比较两个浮点数a, b:
     /// 1) 绝对tolerance比较: abs(a - b) <= tolerence
@@ -212,8 +212,8 @@ MathUtility::equal (
     ///    但是当a与b越来越大的时候，这种比较几乎相当于比较所有a与b的digits是否相同
     /// 2) 相对tolerance比较:  abs(a/b - 1) <= tolerence, where |a| <= |b|
     ///    这个比较关系可以写为: abs(a - b) <= tolerence * abs(b)
-    ///    如果忽略|a| <= |b|的条件：
-    ///    + 我们可以获得：abs(a - b) <= tolerence * max(abs(a), abs(b))
+    ///    如果忽略|a| <= |b|的条件:
+    ///    + 我们可以获得: abs(a - b) <= tolerence * max(abs(a), abs(b))
     ///      这个比较公式只在abs(a)以及abs(b)都大于1的情况下成立
     ///
     /// 所以: absolute(a - b) <= tolerence * max[max(abs(a), abs(b)), 1]

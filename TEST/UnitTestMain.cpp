@@ -1,6 +1,6 @@
 // --- 如何使用CATCH UNIT TEST FRAMEWORK --- //
 /// NOTE: REQUIRE((CONDITION));
-/// 注意：在CONDITION四周加上括弧()
+/// 注意: 在CONDITION四周加上括弧()
 /*
     TEST_CASE("Checking XXTEA encode/decode", "[XXTEA]")
     {
