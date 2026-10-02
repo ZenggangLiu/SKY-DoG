@@ -12,7 +12,7 @@
 #include <stdint.h>  /// uint16_t
 #include <vector>
 /// Lib headers
-#include "Common/CommonDefines.hpp"
+#include "Common/CommonDefines.hpp" /// FOUR_CC_32
 #include "DataType/Float2D.hpp"
 #include "Math/MathDefines.hpp" /// TWO_PI
 
@@ -113,7 +113,7 @@ public:
 #endif // #if (USE_RANDOM_SEED == 1)
         m_hammersley_seed = HAMMERSLEY_SEED;
 
-        /// 创建Randome Number Generator以及Distribution
+        /// 创建Random Number Generator以及Distribution
         std::mt19937 random_num_gen(m_hammersley_seed);
         /// 使用16位随机Scramble: [0, 2^16): 因为#Sample最多为2^16
         std::uniform_int_distribution<uint32_t> random_num_dist(
