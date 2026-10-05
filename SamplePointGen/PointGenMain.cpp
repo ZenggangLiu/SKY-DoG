@@ -316,11 +316,11 @@ public:
         m_define_file_stream << "\n\n";
         m_define_file_stream << "/// Hammersley采样组(SET)的总数\n";
         m_define_file_stream <<
-            "static constexpr uint32_t HAMMERSLEY_SAMPLE_SET_COUNT = "
+            "static constexpr uint16_t HAMMERSLEY_SAMPLE_SET_COUNT = "
                               << SAMPLE_SET_COUNT << "U;\n";
         m_define_file_stream << "/// Hammersley每组中采样点(SAMPLE)的总数\n";
         m_define_file_stream <<
-            "static constexpr uint32_t HAMMERSLEY_SET_SAMPLE_COUNT = "
+            "static constexpr uint16_t HAMMERSLEY_SET_SAMPLE_COUNT = "
                               << SET_SAMPLE_COUNT << "U;\n";
         m_define_file_stream << "/// Hammersley采样点(SAMPLE)的总数\n";
         m_define_file_stream <<
@@ -493,18 +493,18 @@ private:
     typedef std::vector<uint32_t> ScrambleArrayT;
 
     /// 采样组(SET)的总数
-    static constexpr uint32_t SAMPLE_SET_COUNT = 8;
+    static constexpr uint16_t SAMPLE_SET_COUNT = 8;
     /// 每组中Sample的总数
-    /// NOTE: 每组最多65536(2^16)个Sample
-    static constexpr uint32_t SET_SAMPLE_COUNT = 1024;
+    /// NOTE: 每组最多65535(2^16)个Sample
+    static constexpr uint16_t SET_SAMPLE_COUNT = 1024;
     /// 所有组中Sample的总数
     static constexpr uint32_t SAMPLE_TOTAL_COUNT = SAMPLE_SET_COUNT * SET_SAMPLE_COUNT;
     static_assert(
-        SAMPLE_SET_COUNT <= 65536,
-        "At most 65536 sample sets are supported!!");
+        SAMPLE_SET_COUNT <= 65535,
+        "At most 65535 sample sets are supported!!");
     static_assert(
-        SET_SAMPLE_COUNT <= 65536,
-        "Each sample set supports at most 65536 samples!!");
+        SET_SAMPLE_COUNT <= 65535,
+        "Each sample set supports at most 65535 samples!!");
 
     /// Sample数组(所有组连续存储):
     /// SET0                      SETn
