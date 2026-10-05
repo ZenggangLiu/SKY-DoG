@@ -216,8 +216,8 @@ public:
                 /// 提取Unit Square上的Sample: (ξ1, ξ2)
                 const float_2 sample_point = m_sample_array[global_sample_idx];
                 /// Mapping
-                /// φ = 2π * ξ1
-                /// θ = arcos[√(1 − ξ2)]
+                /// φ = 2π * ξ1:         数值范围 [0, 2π )
+                /// θ = acos[√(1 − ξ2)]: 数值范围 [0, π/2) <-- 由于ξ2 ∈ [0, 1)
                 const float phi   = TWO_PI * sample_point.x;
                 const float theta =
                     std::acos(std::sqrt(1.0f - sample_point.y));
@@ -392,6 +392,7 @@ public:
             m_data_file_stream <<
                 "/// Note: 所有采样组(SAMPLE SET)连续存储, 存储顺序(φ, θ):\n";
             m_data_file_stream << "/// - (φ1, θ1) ... (φn, θn)\n";
+            m_data_file_stream << "/// - 弧度。φ ∈ [0, 2π), θ ∈ [0, π/2)\n";
             m_data_file_stream << "static constexpr float_2 ";
             m_data_file_stream << "HAMMERSLEY_SPHERICAL_SAMPLE_ARRAY[] =\n";
             m_data_file_stream << "{\n";
