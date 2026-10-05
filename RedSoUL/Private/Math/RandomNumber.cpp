@@ -58,6 +58,13 @@ RandomNumber::RandomNumber (
 }
 
 
+RandomNumber::result_type
+RandomNumber::operator() ()
+{
+    return next_uint();
+}
+
+
 uint64_t
 RandomNumber::next_uint ()
 {

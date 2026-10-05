@@ -29,6 +29,7 @@
 
 
 /// System headers
+#include <limits>   /// std::numeric_limits
 #include <stdint.h> /// uint32_t
 
 
@@ -38,6 +39,24 @@
 class RandomNumber
 {
 public:
+    using result_type = uint64_t;
+
+    /// 获得最小的随机数
+    static
+    constexpr result_type
+    min ()
+    {
+        return 0;
+    }
+
+    /// 获得最大的随机数
+    static
+    constexpr result_type
+    max ()
+    {
+        return std::numeric_limits<uint64_t>::max();
+    }
+
     /// 使用当前时间作为Seed来构建一个随机数发生器
     RandomNumber ();
 
@@ -46,11 +65,15 @@ public:
         const uint64_t seed);
 
     /// 获得下一个64位随机数(随机数范围在[0, MaxUInt64]之间)
-    uint64_t
+    result_type
+    operator() ();
+
+    /// 获得下一个64位随机数(随机数范围在[0, MaxUInt64]之间)
+    result_type
     next_uint ();
 
     /// 获得下一个在指定范围内的64位随机数(随机数范围在[min, max]之间)
-    uint64_t
+    result_type
     next_uint_range (
         const uint64_t min,
         const uint64_t max);
