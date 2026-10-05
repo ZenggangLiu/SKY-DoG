@@ -41,6 +41,7 @@
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Norm.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Norm_Uv.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Uv.hpp" />
+    <ClInclude Include="Private\Sampler\HammersleySamplePointsData.hpp" />
     <ClInclude Include="Private\SceneGraph\MarkerTypeDepot.hpp" />
     <ClInclude Include="Private\SceneGraph\TransformData.hpp" />
     <ClInclude Include="Private\Text\StaticStringDepot.hpp" />
@@ -87,6 +88,10 @@
     <ClInclude Include="Public\Render\RenderMeshId.hpp" />
     <ClInclude Include="Public\Render\RenderTextureId.hpp" />
     <ClInclude Include="Public\Runtime\GameLogic.hpp" />
+    <ClInclude Include="Public\Sampler\HammersleySamplePointsDefines.hpp" />
+    <ClInclude Include="Public\Sampler\HemiSphereSampler.hpp" />
+    <ClInclude Include="Public\Sampler\PointSampler.hpp" />
+    <ClInclude Include="Public\Sampler\UnitSquareSampler.hpp" />
     <ClInclude Include="Public\SceneGraph\Camera\CameraMarker.hpp" />
     <ClInclude Include="Public\SceneGraph\Camera\CameraType.hpp" />
     <ClInclude Include="Public\SceneGraph\Camera\OrthogonalCamera.hpp" />
@@ -150,6 +155,9 @@
     <ClCompile Include="Private\Render\RenderTexture.cpp" />
     <ClCompile Include="Private\Render\RenderTextureDepot.cpp" />
     <ClCompile Include="Private\Runtime\GameMainLoop.cpp" />
+    <ClCompile Include="Private\Sampler\HemiSphereSampler.cpp" />
+    <ClCompile Include="Private\Sampler\PointSampler.cpp" />
+    <ClCompile Include="Private\Sampler\UnitSquareSampler.cpp" />
     <ClCompile Include="Private\SceneGraph\Camera\CameraMarker.cpp" />
     <ClCompile Include="Private\SceneGraph\Camera\OrthogonalCamera.cpp" />
     <ClCompile Include="Private\SceneGraph\Camera\PerspectiveCamera.cpp" />

@@ -46,6 +46,12 @@
     <Filter Include="Private\Runtime">
       <UniqueIdentifier>{a4b8dafb-0458-4be2-9bfa-28566c07bef7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public\Sampler">
+      <UniqueIdentifier>{c866afea-ccee-44c4-8545-55584962c628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Sampler">
+      <UniqueIdentifier>{927d3564-1ddb-445e-b8d9-2a6a8e33b781}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Private\Thread">
       <UniqueIdentifier>{998850ae-3c8c-4f81-8990-aa66969634d3}</UniqueIdentifier>
     </Filter>
@@ -435,6 +441,21 @@
     <ClInclude Include="Public\SceneGraph\Light\SunLight.hpp">
       <Filter>Public\SceneGraph\Light</Filter>
     </ClInclude>
+    <ClInclude Include="Private\Sampler\HammersleySamplePointsData.hpp">
+      <Filter>Private\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\HammersleySamplePointsDefines.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\HemiSphereSampler.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\PointSampler.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\UnitSquareSampler.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Assert\RuntimeAssert.cpp">
@@ -550,6 +571,15 @@
     </ClCompile>
     <ClCompile Include="Private\Runtime\GameMainLoop.cpp">
       <Filter>Private\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Sampler\HemiSphereSampler.cpp">
+      <Filter>Private\Sampler</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Sampler\PointSampler.cpp">
+      <Filter>Private\Sampler</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Sampler\UnitSquareSampler.cpp">
+      <Filter>Private\Sampler</Filter>
     </ClCompile>
     <ClCompile Include="Private\SceneGraph\Camera\CameraMarker.cpp">
       <Filter>Private\SceneGraph\Camera</Filter>

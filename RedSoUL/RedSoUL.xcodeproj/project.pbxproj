@@ -261,6 +261,22 @@
 		BDB47A96304ECB8300BE2867 /* GeometryData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47A94304ECB8300BE2867 /* GeometryData.hpp */; };
 		BDB47A99304ECBAA00BE2867 /* GeometryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */; };
 		BDB47A9A304ECBAA00BE2867 /* GeometryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */; };
+		BDB47AB5306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AB4306A629C00BE2867 /* UnitSquareSampler.hpp */; };
+		BDB47AB6306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AB4306A629C00BE2867 /* UnitSquareSampler.hpp */; };
+		BDB47AB8306A730900BE2867 /* PointSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AB7306A730900BE2867 /* PointSampler.hpp */; };
+		BDB47AB9306A730900BE2867 /* PointSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AB7306A730900BE2867 /* PointSampler.hpp */; };
+		BDB47ABB306A737800BE2867 /* HemiSphereSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47ABA306A737800BE2867 /* HemiSphereSampler.hpp */; };
+		BDB47ABC306A737800BE2867 /* HemiSphereSampler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47ABA306A737800BE2867 /* HemiSphereSampler.hpp */; };
+		BDB47ABE306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47ABD306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp */; };
+		BDB47ABF306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47ABD306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp */; };
+		BDB47AC2306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AC1306D163C00BE2867 /* HammersleySamplePointsData.hpp */; };
+		BDB47AC3306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB47AC1306D163C00BE2867 /* HammersleySamplePointsData.hpp */; };
+		BDB47AC5306D168F00BE2867 /* PointSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47AC4306D168F00BE2867 /* PointSampler.cpp */; };
+		BDB47AC6306D168F00BE2867 /* PointSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47AC4306D168F00BE2867 /* PointSampler.cpp */; };
+		BDB47AC8306FB77B00BE2867 /* UnitSquareSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */; };
+		BDB47AC9306FB77B00BE2867 /* UnitSquareSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */; };
+		BDB47ACB3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */; };
+		BDB47ACC3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */; };
 		BDC05CAD2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CAE2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CB02FC59D5F005CCA1C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */; };
@@ -464,6 +480,14 @@
 		BDB47A94304ECB8300BE2867 /* GeometryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GeometryData.hpp; path = Public/SceneGraph/Geometry/GeometryData.hpp; sourceTree = "<group>"; };
 		BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GeometryData.cpp; path = Private/SceneGraph/Geometry/GeometryData.cpp; sourceTree = "<group>"; };
 		BDB47A9B304ECBBD00BE2867 /* MARKER.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = MARKER.txt; path = Private/SceneGraph/MARKER.txt; sourceTree = "<group>"; };
+		BDB47AB4306A629C00BE2867 /* UnitSquareSampler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = UnitSquareSampler.hpp; path = Public/Sampler/UnitSquareSampler.hpp; sourceTree = "<group>"; };
+		BDB47AB7306A730900BE2867 /* PointSampler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = PointSampler.hpp; path = Public/Sampler/PointSampler.hpp; sourceTree = "<group>"; };
+		BDB47ABA306A737800BE2867 /* HemiSphereSampler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HemiSphereSampler.hpp; path = Public/Sampler/HemiSphereSampler.hpp; sourceTree = "<group>"; };
+		BDB47ABD306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HammersleySamplePointsDefines.hpp; path = Public/Sampler/HammersleySamplePointsDefines.hpp; sourceTree = "<group>"; };
+		BDB47AC1306D163C00BE2867 /* HammersleySamplePointsData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HammersleySamplePointsData.hpp; path = Private/Sampler/HammersleySamplePointsData.hpp; sourceTree = "<group>"; };
+		BDB47AC4306D168F00BE2867 /* PointSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = PointSampler.cpp; path = Private/Sampler/PointSampler.cpp; sourceTree = "<group>"; };
+		BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UnitSquareSampler.cpp; path = Private/Sampler/UnitSquareSampler.cpp; sourceTree = "<group>"; };
+		BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = HemiSphereSampler.cpp; path = Private/Sampler/HemiSphereSampler.cpp; sourceTree = "<group>"; };
 		BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GameScene.hpp; path = Public/SceneGraph/GameScene.hpp; sourceTree = "<group>"; };
 		BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GameScene.cpp; path = Private/SceneGraph/GameScene.cpp; sourceTree = "<group>"; };
 		BDC05CB22FC59E16005CCA1C /* ObjectMarker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = ObjectMarker.cpp; path = Private/SceneGraph/ObjectMarker.cpp; sourceTree = "<group>"; };
@@ -806,6 +830,7 @@
 				BD3F049A2FE799D50062ACC2 /* Message */,
 				BD8FB8062F7F6D7700EE67B4 /* Render */,
 				BD58B09F2F582F180024C670 /* Runtime */,
+				BDB47AB3306A627300BE2867 /* Sampler */,
 				BD4477962FB4845E003DBF3C /* SceneGraph */,
 				BD58B08F2F51A03F0024C670 /* Text */,
 				BD58B0962F56DBA70024C670 /* Time */,
@@ -829,6 +854,7 @@
 				BD326F2C2F431F23007EE8EC /* Memory */,
 				BD8FB80D2F7F6FF800EE67B4 /* Render */,
 				BD58B09E2F582F0F0024C670 /* Runtime */,
+				BDB47AC0306D160D00BE2867 /* Sampler */,
 				BD55101B2FB91E0000110001 /* SceneGraph */,
 				BD58B0AE2F58EF5C0024C670 /* Text */,
 				BD58B09A2F56DE0B0024C670 /* Time */,
@@ -996,6 +1022,28 @@
 			name = Geometry;
 			sourceTree = "<group>";
 		};
+		BDB47AB3306A627300BE2867 /* Sampler */ = {
+			isa = PBXGroup;
+			children = (
+				BDB47ABD306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp */,
+				BDB47ABA306A737800BE2867 /* HemiSphereSampler.hpp */,
+				BDB47AB7306A730900BE2867 /* PointSampler.hpp */,
+				BDB47AB4306A629C00BE2867 /* UnitSquareSampler.hpp */,
+			);
+			name = Sampler;
+			sourceTree = "<group>";
+		};
+		BDB47AC0306D160D00BE2867 /* Sampler */ = {
+			isa = PBXGroup;
+			children = (
+				BDB47AC1306D163C00BE2867 /* HammersleySamplePointsData.hpp */,
+				BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */,
+				BDB47AC4306D168F00BE2867 /* PointSampler.cpp */,
+				BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */,
+			);
+			name = Sampler;
+			sourceTree = "<group>";
+		};
 		BDC9CB2B2F978B8B0042BF24 /* ImageFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,6 +1129,7 @@
 				BDA3D22430371145001075BB /* LdrGrayscale.hpp in Headers */,
 				BD326EE62F41773A007EE8EC /* MathUtilities.hpp in Headers */,
 				BDC9CB552FA0CD620042BF24 /* SoULFileHead.hpp in Headers */,
+				BDB47ABB306A737800BE2867 /* HemiSphereSampler.hpp in Headers */,
 				BD3F049C2FE799EB0062ACC2 /* MessageDefines.hpp in Headers */,
 				BD0E412B2F7BC88E00CFA766 /* MathDefines.hpp in Headers */,
 				BD8FB8392F85109100EE67B4 /* TextEncoding.hpp in Headers */,
@@ -1115,8 +1164,11 @@
 				BD72C0D12FD2E40400491766 /* CameraMarker.hpp in Headers */,
 				BD0E412E2F7BC8EF00CFA766 /* GameLogic.hpp in Headers */,
 				BDA3D2043022F2E1001075BB /* LdrColor.hpp in Headers */,
+				BDB47AB5306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */,
 				BDD403572F9385090019BE16 /* NativeFile.hpp in Headers */,
+				BDB47AB8306A730900BE2867 /* PointSampler.hpp in Headers */,
 				BD0E41312F7BC95900CFA766 /* RandomNumber.hpp in Headers */,
+				BDB47AC2306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */,
 				BDC9CB042F94DDB50042BF24 /* NativeWriteStream.hpp in Headers */,
 				BD8FB8272F822DC900EE67B4 /* RenderMesh.hpp in Headers */,
 				BD3F049F2FE7F0770062ACC2 /* PerspectiveCamera.hpp in Headers */,
@@ -1149,6 +1201,7 @@
 				BDA3D1C23000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB342F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2A2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
+				BDB47ABE306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8482F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFB92F6E7430000B085D /* Float4D.hpp in Headers */,
 				BD58B0802F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
@@ -1186,6 +1239,7 @@
 				BDA3D22530371145001075BB /* LdrGrayscale.hpp in Headers */,
 				BD326EE72F41773B007EE8EC /* MathUtilities.hpp in Headers */,
 				BDC9CB562FA0CD620042BF24 /* SoULFileHead.hpp in Headers */,
+				BDB47ABC306A737800BE2867 /* HemiSphereSampler.hpp in Headers */,
 				BD3F049D2FE799EB0062ACC2 /* MessageDefines.hpp in Headers */,
 				BD0E412C2F7BC88E00CFA766 /* MathDefines.hpp in Headers */,
 				BD8FB83A2F85109100EE67B4 /* TextEncoding.hpp in Headers */,
@@ -1220,8 +1274,11 @@
 				BD72C0D22FD2E40400491766 /* CameraMarker.hpp in Headers */,
 				BD0E412F2F7BC8EF00CFA766 /* GameLogic.hpp in Headers */,
 				BDA3D2053022F2E1001075BB /* LdrColor.hpp in Headers */,
+				BDB47AB6306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */,
 				BDD403582F9385090019BE16 /* NativeFile.hpp in Headers */,
+				BDB47AB9306A730900BE2867 /* PointSampler.hpp in Headers */,
 				BD0E41322F7BC95900CFA766 /* RandomNumber.hpp in Headers */,
+				BDB47AC3306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */,
 				BDC9CB052F94DDB50042BF24 /* NativeWriteStream.hpp in Headers */,
 				BD8FB8282F822DC900EE67B4 /* RenderMesh.hpp in Headers */,
 				BD3F04A02FE7F0770062ACC2 /* PerspectiveCamera.hpp in Headers */,
@@ -1254,6 +1311,7 @@
 				BDA3D1C33000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB352F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2B2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
+				BDB47ABF306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8492F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFBA2F6E7430000B085D /* Float4D.hpp in Headers */,
 				BD58B0812F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
@@ -1369,6 +1427,7 @@
 				BD58B0A62F582F480024C670 /* GameMainLoop.cpp in Sources */,
 				BDA3D1DC30024448001075BB /* PointLight.cpp in Sources */,
 				BDA8962A2F74F48400B0683B /* X2TeaCodec.cpp in Sources */,
+				BDB47AC6306D168F00BE2867 /* PointSampler.cpp in Sources */,
 				BD8FB82B2F8230E300EE67B4 /* RenderMesh.cpp in Sources */,
 				BDA3D1C02FFA61C7001075BB /* LightMarker.cpp in Sources */,
 				BDA3D22E303711D8001075BB /* RenderTextureDepot.cpp in Sources */,
@@ -1385,6 +1444,7 @@
 				BD58B0882F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB42F6E528C000B085D /* MathUtilities.cpp in Sources */,
 				BD8FB83D2F8510D600EE67B4 /* AABB.cpp in Sources */,
+				BDB47ACC3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */,
 				BDB47A9A304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
 				BD326F2F2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8132F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
@@ -1407,6 +1467,7 @@
 				BD3F04B02FEBE85C0062ACC2 /* OrthogonalCamera.cpp in Sources */,
 				BD4477A22FB82030003DBF3C /* BitOperationUtilities.cpp in Sources */,
 				BDA3D21030230C61001075BB /* LdrColor.cpp in Sources */,
+				BDB47AC9306FB77B00BE2867 /* UnitSquareSampler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1433,6 +1494,7 @@
 				BD58B0A52F582F480024C670 /* GameMainLoop.cpp in Sources */,
 				BDA3D1DB30024448001075BB /* PointLight.cpp in Sources */,
 				BDA896292F74F48400B0683B /* X2TeaCodec.cpp in Sources */,
+				BDB47AC5306D168F00BE2867 /* PointSampler.cpp in Sources */,
 				BD8FB82A2F8230E300EE67B4 /* RenderMesh.cpp in Sources */,
 				BDA3D1BF2FFA61C7001075BB /* LightMarker.cpp in Sources */,
 				BDA3D22D303711D8001075BB /* RenderTextureDepot.cpp in Sources */,
@@ -1449,6 +1511,7 @@
 				BD58B0872F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB32F6E528C000B085D /* MathUtilities.cpp in Sources */,
 				BD8FB83C2F8510D600EE67B4 /* AABB.cpp in Sources */,
+				BDB47ACB3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */,
 				BDB47A99304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
 				BD326F2E2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8122F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
@@ -1471,6 +1534,7 @@
 				BD3F04AF2FEBE85C0062ACC2 /* OrthogonalCamera.cpp in Sources */,
 				BD4477A12FB82030003DBF3C /* BitOperationUtilities.cpp in Sources */,
 				BDA3D20F30230C61001075BB /* LdrColor.cpp in Sources */,
+				BDB47AC8306FB77B00BE2867 /* UnitSquareSampler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
