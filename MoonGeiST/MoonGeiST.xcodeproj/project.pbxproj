@@ -560,6 +560,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Metal,
+					"-framework",
+					MetalKit,
+					"-framework",
+					ModelIO,
+					"-lRedSoUL-iOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.RedSoUL.SKYDog;
 				PRODUCT_NAME = SKYDog;
 				SDKROOT = iphoneos;
@@ -589,6 +598,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Metal,
+					"-framework",
+					MetalKit,
+					"-framework",
+					ModelIO,
+					"-lRedSoUL-iOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.RedSoUL.SKYDog;
 				PRODUCT_NAME = SKYDog;
 				SDKROOT = iphoneos;
@@ -619,6 +637,15 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Metal,
+					"-framework",
+					MetalKit,
+					"-framework",
+					ModelIO,
+					"-lRedSoUL-macOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.RedSoUL.SKYDog.;
 				PRODUCT_NAME = SKYDog;
 				SDKROOT = macosx;
@@ -647,6 +674,15 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Metal,
+					"-framework",
+					MetalKit,
+					"-framework",
+					ModelIO,
+					"-lRedSoUL-macOS",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.RedSoUL.SKYDog;
 				PRODUCT_NAME = SKYDog;
 				SDKROOT = macosx;

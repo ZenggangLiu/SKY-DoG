@@ -40,7 +40,13 @@
 
     _view.clearColor = MTLClearColorMake(0.16, 0.165, 0.184, 1);
 
-    if(!_view.device)
+    if(_view.device)
+    {
+        _renderer = [[Renderer alloc] initWithMetalKitView:_view];
+        [_renderer mtkView:_view drawableSizeWillChange:_view.bounds.size];
+        _view.delegate = _renderer;
+    }
+    else
     {
         NSLog(@"Metal is not supported on this device");
 #if (OS_TYPE == OS_TYPE_IOS) /// iOS
@@ -50,12 +56,6 @@
 #endif
         return;
     }
-
-    _renderer = [[Renderer alloc] initWithMetalKitView:_view];
-
-    [_renderer mtkView:_view drawableSizeWillChange:_view.bounds.size];
-
-    _view.delegate = _renderer;
 }
 
 
