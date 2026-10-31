@@ -29,6 +29,7 @@
 
 
 /// System headers
+#include <cstring>  /// std::strlen
 #include <stdint.h> /// uint32_t,...
 
 

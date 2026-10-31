@@ -208,11 +208,9 @@ const ObjectMarker *
 SceneObject::find_marker_with_nameid (
     const StaticStringIdT name_id) const
 {
-    if (name_id == INVALID_STATIC_STRING_ID)
-    {
-        return nullptr;
-    }
-    else
+    const ObjectMarker * found_marker = nullptr;
+
+    if (name_id.is_valid())
     {
         for (const auto marker : m_marker_list)
         {
@@ -224,7 +222,8 @@ SceneObject::find_marker_with_nameid (
                 /// 当前Marker为指定类型或者其子类
                 if (marker_info->isa(name_id))
                 {
-                    return marker;
+                    found_marker = marker;
+                    break;
                 }
             }
             else
@@ -233,8 +232,8 @@ SceneObject::find_marker_with_nameid (
                 break;
             }
         }
-        return nullptr;
     }
+    return found_marker;
 }
 
 

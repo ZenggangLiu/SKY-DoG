@@ -31,9 +31,10 @@ StaticString::StaticString (
    ,m_cached_string(data())
 #endif
 {
-    RUNTIME_ASSERT(string_id != INVALID_STATIC_STRING_ID, "Invalid string Id!!");
+    RUNTIME_ASSERT(string_id.is_valid(), "Invalid string Id!!");
     RUNTIME_ASSERT(StaticStringDepot::ref().is_cached_string_id(string_id),
-                   "No an Id of any cached string. please cache the string at first!!");
+                   "No an Id of any cached string. "
+                   "please cache the string at first!!");
 }
 
 

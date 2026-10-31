@@ -1,7 +1,6 @@
 /// System headers
 #include <cstdio>   /// std::printf, std::snprintf
 #include <cstdlib>  /// std::free, std::malloc
-#include <cstring>  /// std::memcpy, std::strlen
 #include <stdint.h> /// uint64_t
 /// Library headers
 #include "Assert/RuntimeAssert.hpp"

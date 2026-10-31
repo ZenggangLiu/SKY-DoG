@@ -188,6 +188,9 @@
     <ClInclude Include="Private\DataType\HalfUtilities.hpp">
       <Filter>Private\DataType</Filter>
     </ClInclude>
+    <ClInclude Include="Public\DataType\HashedStringId.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
     <ClInclude Include="Public\DataType\HdrColor.hpp">
       <Filter>Public\DataType</Filter>
     </ClInclude>

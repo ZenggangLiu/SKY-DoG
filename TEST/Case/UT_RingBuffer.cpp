@@ -3,7 +3,8 @@
 
 #if (RING_BUFFER_CHECKING == 1)
 /// System headers
-#include <cstdio> /// std::printf
+#include <cstdio>   /// std::printf
+#include <cstring>  /// std::strlen
 #include <stdint.h> /// uint32_t,...
 /// Libray headers
 #include "Container/RingBuffer.hpp"

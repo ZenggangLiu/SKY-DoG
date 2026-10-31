@@ -4,7 +4,7 @@
 #if (PPM_IMAGE_FILE_CHECKING == 1)
 /// System headers
 #include <cstdlib>  /// std::strtoul
-#include <cstring>  /// std::strstr
+#include <cstring>  /// std::strstr, std::strlen
 #include <stdint.h> /// uint32_t,...
 #include <vector>   /// std::vector
 /// Library headers

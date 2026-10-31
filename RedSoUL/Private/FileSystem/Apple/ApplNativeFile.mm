@@ -1,7 +1,6 @@
 #if defined(__APPLE__)
 
 /// System headers
-#include <cstring> /// std::strlen
 #import  <Foundation/NSData.h>
 #import  <Foundation/NSFileManager.h>
 #import  <Foundation/NSString.h>

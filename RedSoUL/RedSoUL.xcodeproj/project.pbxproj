@@ -169,6 +169,8 @@
 		BD9FAFB42F6E528C000B085D /* MathUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFB22F6E528C000B085D /* MathUtilities.cpp */; };
 		BD9FAFB92F6E7430000B085D /* Float4D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD9FAFB82F6E7430000B085D /* Float4D.hpp */; };
 		BD9FAFBA2F6E7430000B085D /* Float4D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD9FAFB82F6E7430000B085D /* Float4D.hpp */; };
+		BDC17A793092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
+		BDC17A7A3092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
 		BD9FAFBD2F6E756B000B085D /* Float4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFBC2F6E756B000B085D /* Float4D.cpp */; };
 		BD9FAFBE2F6E756B000B085D /* Float4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFBC2F6E756B000B085D /* Float4D.cpp */; };
 		BDA3D1B82FFA5FE6001075BB /* LightType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDA3D1B72FFA5FE6001075BB /* LightType.hpp */; };
@@ -432,6 +434,7 @@
 		BD8FB84A2F8512EE00EE67B4 /* VertexDataType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = VertexDataType.hpp; path = Private/Render/VertexDataType.hpp; sourceTree = "<group>"; };
 		BD9FAFB22F6E528C000B085D /* MathUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = MathUtilities.cpp; path = Private/Math/MathUtilities.cpp; sourceTree = "<group>"; };
 		BD9FAFB82F6E7430000B085D /* Float4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = Float4D.hpp; path = Public/DataType/Float4D.hpp; sourceTree = "<group>"; };
+		BDC17A783092EAE30013738D /* HashedStringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HashedStringId.hpp; path = Public/DataType/HashedStringId.hpp; sourceTree = "<group>"; };
 		BD9FAFBC2F6E756B000B085D /* Float4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = Float4D.cpp; path = Private/DataType/Float4D.cpp; sourceTree = "<group>"; };
 		BDA3D1B72FFA5FE6001075BB /* LightType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = LightType.hpp; path = Public/SceneGraph/Light/LightType.hpp; sourceTree = "<group>"; };
 		BDA3D1BA2FFA6132001075BB /* LightMarker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = LightMarker.hpp; path = Public/SceneGraph/Light/LightMarker.hpp; sourceTree = "<group>"; };
@@ -565,6 +568,7 @@
 				BD0E41092F778DF600CFA766 /* Float2D.hpp */,
 				BDA8960D2F6F6F0300B0683B /* Float3D.hpp */,
 				BD9FAFB82F6E7430000B085D /* Float4D.hpp */,
+				BDC17A783092EAE30013738D /* HashedStringId.hpp */,
 				BDA3D1F730209D24001075BB /* Half.hpp */,
 				BDA3D2003022F2A9001075BB /* HdrColor.hpp */,
 				BDA3D2033022F2E1001075BB /* LdrColor.hpp */,
@@ -1204,6 +1208,7 @@
 				BDB47ABE306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8482F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFB92F6E7430000B085D /* Float4D.hpp in Headers */,
+				BDC17A793092EAE40013738D /* HashedStringId.hpp in Headers */,
 				BD58B0802F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
 				BD58B0BE2F5974630024C670 /* RuntimeHash.hpp in Headers */,
 				BD8FB8332F850FA800EE67B4 /* AABB.hpp in Headers */,
@@ -1314,6 +1319,7 @@
 				BDB47ABF306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8492F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFBA2F6E7430000B085D /* Float4D.hpp in Headers */,
+				BDC17A7A3092EAE40013738D /* HashedStringId.hpp in Headers */,
 				BD58B0812F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
 				BD58B0BF2F5974630024C670 /* RuntimeHash.hpp in Headers */,
 				BD8FB8342F850FA800EE67B4 /* AABB.hpp in Headers */,

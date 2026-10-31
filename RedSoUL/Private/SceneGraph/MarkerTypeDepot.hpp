@@ -45,13 +45,14 @@ class SceneObject;
     #define DEFINE_MARKER_TYPE_INFO( \
         marker_class, create_func, destroy_func, support_multi) \
     const MarkerTypeInfo marker_class::ms_type_info( \
-        STRINGIFY(marker_class), create_func, destroy_func, support_multi);
+        STRINGIFY(marker_class), \
+        create_func, destroy_func, support_multi);
 #else
     #define DEFINE_MARKER_TYPE_INFO( \
         marker_class, create_func, destroy_func, support_multi) \
     const MarkerTypeInfo marker_class::ms_type_info( \
-        STATIC_STRING_HASH( \
-            STRINGIFY(marker_class)), create_func, destroy_func, support_multi);
+        StaticStringIdT::buildtime_id(STRINGIFY(marker_class)), \
+        create_func, destroy_func, support_multi);
 #endif
 
 
@@ -97,7 +98,9 @@ public:
 
 private:
     typedef std::unordered_map< StaticStringIdT,
-                                const MarkerTypeInfo* > MarkerTypeTableT;
+                                const MarkerTypeInfo *,
+                                StaticStringIdT::StlHasher,
+                                StaticStringIdT::StlComparer > MarkerTypeTableT;
 
     /// NameId --> TypeInfo
     MarkerTypeTableT m_type_table;

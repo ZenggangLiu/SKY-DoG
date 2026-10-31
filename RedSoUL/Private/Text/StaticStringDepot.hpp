@@ -106,8 +106,10 @@ private:
     };
 
     typedef std::unordered_map < StaticStringIdT,
-                                 StringDataInfo > StringInfoTableT;
-    typedef StringInfoTableT::const_iterator      ConstInfoIteratorT;
+                                 StringDataInfo,
+                                 StaticStringIdT::StlHasher,
+                                 StaticStringIdT::StlComparer > StringInfoTableT;
+    typedef StringInfoTableT::const_iterator                    ConstInfoIteratorT;
 
     ArenaAllocator   m_allocator;
     StringInfoTableT m_info_table;

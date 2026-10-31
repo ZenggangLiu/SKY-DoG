@@ -4,28 +4,30 @@
 #if (HASHING_CHECKING == 1)
 /// System headers
 #include <stdint.h> /// uint32_t,...
+#include <unordered_map>
 /// Library headers
 #include "Common/CommonDefines.hpp"
+#include "DataType/HashedStringId.hpp"
 #include "Hashing/StaticStringHash.hpp"
 #include "Hashing/RuntimeHash.hpp"
 
 
-#define CHECK_STATIC_HASH_32(string_array, idx)                                  \
-{                                                                                \
-  const uint32_t static_hash  = STATIC_STRING_HASH_32 (seed, string_array[idx]); \
-  const uint32_t runtime_hash = RUNTIME_STRING_HASH_32(seed, string_array[idx]); \
-  /* 注意: INFO()必须在REQURE()之前调用 */                                         \
-  INFO("Static Hash != Runtime Hash for string at index " << idx << ".")         \
-  REQUIRE((static_hash == runtime_hash));                                        \
+#define CHECK_STATIC_HASH_32(string_array, idx)                                   \
+{                                                                                 \
+  const uint32_t buildtime_hash = STATIC_STRING_HASH_32 (seed, string_array[idx]);\
+  const uint32_t runtime_hash   = RUNTIME_STRING_HASH_32(seed, string_array[idx]);\
+  /* 注意: INFO()必须在REQURE()之前调用 */                                           \
+  INFO("Buildtime Hash != Runtime Hash for string at index " << idx << ".")       \
+  REQUIRE((buildtime_hash == runtime_hash));                                      \
 }
 
-#define CHECK_STATIC_HASH_64(string_array, idx)                                  \
-{                                                                                \
-  const uint64_t static_hash  = STATIC_STRING_HASH_64 (seed, string_array[idx]); \
-  const uint64_t runtime_hash = RUNTIME_STRING_HASH_64(seed, string_array[idx]); \
-  /* 注意: INFO()必须在REQURE()之前调用 */                                         \
-  INFO("Static Hash != Runtime Hash for string at index " << idx << ".")         \
-  REQUIRE((static_hash == runtime_hash));                                        \
+#define CHECK_STATIC_HASH_64(string_array, idx)                                   \
+{                                                                                 \
+  const uint64_t buildtime_hash = STATIC_STRING_HASH_64 (seed, string_array[idx]);\
+  const uint64_t runtime_hash   = RUNTIME_STRING_HASH_64(seed, string_array[idx]);\
+  /* 注意: INFO()必须在REQURE()之前调用 */                                           \
+  INFO("Buildtime Hash != Runtime Hash for string at index " << idx << ".")       \
+  REQUIRE((buildtime_hash == runtime_hash));                                      \
 }
 
 
@@ -322,5 +324,37 @@ TEST_CASE("Checking Compiletime/Runtime XXH3 Hash", "[Compiletime/Runtime XXH3 H
     }
 
 } /// TEST_CASE("Checking Compile/Runtime XXH3 Hash", "[XXH3 Hash]")
+
+
+TEST_CASE("Checking Hashed String Id", "[Hashed String Id]")
+{
+    using TestIdT = HashedStringId< FOUR_CC_32('T', 'E', 'S', 'T') >;
+
+    constexpr TestIdT invalid_id;
+    constexpr TestIdT buildtime_id = TestIdT::buildtime_id("Player");
+
+    std::printf("--- Checking Hashed String Id...\n");
+
+    REQUIRE(invalid_id.is_not_valid());
+    REQUIRE(buildtime_id.is_valid());
+    REQUIRE((buildtime_id == TestIdT::buildtime_id("Player")));
+
+    const TestIdT runtime_id = TestIdT::runtime_id((const uint8_t*)"Player");
+    REQUIRE((runtime_id == buildtime_id));
+    REQUIRE((runtime_id != TestIdT::runtime_id((const uint8_t*)"Enemy")));
+
+    using IdTableT = std::unordered_map< TestIdT,
+                                         uint32_t,
+                                         TestIdT::StlHasher,
+                                         TestIdT::StlComparer >;
+
+    IdTableT id_table;
+    id_table.emplace(buildtime_id, 7);
+
+    REQUIRE((id_table.find(runtime_id) != id_table.end()));
+    REQUIRE((id_table.find(runtime_id)->second == 7));
+
+    std::printf("--- Checking Hashed String Id: OK!\n");
+}
 
 #endif /// (HASHING_CHECKING == 1)

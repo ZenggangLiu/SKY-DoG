@@ -30,6 +30,7 @@
 
 /// System headers
 #include <atomic>
+#include <cstring>  /// std::strlen
 #include <stdint.h> /// uint32_t,...
 #include <string>
 /// Libray headers

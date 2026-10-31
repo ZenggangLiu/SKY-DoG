@@ -59,6 +59,7 @@
     <ClInclude Include="Public\DataType\Float3D.hpp" />
     <ClInclude Include="Public\DataType\Float4D.hpp" />
     <ClInclude Include="Public\DataType\Half.hpp" />
+    <ClInclude Include="Public\DataType\HashedStringId.hpp" />
     <ClInclude Include="Public\DataType\HdrColor.hpp" />
     <ClInclude Include="Public\DataType\LdrColor.hpp" />
     <ClInclude Include="Public\DataType\LdrGrayscale.hpp" />

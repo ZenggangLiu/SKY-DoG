@@ -9,10 +9,6 @@
 #include "Text/StaticStringDepot.hpp"
 
 
-/// 空字符的Id
-static StaticStringIdT EMPTY_STRING_ID = StaticStringIdT{ STATIC_STRING_HASH("") };
-
-
 StaticStringDepot &
 StaticStringDepot::ref ()
 {
@@ -42,6 +38,9 @@ StaticStringDepot::is_cached_string_id (
 StaticStringIdT
 StaticStringDepot::get_empty_string_id () const
 {
+    /// 空字符的Id
+    static constexpr StaticStringIdT EMPTY_STRING_ID = StaticStringIdT::buildtime_id("");
+
     return EMPTY_STRING_ID;
 }
 
@@ -50,7 +49,7 @@ uint16_t
 StaticStringDepot::length (
     const StaticStringIdT string_id) const
 {
-    RUNTIME_ASSERT(string_id != INVALID_STATIC_STRING_ID, "Invalid string Id!!");
+    RUNTIME_ASSERT(string_id.is_valid(), "Invalid string Id!!");
 
     ConstInfoIteratorT string_info = m_info_table.find(string_id);
     RUNTIME_ASSERT(string_info != m_info_table.end(), "Can not find the string key!!");
@@ -63,7 +62,7 @@ const uint8_t *
 StaticStringDepot::data (
     const StaticStringIdT string_id) const
 {
-    RUNTIME_ASSERT(string_id != INVALID_STATIC_STRING_ID, "Invalid string Id!!");
+    RUNTIME_ASSERT(string_id.is_valid(), "Invalid string Id!!");
 
     ConstInfoIteratorT string_info = m_info_table.find(string_id);
     RUNTIME_ASSERT(string_info != m_info_table.end(), "Can not find the string key!!");
@@ -84,7 +83,7 @@ StaticStringIdT
 StaticStringDepot::cache_string (
     const uint8_t * const utf8_string)
 {
-    const StaticStringIdT string_id = RUNTIME_STRING_HASH(utf8_string);
+    const StaticStringIdT string_id = StaticStringIdT::runtime_id(utf8_string);
 
     /// 如果Depot中没有数据
     if (m_info_table.find(string_id) == m_info_table.end())
