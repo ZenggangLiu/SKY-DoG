@@ -64,7 +64,7 @@ TEST_CASE("Checking EXR File", "[EXR File]")
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make(255, 255, 255, 255));
-        REQUIRE((texture_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((texture_id.is_valid()));
 
         const RenderTexture * const texture =
             RenderTextureDepot::ref().texture_data(texture_id);

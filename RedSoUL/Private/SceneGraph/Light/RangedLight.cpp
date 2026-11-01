@@ -15,7 +15,7 @@ void
 RangedLight::set_range (
     const float range)
 {
-    RUNTIME_ASSERT(range > 0.0f, "Light range is invalid!!");
+    RUNTIME_ASSERT(range > 0.0f, "Light range must be valid!!");
 
     if (range > 0.0f)
     {

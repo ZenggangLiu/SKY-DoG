@@ -50,14 +50,14 @@ GeometryData::create_geometry (
 {
     const RenderMeshIdT loaded_mesh_id =
         RenderMeshDepot::ref().create_from_mesh_file(abs_file_name, exp_mesh_id);
-    if (loaded_mesh_id == INVALID_RENDER_MESH_ID)
-    {
-        return false;
-    }
-    else
+    if (loaded_mesh_id.is_valid())
     {
         m_geometry_id = loaded_mesh_id;
         return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

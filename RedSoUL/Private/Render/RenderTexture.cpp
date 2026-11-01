@@ -30,7 +30,7 @@ RenderTexture::RenderTexture (
     is_linear_rgb(_is_linear_rgb),
     is_dyn_allocated(_is_dyn_allocated)
 {
-    RUNTIME_ASSERT(_texture_id != INVALID_RENDER_TEXTURE_ID, "Texture Id is invalid!!");
+    RUNTIME_ASSERT(_texture_id.is_valid(), "Texture Id must be valid!!");
     RUNTIME_ASSERT(_texture_width  > 0, "Texture width must be larger than zero!!");
     RUNTIME_ASSERT(_texture_height > 0, "Texture height must be larger than zero!!");
     RUNTIME_ASSERT(_is_cube_map == false || _texture_width == _texture_height,

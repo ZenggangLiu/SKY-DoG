@@ -112,7 +112,7 @@ PACKED_STRUCT(RTextureHead_v1_0 : public SoULFileHead,
         const uint32_t         _texel_data_offset)
     :
         SuperT(RTEXTURE_FILE_MAGIC_NUMBER, 1, 0, 0),
-        texture_id((uint64_t)_texture_id),
+        texture_id((uint64_t)_texture_id.value),
         texture_width(_texture_width),
         texture_height(_texture_height),
         mipmap_count(_mipmap_count),

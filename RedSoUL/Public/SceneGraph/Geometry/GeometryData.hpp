@@ -127,6 +127,6 @@ private:
     /// Marker类型信息
     static const MarkerTypeInfo ms_type_info;
 
-    /// NOTE: 如果Geometry为Triangle Mesh, 此Id可能为INVALID_RENDER_MESH_ID
+    /// NOTE: 如果Geometry为Triangle Mesh, 此Id可能非法
     RenderMeshIdT m_geometry_id;
 };

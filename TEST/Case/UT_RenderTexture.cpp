@@ -55,7 +55,7 @@ TEST_CASE("Checking Render Texture", "[Render Texture]")
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make(255, 255, 255, 255));
-        REQUIRE((texture_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((texture_id.is_valid()));
 
         const RenderTexture * const texture =
             RenderTextureDepot::ref().texture_data(texture_id);
@@ -108,7 +108,7 @@ TEST_CASE("Checking Render Texture", "[Render Texture]")
 
         const RenderTextureIdT texture_id =
             RenderTextureDepot::ref().create_debug_mipmap();
-        REQUIRE((texture_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((texture_id.is_valid()));
 
         const RenderTexture * const texture =
             RenderTextureDepot::ref().texture_data(texture_id);
@@ -182,7 +182,7 @@ TEST_CASE("Checking Render Texture", "[Render Texture]")
 
         const RenderTextureIdT texture_id =
             RenderTextureDepot::ref().create_debug_cubemap(TEXTURE_DIMENSION);
-        REQUIRE((texture_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((texture_id.is_valid()));
 
         const RenderTexture * const texture =
             RenderTextureDepot::ref().texture_data(texture_id);

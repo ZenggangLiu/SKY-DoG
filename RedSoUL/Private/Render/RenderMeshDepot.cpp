@@ -34,7 +34,7 @@ const RenderMesh *
 RenderMeshDepot::mesh_data (
     const RenderMeshIdT mesh_id) const
 {
-    RUNTIME_ASSERT(mesh_id != INVALID_RENDER_MESH_ID, "Mesh Id is invalid!!");
+    RUNTIME_ASSERT(mesh_id.is_valid(), "Mesh Id must be valid!!");
 
     ConstRenderMeshIteratorT cached_data = m_mesh_table.find(mesh_id);
     if (cached_data == m_mesh_table.end())
@@ -55,7 +55,7 @@ RenderMeshDepot::create_unit_square ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_SQUARE"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_SQUARE"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -130,7 +130,7 @@ RenderMeshDepot::create_unit_square_uv ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_SQUARE_UV"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_SQUARE_UV"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -209,7 +209,7 @@ RenderMeshDepot::create_unit_cube_pos ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_CUBE_POS"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_CUBE_POS"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -379,7 +379,7 @@ RenderMeshDepot::create_unit_cube ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_CUBE"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_CUBE"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -588,7 +588,7 @@ RenderMeshDepot::create_unit_beveled_cube ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_BEVELED_CUBE"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_BEVELED_CUBE"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -1149,7 +1149,7 @@ RenderMeshDepot::create_unit_icosahedron ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_ICOSAHEDRON"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_ICOSAHEDRON"));
 
     /// 参考:
     ///  http://blog.andreaskahler.com/2009/06/creating-icosphere-mesh-in-code.html#comment-2736314361
@@ -1286,7 +1286,7 @@ RenderMeshDepot::create_unit_icosphere ()
 
     /// 计算 Mesh Id
     static constexpr RenderMeshIdT MESH_ID =
-        STATIC_RENDER_MESH_HASH(GENERATE_BUILTIN_NAME("UNIT_ICOSPHERE"));
+        RenderMeshIdT::buildtime_id(GENERATE_BUILTIN_NAME("UNIT_ICOSPHERE"));
 
     /// 包围盒
     static constexpr AABB MESH_BOUND_BOX
@@ -1845,14 +1845,17 @@ RenderMeshDepot::create_from_mesh_file (
             abs_file_name, exp_mesh_id, bound_box,
             vertex_layout, vertex_count, triangle_count,
             vertex_list, vertex_list_size, triangle_list, triangle_list_size);
-        if (opcode == false)
+        if (opcode)
         {
-            return INVALID_RENDER_MESH_ID;
+            cache_mesh(exp_mesh_id, bound_box, vertex_layout,
+                       vertex_count, triangle_count, true,
+                       vertex_list, vertex_list_size,
+                       triangle_list, triangle_list_size);
         }
-
-        cache_mesh(exp_mesh_id, bound_box, vertex_layout,
-                   vertex_count, triangle_count, true,
-                   vertex_list, vertex_list_size, triangle_list, triangle_list_size);
+        else
+        {
+            return RenderMeshIdT::invalid_hashed_id();
+        }
     }
 
     return exp_mesh_id;

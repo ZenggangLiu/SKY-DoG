@@ -352,7 +352,7 @@ const RenderTexture *
 RenderTextureDepot::texture_data (
     const RenderTextureIdT texture_id) const
 {
-    RUNTIME_ASSERT(texture_id != INVALID_RENDER_TEXTURE_ID, "Texture Id is invalid!!");
+    RUNTIME_ASSERT(texture_id.is_valid(), "Texture Id must be valid!!");
 
     ConstRenderTextureIteratorT cached_data = m_texture_table.find(texture_id);
     if (cached_data == m_texture_table.end())
@@ -433,7 +433,8 @@ RenderTextureDepot::create_checker_board (
         cell_border_width,
         color_cell_border.r, color_cell_border.g,
         color_cell_border.b, color_cell_border.a);
-    const RenderTextureIdT texture_id = RUNTIME_RENDER_TEXTURE_HASH(buffer);
+    const RenderTextureIdT texture_id =
+        RenderTextureIdT::runtime_id((const uint8_t*)buffer);
 
     /// 无此Texture
     if (m_texture_table.find(texture_id) == m_texture_table.end())
@@ -460,7 +461,7 @@ RenderTextureDepot::create_checker_board (
         }
         else
         {
-            return INVALID_RENDER_TEXTURE_ID;
+            return RenderTextureIdT::invalid_hashed_id();
         }
     }
     return texture_id;
@@ -494,7 +495,8 @@ RenderTextureDepot::create_debug_mipmap ()
         buffer, sizeof(buffer),
         GENERATE_BUILTIN_NAME("DEBUG_MIPMAP:%ux%u_mip:%u"),
         TEXTURE_DIMENSION, TEXTURE_DIMENSION, TOTAL_MIPMAP_COUNT);
-    const RenderTextureIdT texture_id = RUNTIME_RENDER_TEXTURE_HASH(buffer);
+    const RenderTextureIdT texture_id =
+        RenderTextureIdT::runtime_id((const uint8_t*)buffer);
 
     /// 无此Texture
     if (m_texture_table.find(texture_id) == m_texture_table.end())
@@ -523,7 +525,7 @@ RenderTextureDepot::create_debug_mipmap ()
         }
         else
         {
-            return INVALID_RENDER_TEXTURE_ID;
+            return RenderTextureIdT::invalid_hashed_id();
         }
     }
     return texture_id;
@@ -543,7 +545,8 @@ RenderTextureDepot::create_debug_cubemap (
         buffer, sizeof(buffer),
         GENERATE_BUILTIN_NAME("DEBUG_CUBEMAP:%ux%u_mip:%u"),
         texture_size, texture_size, TOTAL_MIPMAP_COUNT);
-    const RenderTextureIdT texture_id = RUNTIME_RENDER_TEXTURE_HASH(buffer);
+    const RenderTextureIdT texture_id =
+        RenderTextureIdT::runtime_id((const uint8_t*)buffer);
 
     /// 无此Texture
     if (m_texture_table.find(texture_id) == m_texture_table.end())
@@ -573,7 +576,7 @@ RenderTextureDepot::create_debug_cubemap (
         }
         else
         {
-            return INVALID_RENDER_TEXTURE_ID;
+            return RenderTextureIdT::invalid_hashed_id();
         }
     }
     return texture_id;
@@ -601,16 +604,18 @@ RenderTextureDepot::create_from_texture_file (
             abs_file_name, exp_texture_id,
             texture_width, texture_height, mipmap_count, is_cube_map, is_linear_rgb,
             texture_data_type, slice_data_size, texel_list, texel_list_size);
-        if (opcode == false)
+        if (opcode)
         {
-            return INVALID_RENDER_TEXTURE_ID;
+            cache_texture(
+                exp_texture_id, texture_width, texture_height,
+                mipmap_count, is_cube_map, is_linear_rgb,
+                texture_data_type, slice_data_size, true,
+                texel_list, texel_list_size);
         }
-
-        cache_texture(
-            exp_texture_id, texture_width, texture_height,
-            mipmap_count, is_cube_map, is_linear_rgb,
-            texture_data_type, slice_data_size, true,
-            texel_list, texel_list_size);
+        else
+        {
+            return RenderTextureIdT::invalid_hashed_id();
+        }
     }
 
     return exp_texture_id;

@@ -131,7 +131,7 @@ public:
     ///     希望使用的Mesh Id
     /// @return
     ///     合法Id, 如果加载成功
-    ///     INVALID_RENDER_MESH_ID, 如果加载失败
+    ///     非法Id, 如果加载失败
     RenderMeshIdT
     create_from_mesh_file (
         const char * const  abs_file_name,
@@ -185,9 +185,11 @@ private:
 
 private:
     typedef std::unordered_map < RenderMeshIdT,
-                                 RenderMesh >   RenderMeshTableT;
-    typedef RenderMeshTableT::const_iterator    ConstRenderMeshIteratorT;
-    typedef RenderMeshTableT::iterator          RenderMeshIteratorT;
+                                 RenderMesh,
+                                 RenderMeshIdT::StlHasher,
+                                 RenderMeshIdT::StlComparer > RenderMeshTableT;
+    typedef RenderMeshTableT::const_iterator                  ConstRenderMeshIteratorT;
+    typedef RenderMeshTableT::iterator                        RenderMeshIteratorT;
 
     RenderMeshTableT m_mesh_table;
 };

@@ -136,7 +136,7 @@ public:
     ///     希望使用的Texture Id
     /// @return
     ///     合法Id, 如果加载成功
-    ///     INVALID_RENDER_TEXTURE_ID, 如果加载失败
+    ///     非法Id, 如果加载失败
     RenderTextureIdT
     create_from_texture_file (
         const char * const     abs_file_name,
@@ -210,9 +210,11 @@ private:
 
 private:
     typedef std::unordered_map < RenderTextureIdT,
-                                 RenderTexture > RenderTextureTableT;
-    typedef RenderTextureTableT::const_iterator  ConstRenderTextureIteratorT;
-    typedef RenderTextureTableT::iterator        RenderTextureIteratorT;
+                                 RenderTexture,
+                                 RenderTextureIdT::StlHasher,
+                                 RenderTextureIdT::StlComparer > RenderTextureTableT;
+    typedef RenderTextureTableT::const_iterator ConstRenderTextureIteratorT;
+    typedef RenderTextureTableT::iterator       RenderTextureIteratorT;
 
     RenderTextureTableT m_texture_table;
 };

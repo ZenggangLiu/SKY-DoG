@@ -113,7 +113,7 @@ PACKED_STRUCT(RMeshHead_v1_0 : public SoULFileHead,
         const uint32_t      _index_data_offset)
     :
         SuperT(RMESH_FILE_MAGIC_NUMBER, 1, 0, 0),
-        mesh_id((uint64_t)_mesh_id),
+        mesh_id((uint64_t)_mesh_id.value),
         mincorner_x(_bound_box.pmin.x),
         mincorner_y(_bound_box.pmin.y),
         mincorner_z(_bound_box.pmin.z),

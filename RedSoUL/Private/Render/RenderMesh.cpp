@@ -30,7 +30,7 @@ RenderMesh::RenderMesh (
     vertex_layout(_vertex_layout),
     is_dyn_allocated(_is_dyn_allocated)
 {
-    RUNTIME_ASSERT(_mesh_id != INVALID_RENDER_MESH_ID, "Mesh Id is invalid!!");
+    RUNTIME_ASSERT(_mesh_id.is_valid(), "Mesh Id must be valid!!");
     RUNTIME_ASSERT(_vertex_count, "Zero vertex count!!");
     RUNTIME_ASSERT(_triangle_count, "Zero triangle count!!");
     RUNTIME_ASSERT(_vertex_list, "No vertex list!!");

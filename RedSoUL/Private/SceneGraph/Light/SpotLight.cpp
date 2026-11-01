@@ -33,7 +33,7 @@ Spotight::set_falloff_angles (
     const float outer_angle_degs)
 {
     RUNTIME_ASSERT(inner_angle_degs >  0.0f && inner_angle_degs < outer_angle_degs &&
-                   outer_angle_degs <= 90.0f, "Falloff angle is invalid!!");
+                   outer_angle_degs <= 90.0f, "Falloff angle must be valid!!");
 
     m_inner_angle_degs = inner_angle_degs;
     m_outer_angle_degs = outer_angle_degs;

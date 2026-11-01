@@ -90,7 +90,17 @@ struct HashedStringId
     /// Hash后的数值
     HashedValueTypeT value;
 
-    /// 计算BuildTime/编译时的Id
+    /// 创建非法Id
+    INLINE_FUNCTION
+    static
+    constexpr
+    HashedStringId
+    invalid_hashed_id ()
+    {
+        return HashedStringId{ INVALID_HASH_VALUE };
+    }
+
+    /// 创建BuildTime/编译时的Id
     INLINE_FUNCTION
     static
     constexpr
@@ -105,7 +115,7 @@ struct HashedStringId
 #endif
     }
 
-    /// 计算RunTime/运行时的Id
+    /// 创建RunTime/运行时的Id
     INLINE_FUNCTION
     static
     HashedStringId

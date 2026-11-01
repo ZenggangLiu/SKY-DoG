@@ -224,17 +224,17 @@ TEST_CASE("Checking RTexture File", "[RTextureFile]")
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make( 87, 103, 134, 255),
                 LdrColor::make(255, 255, 255, 255));
-        REQUIRE((checker_board_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((checker_board_id.is_valid()));
         require_rtexture_file_round_trip("checker_board", checker_board_id);
 
         const RenderTextureIdT debug_mipmap_id =
             RenderTextureDepot::ref().create_debug_mipmap();
-        REQUIRE((debug_mipmap_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((debug_mipmap_id.is_valid()));
         require_rtexture_file_round_trip("debug_mipmap", debug_mipmap_id);
 
         const RenderTextureIdT debug_cubemap_id =
             RenderTextureDepot::ref().create_debug_cubemap(16);
-        REQUIRE((debug_cubemap_id != INVALID_RENDER_TEXTURE_ID));
+        REQUIRE((debug_cubemap_id.is_valid()));
         require_rtexture_file_round_trip("debug_cubemap", debug_cubemap_id);
 
         std::printf("--- Checking RTextureFile: OK!\n");

@@ -73,7 +73,10 @@ deserialize_from_rmesh_file_v1_0 (
         const RMeshHead_v1_0 & rmesh_file_head = *(const RMeshHead_v1_0*)buffer;
         if (rmesh_file_head.head_end_mark == RMESH_FILE_HEAD_END_MARK)
         {
-            if ((RenderMeshIdT)rmesh_file_head.mesh_id == exp_mesh_id)
+            /// 判断文件中存储的MeshId是否与期待的Id相同
+            const RenderMeshIdT stored_mesh_id(
+                (RenderMeshIdT::HashedValueTypeT)rmesh_file_head.mesh_id);
+            if (stored_mesh_id == exp_mesh_id)
             {
                 RUNTIME_ASSERT(
                     rmesh_file_head.vertex_count <= MAXIMAL_VERTEX_COUNT,
@@ -497,8 +500,7 @@ RMeshFile::read_from (
 {
     RUNTIME_ASSERT( abs_file_name, "File name can not be NULL!!");
     RUNTIME_ASSERT(*abs_file_name, "File name can not be empty!!");
-    RUNTIME_ASSERT(exp_mesh_id != INVALID_RENDER_MESH_ID,
-                   "Expected mesh Id must be valid!!");
+    RUNTIME_ASSERT(exp_mesh_id.is_valid(), "Expected mesh Id must be valid!!");
 
     char buffer[1024];
 

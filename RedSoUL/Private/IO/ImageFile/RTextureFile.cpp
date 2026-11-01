@@ -57,7 +57,10 @@ deserialize_from_rtexture_file_v1_0 (
             *(const RTextureHead_v1_0*)buffer;
         if (rtexture_file_head.head_end_mark == RTEXTURE_FILE_HEAD_END_MARK)
         {
-            if ((RenderTextureIdT)rtexture_file_head.texture_id == exp_texture_id)
+            /// 判断文件中存储的TextureId是否与期待的Id相同
+            const RenderTextureIdT stored_texture_id(
+                (RenderTextureIdT::HashedValueTypeT)rtexture_file_head.texture_id);
+            if (stored_texture_id == exp_texture_id)
             {
                 RUNTIME_ASSERT(
                     rtexture_file_head.texel_data_offset >= sizeof(RTextureHead_v1_0),
@@ -223,8 +226,7 @@ RTextureFile::read_from (
 {
     RUNTIME_ASSERT( abs_file_name, "File name can not be NULL!!");
     RUNTIME_ASSERT(*abs_file_name, "File name can not be empty!!");
-    RUNTIME_ASSERT(exp_texture_id != INVALID_RENDER_TEXTURE_ID,
-                   "Expected texture Id must be valid!!");
+    RUNTIME_ASSERT(exp_texture_id.is_valid(), "Expected texture Id must be valid!!");
 
     char buffer[1024];
 
