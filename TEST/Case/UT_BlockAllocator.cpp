@@ -14,7 +14,7 @@ namespace
 {
 
 /// 用一个固定大小的伪类型驱动BlockAllocator<T>生成不同的Block size
-template <uint32_t ByteSize>
+template < uint32_t ByteSize >
 struct SizedType
 {
     uint8_t bytes[ByteSize];
@@ -22,7 +22,7 @@ struct SizedType
 
 
 /// 检查一个刚初始化完成的BlockAllocator是否处于完整空闲状态
-template <typename AllocType>
+template < typename AllocType >
 static
 void
 check_fresh_allocator_stats (
@@ -39,7 +39,7 @@ check_fresh_allocator_stats (
 
 
 /// 在分配完所有Block后，再申请分配一个Block，以确认BlockAllocator可以自动增长
-template <typename AllocType>
+template < typename AllocType >
 static
 void
 check_fill_and_grow (
@@ -78,7 +78,7 @@ check_fill_and_grow (
 
 
 /// 检查释放后的block可以复用，同时非法地址和重复释放会被拒绝
-template <typename AllocType>
+template < typename AllocType >
 static
 void
 check_reuse_and_invalid_deallocate (

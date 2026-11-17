@@ -87,7 +87,7 @@ public:
     /// 使用方法:
     /// TransformMarker * const transform =
     ///     scene_object->find_marker<TransformMarker>();
-    template <typename MarkerType>
+    template < typename MarkerType >
     INLINE_FUNCTION
     const MarkerType *
     find_marker () const
@@ -96,7 +96,7 @@ public:
             find_marker_with_nameid(MarkerType::ms_type_info.marker_name_id()));
     }
 
-    template <typename MarkerType>
+    template < typename MarkerType >
     INLINE_FUNCTION
     MarkerType *
     find_marker ()
@@ -114,7 +114,7 @@ public:
     /// 使用方法:
     /// PerspectiveCamera * const camera =
     ///     scene_object->add_marker<PerspectiveCamera>();
-    template <typename MarkerType>
+    template < typename MarkerType >
     INLINE_FUNCTION
     MarkerType *
     add_marker ()

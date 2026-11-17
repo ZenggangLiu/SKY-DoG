@@ -70,7 +70,7 @@ public:
     ///
     /// @param[out] output
     ///     数据存入的变量
-    template <typename T>
+    template < typename T >
     INLINE_FUNCTION
     bool
     read_data (
@@ -98,7 +98,7 @@ public:
     ///
     /// @param[in]  data
     ///     期待写出的数据
-    template<typename T>
+    template < typename T >
     INLINE_FUNCTION
     bool
     save_data (
@@ -179,7 +179,7 @@ private:
 //------------------------------------------------------------------------------- //
 
 /// 通用readData函数: uint64_t, const char*, CustomType
-template <typename T>
+template < typename T >
 INLINE_FUNCTION
 bool
 RingBuffer::read_data (
@@ -193,7 +193,7 @@ RingBuffer::read_data (
 ///
 /// @param[in]  output_string_ref
 ///     将读入的字符串保存此std::string中
-template<>
+template <>
 INLINE_FUNCTION
 bool
 RingBuffer::read_data (
@@ -217,14 +217,14 @@ RingBuffer::read_data (
 
 
 /// 禁止将const char*作为输出目标。请使用std::string
-template<>
+template <>
 INLINE_FUNCTION
 bool
 RingBuffer::read_data (const char *&);
 
 
 /// 通用saveData函数: uint64_t, const char*, CustomType
-template<typename T>
+template < typename T >
 INLINE_FUNCTION
 bool
 RingBuffer::save_data (
@@ -236,12 +236,12 @@ RingBuffer::save_data (
 
 /// 禁止直接使用rvalue: 例如函数名称
 /// NOTE: 如果开启，saveData(const T&) 必须改为 --> saveData(T&)
-/// template<typename T>
+/// template < typename T >
 /// bool saveData(T&&) = delete;
 
 
 /// c type string(const char*)专用saveData函数
-template<>
+template <>
 INLINE_FUNCTION
 bool
 RingBuffer::save_data (
@@ -259,7 +259,7 @@ RingBuffer::save_data (
 
 
 /// std::string专用saveData函数
-template<>
+template <>
 INLINE_FUNCTION
 bool
 RingBuffer::save_data (

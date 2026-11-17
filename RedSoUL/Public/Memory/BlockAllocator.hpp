@@ -118,7 +118,7 @@ static constexpr uint32_t BLOCK_ALLOCATOR_PAGE_SIZE = 4096u;
 /// - Block大小范围为[16字节，256字节], 之间的任意8字节的倍数:
 ///   [16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, ..., 256]
 ///
-template <typename ClassType, uint32_t ObjectCount> /// <Block类型, 起始物体个数>
+template < typename ClassType, uint32_t ObjectCount > /// < Block类型, 起始物体个数 >
 class BlockAllocator
 {
 public:

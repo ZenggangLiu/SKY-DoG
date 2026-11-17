@@ -34,8 +34,10 @@ WorkerThread::start ()
                    "The thread is NOT in the 'CREATED' state!!");
 
     /// 设置堆栈长度: 堆栈的长度(字节长度): 0表示使用缺省长度
-    const size_t stack_size = (m_stack_size == ThreadStackSize::DEFAULT_THREAD_STACK_SIZE)
-                            ? 0 : (size_t)m_stack_size;
+    const size_t stack_size =
+        (m_stack_size == ThreadStackSize::DEFAULT_THREAD_STACK_SIZE)
+        ? 0
+        : (size_t)m_stack_size;
 
 #if (OS_TYPE == OS_TYPE_WIN)
     /// 创建一个挂起的OS线程
