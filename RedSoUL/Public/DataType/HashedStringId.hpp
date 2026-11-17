@@ -36,6 +36,7 @@
 #include <stdint.h> /// uint32_t,...
 /// Library headers
 #include "Common/CommonDefines.hpp" /// INLINE_FUNCTION
+#include "Hashing/HashUtilities.hpp"
 #include "Hashing/RuntimeHash.hpp"
 #include "Hashing/StaticStringHash.hpp"
 
@@ -72,15 +73,12 @@ struct HashedStringId
         operator() (
             const HashedStringId id_to_hash) const
         {
-            /// SplitMix64
-            uint64_t x = id_to_hash.value;
-            x *= 0xBF58476D1CE4E5B9ULL;
-
-            x ^= x >> 27;
-            x *= 0x94D049BB133111EBULL;
-
-            x ^= x >> 31;
-            return static_cast<std::size_t>(x);
+#if defined(USE_64BITS_ID) /// 使用64位Id类型
+            const uint64_t hashed_id = HashUtility::split_mix64(id_to_hash.value);
+#else
+            const uint32_t hashed_id = HashUtility::split_mix32(id_to_hash.value);
+#endif
+            return static_cast<std::size_t>(hashed_id);
         }
     };
 
@@ -97,7 +95,7 @@ struct HashedStringId
     HashedStringId
     invalid_hashed_id ()
     {
-        return HashedStringId{ INVALID_HASH_VALUE };
+        return HashedStringId{};
     }
 
     /// 创建BuildTime/编译时的Id
