@@ -29,12 +29,12 @@
 
 
 /// System headers
-#include <stdint.h> /// uint32_t,...
+#include <stdint.h> /// uint8_t, uint32_t,...
 
 
 /// 线程堆栈的长度(字节长度)
 ///
-enum class ThreadStackSize
+enum class ThreadStackSize : uint32_t
 {
     /// NOTE:
     /// - iOS: 堆栈的长度将rounded up到页的边界(16k页)
@@ -56,13 +56,13 @@ enum class ThreadStackSize
     /// - iOS:  512k
     /// - Mac:    8M: 可以通过调用pthread_get_stacksize_np(pthread_self())来获得
     /// - Win:    1M: 可以通过调用GetCurrentThreadStackLimits(Low,HighLim)来获得
-    DEFAULT_THREAD_STACK_SIZE = -1
+    DEFAULT_THREAD_STACK_SIZE = (uint32_t)-1
 };
 
 
 /// 线程的状态
 ///
-enum class ThreadState
+enum class ThreadState : uint8_t
 {
     /// 无效状态
     INVALID_THREAD_STATE,

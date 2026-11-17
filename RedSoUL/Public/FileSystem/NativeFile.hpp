@@ -29,14 +29,14 @@
 
 
 /// System headers
-#include <stdint.h>  /// uint32_t,...
+#include <stdint.h>  /// uint8_t, uint32_t,...
 
 
 struct FileHandle;
 
 
 /// 访问模式
-enum class AccessMode
+enum class AccessMode : uint8_t
 {
     /// 只读
     READ_ONLY_ACCESS_MODE,
@@ -49,7 +49,7 @@ enum class AccessMode
 
 
 /// SEEK模式
-enum SeekMode
+enum class SeekMode : uint8_t
 {
     /// 相对于当前读写头位置
     CURRENT_CURSOR_SEEK_MODE,

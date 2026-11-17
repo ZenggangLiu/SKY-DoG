@@ -28,9 +28,13 @@
 #pragma once
 
 
+/// System headers
+#include <stdint.h> /// uint8_t
+
+
 /// 坐标轴定义
 ///
-enum class AxisType
+enum class AxisType : uint8_t
 {
     X_AXIS_TYPE,
     Y_AXIS_TYPE,

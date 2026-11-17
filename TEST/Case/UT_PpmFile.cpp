@@ -50,7 +50,8 @@ require_ppm16_binary_file_data (
     REQUIRE((std::strstr(header, "48bits RGB(RGB16)") != nullptr));
     REQUIRE((std::strstr(header, "\n65535\n") != nullptr));
 
-    REQUIRE((ppm_file.seek(-(int32_t)exp_pixel_data_size, FILE_END_SEEK_MODE)));
+    REQUIRE(
+        (ppm_file.seek(-(int32_t)exp_pixel_data_size, SeekMode::FILE_END_SEEK_MODE)));
 
     std::vector<uint8_t> pixel_data(exp_pixel_data_size);
     REQUIRE((ppm_file.read(

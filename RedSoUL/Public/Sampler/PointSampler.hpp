@@ -30,7 +30,7 @@
 
 /// System headers
 #include <array>
-#include <stdint.h> /// uint32_t
+#include <stdint.h> /// uint8_t, uint32_t
 /// Library headers
 #include "Math/RandomNumber.hpp"
 #include "Sampler/HammersleySamplePointsDefines.hpp"
@@ -41,7 +41,7 @@ struct float_2;
 
 /// 采样点分布
 ///
-enum class PointDistribution
+enum class PointDistribution : uint8_t
 {
     /// 半球分布:
     ///

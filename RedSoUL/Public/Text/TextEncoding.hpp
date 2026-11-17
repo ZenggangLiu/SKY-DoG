@@ -27,8 +27,11 @@
 
 #pragma once
 
+/// System headers
+#include <stdint.h> /// uint8_t
 
-enum class TextEncoding
+
+enum class TextEncoding : uint8_t
 {
     /// UTF8编码
     UTF8_ENCODING,
