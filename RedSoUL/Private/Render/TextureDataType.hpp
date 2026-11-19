@@ -37,10 +37,10 @@
 enum class TextureDataType : uint8_t
 {
     // === 非压缩数据类型 === //
-    /// Ldr Rgba 四通道彩色贴图: 数据保存为 LdrColor[]
+    /// Ldr Rgba 四通道彩色贴图: 数据保存为 LdrColor[]: uint8_t[][4]
     LDR_RGBA_TEXTURE,
-    /// Ldr Grayscale单通道灰度贴图: 数据保存为 LdrGrayscale[]
+    /// Ldr Grayscale单通道灰度贴图: 数据保存为 LdrGrayscale[]: uint16_t[][1]
     LDR_GRAYSCALE_TEXTURE,
-    /// Hdr Rgba 四通道彩色贴图: 数据保存为 HdrColor[]
+    /// Hdr Rgba 四通道彩色贴图: 数据保存为 HdrColor[]: half[][4]
     HALF_RGBA_TEXTURE,
 };

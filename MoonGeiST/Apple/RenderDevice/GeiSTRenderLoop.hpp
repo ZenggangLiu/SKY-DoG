@@ -25,13 +25,13 @@
 ***************************************************************************************/
 
 
-#import <MetalKit/MetalKit.h>
+#import <MetalKit/MetalKit.h> /// MTKView, MTKViewDelegate
 
 
 /// 渲染循环
 /// - 通过实现MTKViewDelegate Protocol来绘制
-@interface Renderer : NSObject <MTKViewDelegate>
+@interface GeiSTRenderLoop : NSObject <MTKViewDelegate>
 
--(nonnull instancetype) initWithMetalKitView: (nonnull MTKView *)view;
+- (nullable instancetype) initWithMTKView: (nonnull MTKView *)view;
 
 @end

@@ -80,6 +80,21 @@ struct alignas(16) matrix_4x4
     make (
         const matrix_3x4 & rts_matx);
 
+    /// 创建一个Reversed-Z & Infinite Far Plane的透视投影矩阵
+    ///
+    /// @param[in]  horizon_fov_rads
+    ///     水平Fov(Field of view)(以弧度衡量)
+    /// @param[in]  aspect_ratio
+    ///     屏幕的长/高比例
+    /// @param[in]  near_plane
+    ///     在照相机坐标系中Near Plane的位置
+    static
+    matrix_4x4
+    make_perspective_projection (
+        const float horizon_fov_rads,
+        const float aspect_ratio,
+        const float near_plane);
+
     /// 获得指定索引的行向量
     ///
     /// 例如:

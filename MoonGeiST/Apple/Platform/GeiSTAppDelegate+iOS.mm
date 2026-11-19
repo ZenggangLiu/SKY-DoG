@@ -1,17 +1,19 @@
+/// Library headers
+#include "Platform/GeiSTAppDelegate+Private.hpp"
 /// Self header
-#import "Platform/GeiSTAppDelegate+iOS.hpp"
+#import  "Platform/GeiSTAppDelegate+iOS.hpp"
 
 
 #if (OS_TYPE == OS_TYPE_IOS)
 @interface GeiSTAppDelegate ()
 {
-    /// Private成员变量
+    // --- Private成员变量 --- //
 }
 
 
-/// Private属性
+// --- Private属性 --- //
 
-/// Private函数
+// --- Private函数 --- //
 @end
 
 
@@ -19,20 +21,20 @@
 @implementation GeiSTAppDelegate (iOS)
 
 
-/// 程序启动完成
+/// 程序启动完成(第一次激活程序)
 /// 执行任务:
 /// - RedSoUL初始化
 /// - 加载Assets
 /// X 创建RenderLoop, 放在ViewController::viewDidLoad中处理
 - (BOOL) application: (UIApplication *)application didFinishLaunchingWithOptions: (NSDictionary *)launchOptions
 {
-    NSLog(@"-> App has Launched");
-    NSLog(@"%@", self.window);
+    NSLog(@"-> App has Launched(Window: %@)", self.window);
+    [self loadRenderResources];
     return YES;
 }
 
 
-/// 进入前台
+/// 进入前台(程序处在Hidden状态-->Unhide状态)
 /// 执行任务: 与“Hide程序”的任务相反
 /// - 加载游戏进度
 /// - 启动/恢复Audio，Physics
@@ -41,10 +43,11 @@
 - (void) applicationDidBecomeActive: (UIApplication *)application
 {
     NSLog(@"-> App UNHIDDEN");
+    [self loadRenderResources];
 }
 
 
-/// 进入后台
+/// 进入后台(程序处在Unhide状态-->Hide状态)
 /// 执行任务:
 /// - 暂停RenderLoop
 /// - 暂停GameLoop
@@ -53,6 +56,8 @@
 - (void) applicationDidEnterBackground: (UIApplication *)application
 {
     NSLog(@"-> App HIDDEN");
+    [self saveRenderResources];
+    [self unloadRenderResources];
 }
 
 
@@ -61,6 +66,8 @@
 - (void) applicationWillTerminate: (UIApplication *)application
 {
     NSLog(@"-> App terminating...");
+    [self saveRenderResources];
+    [self unloadRenderResources];
 }
 
 

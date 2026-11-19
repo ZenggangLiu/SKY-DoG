@@ -152,8 +152,12 @@ public:
         const char * const     abs_file_name,
         const RenderTextureIdT texture_id) const;
 
-    /// 将指定Id的RenderTexture的数据保存在指定的RenderTexture文件中
-    void
+    /// 将指定Id的RenderTexture的数据保存到指定的RenderTexture文件中
+    ///
+    /// @return
+    ///     True,  如果保存成功
+    ///     False, 如果保存失败
+    bool
     write_to_texture_file (
         const char * const     abs_file_name,
         const RenderTextureIdT texture_id) const;
@@ -165,11 +169,6 @@ public:
 private:
      RenderTextureDepot ();
     ~RenderTextureDepot ();
-
-    /// 获取每个Texel的字节大小
-    uint8_t
-    texel_size_in_bytes (
-        const TextureDataType data_type) const;
 
     /// 获取指定Mipmap的Texel列表数据的相对字节偏移(相对于Slice的起始位置)
     uint32_t

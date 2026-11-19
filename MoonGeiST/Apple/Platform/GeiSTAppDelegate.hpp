@@ -31,9 +31,9 @@
 /// System headers
 #include "Common/PlatformDefines.hpp" /// OS_TYPE
 #if (OS_TYPE == OS_TYPE_IOS)
-#import <UIKit/UIKit.h>
+#import  <UIKit/UIKit.h>
 #elif (OS_TYPE == OS_TYPE_MAC)
-#import <Cocoa/Cocoa.h>
+#import  <Cocoa/Cocoa.h>
 #else
 #error Not supported Platform!!
 #endif /// (OS_TYPE == OS_TYPE_IOS)
@@ -44,8 +44,10 @@
 #if (OS_TYPE == OS_TYPE_IOS) /// iOS
 @interface GeiSTAppDelegate : UIResponder <UIApplicationDelegate>
 
-/// NOTE: iOS需要此属性。系统用来保存主窗口。如果删除，将黑屏!!
-@property (nonatomic, strong) UIWindow * window;
+/// NOTE:
+/// - iOS 5.0起, 需要此属性(在UIApplicationDelegate<NSObject>中定义)
+/// - 系统用来保存主窗口。如果删除，将黑屏!!
+@property (nullable, nonatomic, strong) UIWindow * window;
 
 #elif (OS_TYPE == OS_TYPE_MAC) /// macOS
 @interface GeiSTAppDelegate : NSObject <NSApplicationDelegate>

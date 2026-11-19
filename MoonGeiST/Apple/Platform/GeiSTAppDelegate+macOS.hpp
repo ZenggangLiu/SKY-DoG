@@ -28,7 +28,7 @@
 #pragma once
 
 
-#import "GeiSTAppDelegate.hpp"
+#import "Platform/GeiSTAppDelegate.hpp"
 
 
 #if (OS_TYPE == OS_TYPE_MAC)

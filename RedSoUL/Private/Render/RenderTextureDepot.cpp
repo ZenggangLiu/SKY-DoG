@@ -12,20 +12,12 @@
 #include "IO/ImageFile/ExrFile.hpp"
 #include "IO/ImageFile/PpmFile.hpp"
 #include "IO/ImageFile/RTextureFile.hpp"
+#include "Render/TextureUtilities.hpp"
 /// Self header
 #include "Render/RenderTextureDepot.hpp"
 
 
 // MARK: == Helpers ==
-static
-uint32_t
-next_mipmap_dimension (
-    const uint32_t mipmap_dim)
-{
-    return mipmap_dim > 1 ? mipmap_dim >> 1 : 1;
-}
-
-
 static
 bool
 is_cell_border_texel (
@@ -182,8 +174,8 @@ generate_ldr_debug_mipmap (
         texel_list_mip += texel_count_mip;
 
         /// 跳到下一级Mipmap
-        mipmap_width  = next_mipmap_dimension(mipmap_width);
-        mipmap_height = next_mipmap_dimension(mipmap_height);
+        mipmap_width  = TextureUtility::next_mipmap_dimension(mipmap_width);
+        mipmap_height = TextureUtility::next_mipmap_dimension(mipmap_height);
     }
 }
 
@@ -319,8 +311,8 @@ RenderTextureDepot::slice_texel_count (
             texel_count += mipmap_width * mipmap_height;
 
             /// 遍历下一个Mipmap
-            mipmap_width  = next_mipmap_dimension(mipmap_width);
-            mipmap_height = next_mipmap_dimension(mipmap_height);
+            mipmap_width  = TextureUtility::next_mipmap_dimension(mipmap_width);
+            mipmap_height = TextureUtility::next_mipmap_dimension(mipmap_height);
         }
     }
     return texel_count;
@@ -731,8 +723,10 @@ RenderTextureDepot::write_to_image_file (
                     }
 
                     /// 遍历下一个Mipmap
-                    mipmap_width  = next_mipmap_dimension(mipmap_width);
-                    mipmap_height = next_mipmap_dimension(mipmap_height);
+                    mipmap_width  =
+                        TextureUtility::next_mipmap_dimension(mipmap_width);
+                    mipmap_height =
+                        TextureUtility::next_mipmap_dimension(mipmap_height);
                 }
             }
         }
@@ -740,15 +734,19 @@ RenderTextureDepot::write_to_image_file (
 }
 
 
-void
+bool
 RenderTextureDepot::write_to_texture_file (
-    const char * const  abs_file_name,
+    const char * const     abs_file_name,
     const RenderTextureIdT texture_id) const
 {
-    const RenderTexture * const texture = texture_data(texture_id);
-    if (texture)
+    const auto render_texture = m_texture_table.find(texture_id);
+    if (render_texture == m_texture_table.end())
     {
-        RTextureFile::write_to(abs_file_name, *texture);
+        return false;
+    }
+    else
+    {
+        return RTextureFile::write_to(abs_file_name, render_texture->second);
     }
 }
 
@@ -780,39 +778,6 @@ RenderTextureDepot::~RenderTextureDepot ()
 }
 
 
-uint8_t
-RenderTextureDepot::texel_size_in_bytes (
-    const TextureDataType data_type) const
-{
-    switch (data_type)
-    {
-        case TextureDataType::LDR_RGBA_TEXTURE:
-        {
-            /// LdrColor[]
-            return sizeof(LdrColor);
-        }
-
-        case TextureDataType::LDR_GRAYSCALE_TEXTURE:
-        {
-            /// LdrGrayscale[]
-            return sizeof(LdrGrayscale);
-        }
-
-        case TextureDataType::HALF_RGBA_TEXTURE:
-        {
-            /// HdrColor[]
-            return sizeof(HdrColor);
-        }
-
-        default:
-        {
-            RUNTIME_ASSERT(false, "Unknown TextureDataType!!");
-            return 0;
-        }
-    }
-}
-
-
 uint32_t
 RenderTextureDepot::mipmap_texel_list_offset_in_bytes (
     const RenderTexture * const texture,
@@ -831,10 +796,13 @@ RenderTextureDepot::mipmap_texel_list_offset_in_bytes (
         offset_in_texels += mipmap_width * mipmap_height;
 
         /// 遍历下一个Mipmap
-        mipmap_width  = mipmap_width  > 1 ? mipmap_width  >> 1 : 1;
-        mipmap_height = mipmap_height > 1 ? mipmap_height >> 1 : 1;
+        mipmap_width  = TextureUtility::next_mipmap_dimension(mipmap_width);
+        mipmap_height = TextureUtility::next_mipmap_dimension(mipmap_height);
     }
-    return offset_in_texels * texel_size_in_bytes(texture->texture_data_type);
+
+    const uint8_t texel_size_in_bytes =
+        TextureUtility::texel_size_in_bytes(texture->texture_data_type);
+    return offset_in_texels * texel_size_in_bytes;
 }
 
 
@@ -852,12 +820,14 @@ RenderTextureDepot::mipmap_texel_list_size_in_bytes (
     for (uint8_t i = 0; i < mipmap_idx; ++i)
     {
         /// 遍历下一个Mipmap
-        mipmap_width  = mipmap_width  > 1 ? mipmap_width  >> 1 : 1;
-        mipmap_height = mipmap_height > 1 ? mipmap_height >> 1 : 1;
+        mipmap_width  = TextureUtility::next_mipmap_dimension(mipmap_width);
+        mipmap_height = TextureUtility::next_mipmap_dimension(mipmap_height);
     }
 
     const uint32_t mipmap_texel_count = mipmap_width * mipmap_height;
-    return mipmap_texel_count * texel_size_in_bytes(texture->texture_data_type);
+    const uint8_t texel_size_in_bytes =
+        TextureUtility::texel_size_in_bytes(texture->texture_data_type);
+    return mipmap_texel_count * texel_size_in_bytes;
 }
 
 

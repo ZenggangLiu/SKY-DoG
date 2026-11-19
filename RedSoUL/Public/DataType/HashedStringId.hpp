@@ -42,6 +42,7 @@
 
 
 /// 使用Hash函数计算字符串对应的Id
+///
 template < uint32_t Seed > /// Hash函数使用的SEED
 struct HashedStringId
 {

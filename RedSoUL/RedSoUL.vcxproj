@@ -26,12 +26,27 @@
     <ClInclude Include="Private\IO\MeshFile\RMeshHead_v1.0.hpp" />
     <ClInclude Include="Private\IO\SoULFileHead.hpp" />
     <ClInclude Include="Private\Memory\BlockAllocatorImpl.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceBufferDesc.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceBufferId.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceDrawCall.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceMeshId.hpp" />
+    <ClInclude Include="Private\Render\Backend\DevicePipelineDesc.hpp" />
+    <ClInclude Include="Private\Render\Backend\DevicePipelineId.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceResourceType.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceTextureDesc.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceTextureFormat.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceTextureId.hpp" />
+    <ClInclude Include="Private\Render\Backend\DeviceTextureUtilities.hpp" />
+    <ClInclude Include="Private\Render\Backend\RenderDevice.hpp" />
+    <ClInclude Include="Private\Render\Backend\RenderDeviceDesc.hpp" />
+    <ClInclude Include="Private\Render\Backend\RenderDeviceFactory.hpp" />
     <ClInclude Include="Private\Render\IndexedTriangle.hpp" />
     <ClInclude Include="Private\Render\RenderMesh.hpp" />
     <ClInclude Include="Private\Render\RenderMeshDepot.hpp" />
     <ClInclude Include="Private\Render\RenderTexture.hpp" />
     <ClInclude Include="Private\Render\RenderTextureDepot.hpp" />
     <ClInclude Include="Private\Render\TextureDataType.hpp" />
+    <ClInclude Include="Private\Render\TextureUtilities.hpp" />
     <ClInclude Include="Private\Render\VertexDataType.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Colr.hpp" />
@@ -41,6 +56,7 @@
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Norm.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Norm_Uv.hpp" />
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Uv.hpp" />
+    <ClInclude Include="Private\Runtime\GameMainLoop.hpp" />
     <ClInclude Include="Private\Sampler\HammersleySamplePointsData.hpp" />
     <ClInclude Include="Private\SceneGraph\MarkerTypeDepot.hpp" />
     <ClInclude Include="Private\SceneGraph\TransformData.hpp" />
@@ -66,12 +82,14 @@
     <ClInclude Include="Public\DataType\Matrix3x4.hpp" />
     <ClInclude Include="Public\DataType\Matrix4x4.hpp" />
     <ClInclude Include="Public\DataType\Quaternion.hpp" />
+    <ClInclude Include="Public\DataType\TypedResourceId.hpp" />
     <ClInclude Include="Public\FileSystem\FileHandle.hpp" />
     <ClInclude Include="Public\FileSystem\FileName.hpp" />
     <ClInclude Include="Public\FileSystem\NativeDirectory.hpp" />
     <ClInclude Include="Public\FileSystem\NativeFile.hpp" />
     <ClInclude Include="Public\FileSystem\NativeReadStream.hpp" />
     <ClInclude Include="Public\FileSystem\NativeWriteStream.hpp" />
+    <ClInclude Include="Public\Hashing\HashUtilities.hpp" />
     <ClInclude Include="Public\Hashing\RuntimeHash.hpp" />
     <ClInclude Include="Public\Hashing\StaticStringHash.hpp" />
     <ClInclude Include="Public\Hashing\StaticXXHash32.hpp" />
@@ -88,6 +106,7 @@
     <ClInclude Include="Public\Message\MessageDefines.hpp" />
     <ClInclude Include="Public\Render\RenderMeshId.hpp" />
     <ClInclude Include="Public\Render\RenderTextureId.hpp" />
+    <ClInclude Include="Public\Render\SoULRender.hpp" />
     <ClInclude Include="Public\Runtime\GameLogic.hpp" />
     <ClInclude Include="Public\Sampler\HammersleySamplePointsDefines.hpp" />
     <ClInclude Include="Public\Sampler\HemiSphereSampler.hpp" />
@@ -115,7 +134,6 @@
     <ClInclude Include="Public\Thread\ThreadDefines.hpp" />
     <ClInclude Include="Public\Thread\WorkerThread.hpp" />
     <ClInclude Include="Public\Time\ClockTime.hpp" />
-    <ClInclude Include="Private\Runtime\GameMainLoop.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Assert\RuntimeAssert.cpp" />
@@ -151,10 +169,15 @@
     <ClCompile Include="Private\Memory\ArenaAllocator.cpp" />
     <ClCompile Include="Private\Memory\BlockAllocatorImpl.cpp" />
     <ClCompile Include="Private\Memory\MemoryUtilities.cpp" />
+    <ClCompile Include="Private\Render\Backend\DeviceTextureUtilities.cpp" />
+    <ClCompile Include="Private\Render\Backend\RenderDevice.cpp" />
+    <ClCompile Include="Private\Render\Backend\RenderDeviceFactory.cpp" />
     <ClCompile Include="Private\Render\RenderMesh.cpp" />
     <ClCompile Include="Private\Render\RenderMeshDepot.cpp" />
     <ClCompile Include="Private\Render\RenderTexture.cpp" />
     <ClCompile Include="Private\Render\RenderTextureDepot.cpp" />
+    <ClCompile Include="Private\Render\SoULRender.cpp" />
+    <ClCompile Include="Private\Render\TextureUtilities.cpp" />
     <ClCompile Include="Private\Runtime\GameMainLoop.cpp" />
     <ClCompile Include="Private\Sampler\HemiSphereSampler.cpp" />
     <ClCompile Include="Private\Sampler\PointSampler.cpp" />

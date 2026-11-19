@@ -33,13 +33,18 @@ RenderTexture::RenderTexture (
     RUNTIME_ASSERT(_texture_id.is_valid(), "Texture Id must be valid!!");
     RUNTIME_ASSERT(_texture_width  > 0, "Texture width must be larger than zero!!");
     RUNTIME_ASSERT(_texture_height > 0, "Texture height must be larger than zero!!");
-    RUNTIME_ASSERT(_is_cube_map == false || _texture_width == _texture_height,
-                   "Cube map texture width and height must be the same!!");
+    RUNTIME_ASSERT(_mipmap_count   > 0, "Texture must contain at least one mipmap!!");
     RUNTIME_ASSERT(_slice_data_size, "Zero slice data size!!");
     RUNTIME_ASSERT(_texel_list, "No texel list!!");
     RUNTIME_ASSERT(_texel_list_size, "Zero texel list size!!");
     RUNTIME_ASSERT(
+        _is_cube_map == false || _texture_width == _texture_height,
+        "Cube map texture width and height must be the same!!");
+    RUNTIME_ASSERT(
         _texel_list_size ==
         _slice_data_size * RenderTextureDepot::ref().total_slice_count(_is_cube_map),
         "Texel list size does not match slice data size!!");
+    RUNTIME_ASSERT(
+        _is_linear_rgb || (_texture_data_type == TextureDataType::LDR_RGBA_TEXTURE),
+        "Only LdrColor can be in sRgb!!");
 }

@@ -1,18 +1,20 @@
+/// Library headers
+#include "Platform/GeiSTAppDelegate+Private.hpp"
 /// Self header
-#import "Platform/GeiSTAppDelegate+macOS.hpp"
+#import  "Platform/GeiSTAppDelegate+macOS.hpp"
 
 
 #if (OS_TYPE == OS_TYPE_MAC)
-/// Class Extensioin: 作为Private接口使用
+/// Class Extension: 作为Private接口使用
 @interface GeiSTAppDelegate ()
 {
-    /// Private成员变量
+    // --- Private成员变量 --- //
 }
 
 
-/// Private属性
+// --- Private属性 --- //
 
-/// Private函数
+// --- Private函数 --- //
 @end
 
 
@@ -29,7 +31,7 @@
 }
 
 
-/// 程序启动完成
+/// 程序启动完成(第一次激活程序)
 /// 执行任务:
 /// - RedSoUL初始化
 /// - 加载Assets
@@ -37,10 +39,11 @@
 - (void) applicationDidFinishLaunching: (NSNotification *)aNotification
 {
     NSLog(@"-> App has Launched");
+    [self loadRenderResources];
 }
 
 
-/// UnHide程序(如果程序处在Hidden状态)
+/// 进入前台(程序处在Hidden状态-->Unhide状态)(UnHide程序)
 /// 执行任务: 与“Hide程序”的任务相反
 /// - 加载游戏进度
 /// - 启动/恢复Audio，Physics
@@ -51,10 +54,11 @@
 - (void) applicationDidUnhide: (NSNotification *)notification
 {
     NSLog(@"-> App UNHIDDEN");
+    [self loadRenderResources];
 }
 
 
-/// Hide程序(使用Command + H)
+/// 进入后台(程序处在Unhide状态-->Hide状态)(使用Command + H来Hide程序)
 /// 执行任务:
 /// - 暂停RenderLoop
 /// - 暂停GameLoop
@@ -65,6 +69,8 @@
 - (void) applicationDidHide: (NSNotification *)notification
 {
     NSLog(@"-> App HIDDEN");
+    [self saveRenderResources];
+    [self unloadRenderResources];
 }
 
 
@@ -73,6 +79,8 @@
 - (void) applicationWillTerminate: (NSNotification *)aNotification
 {
     NSLog(@"-> App terminating...");
+    [self saveRenderResources];
+    [self unloadRenderResources];
 }
 
 

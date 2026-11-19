@@ -1875,15 +1875,19 @@ RenderMeshDepot::write_to_ply_file (
 }
 
 
-void
+bool
 RenderMeshDepot::write_to_mesh_file (
     const char * const  abs_file_name,
     const RenderMeshIdT mesh_id) const
 {
-    const ConstRenderMeshIteratorT render_mesh = m_mesh_table.find(mesh_id);
-    if (render_mesh != m_mesh_table.end())
+    const auto render_mesh = m_mesh_table.find(mesh_id);
+    if (render_mesh == m_mesh_table.end())
     {
-        RMeshFile::write_to(abs_file_name, render_mesh->second);
+        return false;
+    }
+    else
+    {
+        return RMeshFile::write_to(abs_file_name, render_mesh->second);
     }
 }
 

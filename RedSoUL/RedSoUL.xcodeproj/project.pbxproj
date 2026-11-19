@@ -29,6 +29,44 @@
 		BD0E41322F7BC95900CFA766 /* RandomNumber.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD0E41302F7BC95900CFA766 /* RandomNumber.hpp */; };
 		BD0E41342F7BD6B600CFA766 /* RandomNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD0E41332F7BD6B600CFA766 /* RandomNumber.cpp */; };
 		BD0E41352F7BD6B600CFA766 /* RandomNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD0E41332F7BD6B600CFA766 /* RandomNumber.cpp */; };
+		BD1F52B8309D916B00FD10A0 /* DeviceTextureDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52B7309D916B00FD10A0 /* DeviceTextureDesc.hpp */; };
+		BD1F52B9309D916B00FD10A0 /* DeviceTextureDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52B7309D916B00FD10A0 /* DeviceTextureDesc.hpp */; };
+		BD1F52BB309E9CB100FD10A0 /* DeviceResourceType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52BA309E9CB100FD10A0 /* DeviceResourceType.hpp */; };
+		BD1F52BC309E9CB100FD10A0 /* DeviceResourceType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52BA309E9CB100FD10A0 /* DeviceResourceType.hpp */; };
+		BD1F52BE309E9D8700FD10A0 /* TypedResourceId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52BD309E9D8700FD10A0 /* TypedResourceId.hpp */; };
+		BD1F52BF309E9D8700FD10A0 /* TypedResourceId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52BD309E9D8700FD10A0 /* TypedResourceId.hpp */; };
+		BD1F52C1309EA16800FD10A0 /* HashUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C0309EA16800FD10A0 /* HashUtilities.hpp */; };
+		BD1F52C2309EA16800FD10A0 /* HashUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C0309EA16800FD10A0 /* HashUtilities.hpp */; };
+		BD1F52C4309EEA3700FD10A0 /* DeviceMeshId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C3309EEA3700FD10A0 /* DeviceMeshId.hpp */; };
+		BD1F52C5309EEA3700FD10A0 /* DeviceMeshId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C3309EEA3700FD10A0 /* DeviceMeshId.hpp */; };
+		BD1F52C7309EEAAB00FD10A0 /* DeviceTextureId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C6309EEAAB00FD10A0 /* DeviceTextureId.hpp */; };
+		BD1F52C8309EEAAB00FD10A0 /* DeviceTextureId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C6309EEAAB00FD10A0 /* DeviceTextureId.hpp */; };
+		BD1F52CA309F39A400FD10A0 /* DeviceBufferId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C9309F39A300FD10A0 /* DeviceBufferId.hpp */; };
+		BD1F52CB309F39A400FD10A0 /* DeviceBufferId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52C9309F39A300FD10A0 /* DeviceBufferId.hpp */; };
+		BD1F52CD309F39FD00FD10A0 /* DevicePipelineId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52CC309F39FD00FD10A0 /* DevicePipelineId.hpp */; };
+		BD1F52CE309F39FD00FD10A0 /* DevicePipelineId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52CC309F39FD00FD10A0 /* DevicePipelineId.hpp */; };
+		BD1F52D030A0117B00FD10A0 /* DeviceDrawCall.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52CF30A0117B00FD10A0 /* DeviceDrawCall.hpp */; };
+		BD1F52D130A0117B00FD10A0 /* DeviceDrawCall.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52CF30A0117B00FD10A0 /* DeviceDrawCall.hpp */; };
+		BD1F52D330A012E400FD10A0 /* RenderDevice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D230A012E400FD10A0 /* RenderDevice.hpp */; };
+		BD1F52D430A012E400FD10A0 /* RenderDevice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D230A012E400FD10A0 /* RenderDevice.hpp */; };
+		BD1F52D630A2D65300FD10A0 /* TextureUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D530A2D65300FD10A0 /* TextureUtilities.hpp */; };
+		BD1F52D730A2D65300FD10A0 /* TextureUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D530A2D65300FD10A0 /* TextureUtilities.hpp */; };
+		BD1F52D930A2DD7300FD10A0 /* DeviceTextureFormat.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D830A2DD7300FD10A0 /* DeviceTextureFormat.hpp */; };
+		BD1F52DA30A2DD7300FD10A0 /* DeviceTextureFormat.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52D830A2DD7300FD10A0 /* DeviceTextureFormat.hpp */; };
+		BD1F52DF30A3138900FD10A0 /* MetalTextureUtility.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52DE30A3138900FD10A0 /* MetalTextureUtility.hpp */; };
+		BD1F52E030A3138900FD10A0 /* MetalTextureUtility.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52DE30A3138900FD10A0 /* MetalTextureUtility.hpp */; };
+		BD1F52E230A3148D00FD10A0 /* MetalTextureUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52E130A3148D00FD10A0 /* MetalTextureUtility.mm */; };
+		BD1F52E330A3148D00FD10A0 /* MetalTextureUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52E130A3148D00FD10A0 /* MetalTextureUtility.mm */; };
+		BD1F52E530A316B100FD10A0 /* MetalRenderDevice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52E430A316B100FD10A0 /* MetalRenderDevice.hpp */; };
+		BD1F52E630A316B100FD10A0 /* MetalRenderDevice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52E430A316B100FD10A0 /* MetalRenderDevice.hpp */; };
+		BD1F52E830A317CF00FD10A0 /* DeviceTextureUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52E730A317CF00FD10A0 /* DeviceTextureUtilities.hpp */; };
+		BD1F52E930A317CF00FD10A0 /* DeviceTextureUtilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD1F52E730A317CF00FD10A0 /* DeviceTextureUtilities.hpp */; };
+		BD1F52EB30A3187100FD10A0 /* DeviceTextureUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52EA30A3187100FD10A0 /* DeviceTextureUtilities.cpp */; };
+		BD1F52EC30A3187100FD10A0 /* DeviceTextureUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52EA30A3187100FD10A0 /* DeviceTextureUtilities.cpp */; };
+		BD1F52F230ABF67400FD10A0 /* HashUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52F130ABF67400FD10A0 /* HashUtilities.cpp */; };
+		BD1F52F330ABF67400FD10A0 /* HashUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52F130ABF67400FD10A0 /* HashUtilities.cpp */; };
+		BD1F52F530ADB90B00FD10A0 /* TextureUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52F430ADB90B00FD10A0 /* TextureUtilities.cpp */; };
+		BD1F52F630ADB90B00FD10A0 /* TextureUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD1F52F430ADB90B00FD10A0 /* TextureUtilities.cpp */; };
 		BD326EC72F3B32F0007EE8EC /* CommonDefines.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD326EC42F3B32F0007EE8EC /* CommonDefines.hpp */; };
 		BD326ECC2F3BFC80007EE8EC /* CommonDefines.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD326EC42F3B32F0007EE8EC /* CommonDefines.hpp */; };
 		BD326ED82F3C24A5007EE8EC /* RuntimeAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD326ED72F3C24A5007EE8EC /* RuntimeAssert.hpp */; };
@@ -165,12 +203,20 @@
 		BD8FB8492F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD8FB8432F8512B100EE67B4 /* Layout_Pos_Uv.hpp */; };
 		BD8FB84B2F8512EE00EE67B4 /* VertexDataType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD8FB84A2F8512EE00EE67B4 /* VertexDataType.hpp */; };
 		BD8FB84C2F8512EE00EE67B4 /* VertexDataType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD8FB84A2F8512EE00EE67B4 /* VertexDataType.hpp */; };
+		BD9C100530F0000100A00001 /* SoULRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9C100230F0000100A00001 /* SoULRender.cpp */; };
+		BD9C100630F0000100A00001 /* SoULRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9C100230F0000100A00001 /* SoULRender.cpp */; };
+		BD9D201630F1000100A00001 /* RenderDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200430F1000100A00001 /* RenderDevice.cpp */; };
+		BD9D201730F1000100A00001 /* RenderDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200430F1000100A00001 /* RenderDevice.cpp */; };
+		BD9D201830F1000100A00001 /* SoULShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200530F1000100A00001 /* SoULShaders.metal */; };
+		BD9D201930F1000100A00001 /* SoULShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200530F1000100A00001 /* SoULShaders.metal */; };
+		BD9D201C30F1000100A00001 /* MetalRenderDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200730F1000100A00001 /* MetalRenderDevice.mm */; };
+		BD9D201D30F1000100A00001 /* MetalRenderDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD9D200730F1000100A00001 /* MetalRenderDevice.mm */; };
+		BD9E100830F2000100A00001 /* RenderDeviceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9E100330F2000100A00001 /* RenderDeviceFactory.cpp */; };
+		BD9E100930F2000100A00001 /* RenderDeviceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9E100330F2000100A00001 /* RenderDeviceFactory.cpp */; };
 		BD9FAFB32F6E528C000B085D /* MathUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFB22F6E528C000B085D /* MathUtilities.cpp */; };
 		BD9FAFB42F6E528C000B085D /* MathUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFB22F6E528C000B085D /* MathUtilities.cpp */; };
 		BD9FAFB92F6E7430000B085D /* Float4D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD9FAFB82F6E7430000B085D /* Float4D.hpp */; };
 		BD9FAFBA2F6E7430000B085D /* Float4D.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD9FAFB82F6E7430000B085D /* Float4D.hpp */; };
-		BDC17A793092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
-		BDC17A7A3092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
 		BD9FAFBD2F6E756B000B085D /* Float4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFBC2F6E756B000B085D /* Float4D.cpp */; };
 		BD9FAFBE2F6E756B000B085D /* Float4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD9FAFBC2F6E756B000B085D /* Float4D.cpp */; };
 		BDA3D1B82FFA5FE6001075BB /* LightType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDA3D1B72FFA5FE6001075BB /* LightType.hpp */; };
@@ -279,12 +325,24 @@
 		BDB47AC9306FB77B00BE2867 /* UnitSquareSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */; };
 		BDB47ACB3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */; };
 		BDB47ACC3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */; };
+		BDBE04DA309C358A00731DC4 /* RenderDeviceFactory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBE04D9309C358A00731DC4 /* RenderDeviceFactory.hpp */; };
+		BDBE04DB309C358A00731DC4 /* RenderDeviceFactory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBE04D9309C358A00731DC4 /* RenderDeviceFactory.hpp */; };
+		BDBE04DD309C930200731DC4 /* RenderDeviceDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBE04DC309C930200731DC4 /* RenderDeviceDesc.hpp */; };
+		BDBE04DE309C930200731DC4 /* RenderDeviceDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBE04DC309C930200731DC4 /* RenderDeviceDesc.hpp */; };
 		BDC05CAD2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CAE2FC56EF4005CCA1C /* GameScene.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */; };
 		BDC05CB02FC59D5F005CCA1C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */; };
 		BDC05CB12FC59D5F005CCA1C /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */; };
 		BDC05CB32FC59E16005CCA1C /* ObjectMarker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB22FC59E16005CCA1C /* ObjectMarker.cpp */; };
 		BDC05CB42FC59E16005CCA1C /* ObjectMarker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB22FC59E16005CCA1C /* ObjectMarker.cpp */; };
+		BDC17A793092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
+		BDC17A7A3092EAE40013738D /* HashedStringId.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A783092EAE30013738D /* HashedStringId.hpp */; };
+		BDC17A7F3098325E0013738D /* SoULRender.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A7E3098325E0013738D /* SoULRender.hpp */; };
+		BDC17A803098325E0013738D /* SoULRender.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC17A7E3098325E0013738D /* SoULRender.hpp */; };
+		BDC36344309D65050055DC71 /* DeviceBufferDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC36343309D65050055DC71 /* DeviceBufferDesc.hpp */; };
+		BDC36345309D65050055DC71 /* DeviceBufferDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC36343309D65050055DC71 /* DeviceBufferDesc.hpp */; };
+		BDC36347309D6E8D0055DC71 /* DevicePipelineDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC36346309D6E8D0055DC71 /* DevicePipelineDesc.hpp */; };
+		BDC36348309D6E8D0055DC71 /* DevicePipelineDesc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC36346309D6E8D0055DC71 /* DevicePipelineDesc.hpp */; };
 		BDC9CB012F94DD580042BF24 /* NativeReadStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC9CB002F94DD580042BF24 /* NativeReadStream.hpp */; };
 		BDC9CB022F94DD580042BF24 /* NativeReadStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC9CB002F94DD580042BF24 /* NativeReadStream.hpp */; };
 		BDC9CB042F94DDB50042BF24 /* NativeWriteStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDC9CB032F94DDB50042BF24 /* NativeWriteStream.hpp */; };
@@ -361,6 +419,25 @@
 		BD0E412D2F7BC8EF00CFA766 /* GameLogic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GameLogic.hpp; path = Public/Runtime/GameLogic.hpp; sourceTree = "<group>"; };
 		BD0E41302F7BC95900CFA766 /* RandomNumber.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RandomNumber.hpp; path = Public/Math/RandomNumber.hpp; sourceTree = "<group>"; };
 		BD0E41332F7BD6B600CFA766 /* RandomNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RandomNumber.cpp; path = Private/Math/RandomNumber.cpp; sourceTree = "<group>"; };
+		BD1F52B7309D916B00FD10A0 /* DeviceTextureDesc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceTextureDesc.hpp; path = Private/Render/Backend/DeviceTextureDesc.hpp; sourceTree = "<group>"; };
+		BD1F52BA309E9CB100FD10A0 /* DeviceResourceType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceResourceType.hpp; path = Private/Render/Backend/DeviceResourceType.hpp; sourceTree = "<group>"; };
+		BD1F52BD309E9D8700FD10A0 /* TypedResourceId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = TypedResourceId.hpp; path = Public/DataType/TypedResourceId.hpp; sourceTree = "<group>"; };
+		BD1F52C0309EA16800FD10A0 /* HashUtilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HashUtilities.hpp; path = Public/Hashing/HashUtilities.hpp; sourceTree = "<group>"; };
+		BD1F52C3309EEA3700FD10A0 /* DeviceMeshId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceMeshId.hpp; path = Private/Render/Backend/DeviceMeshId.hpp; sourceTree = "<group>"; };
+		BD1F52C6309EEAAB00FD10A0 /* DeviceTextureId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceTextureId.hpp; path = Private/Render/Backend/DeviceTextureId.hpp; sourceTree = "<group>"; };
+		BD1F52C9309F39A300FD10A0 /* DeviceBufferId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceBufferId.hpp; path = Private/Render/Backend/DeviceBufferId.hpp; sourceTree = "<group>"; };
+		BD1F52CC309F39FD00FD10A0 /* DevicePipelineId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DevicePipelineId.hpp; path = Private/Render/Backend/DevicePipelineId.hpp; sourceTree = "<group>"; };
+		BD1F52CF30A0117B00FD10A0 /* DeviceDrawCall.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceDrawCall.hpp; path = Private/Render/Backend/DeviceDrawCall.hpp; sourceTree = "<group>"; };
+		BD1F52D230A012E400FD10A0 /* RenderDevice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RenderDevice.hpp; path = Private/Render/Backend/RenderDevice.hpp; sourceTree = "<group>"; };
+		BD1F52D530A2D65300FD10A0 /* TextureUtilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = TextureUtilities.hpp; path = Private/Render/TextureUtilities.hpp; sourceTree = "<group>"; };
+		BD1F52D830A2DD7300FD10A0 /* DeviceTextureFormat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceTextureFormat.hpp; path = Private/Render/Backend/DeviceTextureFormat.hpp; sourceTree = "<group>"; };
+		BD1F52DE30A3138900FD10A0 /* MetalTextureUtility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = MetalTextureUtility.hpp; path = Private/Render/Backend/Metal/MetalTextureUtility.hpp; sourceTree = "<group>"; };
+		BD1F52E130A3148D00FD10A0 /* MetalTextureUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = MetalTextureUtility.mm; path = Private/Render/Backend/Metal/MetalTextureUtility.mm; sourceTree = "<group>"; };
+		BD1F52E430A316B100FD10A0 /* MetalRenderDevice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = MetalRenderDevice.hpp; path = Private/Render/Backend/Metal/MetalRenderDevice.hpp; sourceTree = "<group>"; };
+		BD1F52E730A317CF00FD10A0 /* DeviceTextureUtilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceTextureUtilities.hpp; path = Private/Render/Backend/DeviceTextureUtilities.hpp; sourceTree = "<group>"; };
+		BD1F52EA30A3187100FD10A0 /* DeviceTextureUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = DeviceTextureUtilities.cpp; path = Private/Render/Backend/DeviceTextureUtilities.cpp; sourceTree = "<group>"; };
+		BD1F52F130ABF67400FD10A0 /* HashUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = HashUtilities.cpp; path = Private/Hashing/HashUtilities.cpp; sourceTree = "<group>"; };
+		BD1F52F430ADB90B00FD10A0 /* TextureUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = TextureUtilities.cpp; path = Private/Render/TextureUtilities.cpp; sourceTree = "<group>"; };
 		BD326EC42F3B32F0007EE8EC /* CommonDefines.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = CommonDefines.hpp; path = Public/Common/CommonDefines.hpp; sourceTree = "<group>"; };
 		BD326ED72F3C24A5007EE8EC /* RuntimeAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RuntimeAssert.hpp; path = Public/Assert/RuntimeAssert.hpp; sourceTree = "<group>"; };
 		BD326EDA2F3C2625007EE8EC /* CompilerDefines.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = CompilerDefines.hpp; path = Public/Common/CompilerDefines.hpp; sourceTree = "<group>"; };
@@ -432,9 +509,13 @@
 		BD8FB8422F8512B100EE67B4 /* Layout_Pos_Colr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = Layout_Pos_Colr.hpp; path = Private/Render/VertexLayout/Layout_Pos_Colr.hpp; sourceTree = "<group>"; };
 		BD8FB8432F8512B100EE67B4 /* Layout_Pos_Uv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = Layout_Pos_Uv.hpp; path = Private/Render/VertexLayout/Layout_Pos_Uv.hpp; sourceTree = "<group>"; };
 		BD8FB84A2F8512EE00EE67B4 /* VertexDataType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = VertexDataType.hpp; path = Private/Render/VertexDataType.hpp; sourceTree = "<group>"; };
+		BD9C100230F0000100A00001 /* SoULRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = SoULRender.cpp; path = Private/Render/SoULRender.cpp; sourceTree = "<group>"; };
+		BD9D200430F1000100A00001 /* RenderDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RenderDevice.cpp; path = Private/Render/Backend/RenderDevice.cpp; sourceTree = "<group>"; };
+		BD9D200530F1000100A00001 /* SoULShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; lineEnding = 0; name = SoULShaders.metal; path = Private/Render/Backend/Metal/SoULShaders.metal; sourceTree = "<group>"; };
+		BD9D200730F1000100A00001 /* MetalRenderDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; name = MetalRenderDevice.mm; path = Private/Render/Backend/Metal/MetalRenderDevice.mm; sourceTree = "<group>"; };
+		BD9E100330F2000100A00001 /* RenderDeviceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = RenderDeviceFactory.cpp; path = Private/Render/Backend/RenderDeviceFactory.cpp; sourceTree = "<group>"; };
 		BD9FAFB22F6E528C000B085D /* MathUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = MathUtilities.cpp; path = Private/Math/MathUtilities.cpp; sourceTree = "<group>"; };
 		BD9FAFB82F6E7430000B085D /* Float4D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = Float4D.hpp; path = Public/DataType/Float4D.hpp; sourceTree = "<group>"; };
-		BDC17A783092EAE30013738D /* HashedStringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HashedStringId.hpp; path = Public/DataType/HashedStringId.hpp; sourceTree = "<group>"; };
 		BD9FAFBC2F6E756B000B085D /* Float4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = Float4D.cpp; path = Private/DataType/Float4D.cpp; sourceTree = "<group>"; };
 		BDA3D1B72FFA5FE6001075BB /* LightType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = LightType.hpp; path = Public/SceneGraph/Light/LightType.hpp; sourceTree = "<group>"; };
 		BDA3D1BA2FFA6132001075BB /* LightMarker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = LightMarker.hpp; path = Public/SceneGraph/Light/LightMarker.hpp; sourceTree = "<group>"; };
@@ -480,6 +561,7 @@
 		BDA896282F74F48400B0683B /* X2TeaCodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = X2TeaCodec.cpp; path = Private/Codec/X2TeaCodec.cpp; sourceTree = "<group>"; };
 		BDA8962C2F74F4C100B0683B /* X2TeaCodec.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = X2TeaCodec.hpp; path = Public/Codec/X2TeaCodec.hpp; sourceTree = "<group>"; };
 		BDA896322F74F6E900B0683B /* Quaternion_derivation.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = Quaternion_derivation.txt; path = ../Document/Quaternion_derivation.txt; sourceTree = "<group>"; };
+		BDAC100430A0000100A00001 /* MetalShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = MetalShaderTypes.h; path = Private/Render/Backend/Metal/MetalShaderTypes.h; sourceTree = "<group>"; };
 		BDB47A94304ECB8300BE2867 /* GeometryData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GeometryData.hpp; path = Public/SceneGraph/Geometry/GeometryData.hpp; sourceTree = "<group>"; };
 		BDB47A98304ECBAA00BE2867 /* GeometryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GeometryData.cpp; path = Private/SceneGraph/Geometry/GeometryData.cpp; sourceTree = "<group>"; };
 		BDB47A9B304ECBBD00BE2867 /* MARKER.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; name = MARKER.txt; path = Private/SceneGraph/MARKER.txt; sourceTree = "<group>"; };
@@ -491,9 +573,15 @@
 		BDB47AC4306D168F00BE2867 /* PointSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = PointSampler.cpp; path = Private/Sampler/PointSampler.cpp; sourceTree = "<group>"; };
 		BDB47AC7306FB77B00BE2867 /* UnitSquareSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = UnitSquareSampler.cpp; path = Private/Sampler/UnitSquareSampler.cpp; sourceTree = "<group>"; };
 		BDB47ACA3071F86F00BE2867 /* HemiSphereSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = HemiSphereSampler.cpp; path = Private/Sampler/HemiSphereSampler.cpp; sourceTree = "<group>"; };
+		BDBE04D9309C358A00731DC4 /* RenderDeviceFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RenderDeviceFactory.hpp; path = Private/Render/Backend/RenderDeviceFactory.hpp; sourceTree = "<group>"; };
+		BDBE04DC309C930200731DC4 /* RenderDeviceDesc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = RenderDeviceDesc.hpp; path = Private/Render/Backend/RenderDeviceDesc.hpp; sourceTree = "<group>"; };
 		BDC05CAC2FC56EF4005CCA1C /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = GameScene.hpp; path = Public/SceneGraph/GameScene.hpp; sourceTree = "<group>"; };
 		BDC05CAF2FC59D5F005CCA1C /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = GameScene.cpp; path = Private/SceneGraph/GameScene.cpp; sourceTree = "<group>"; };
 		BDC05CB22FC59E16005CCA1C /* ObjectMarker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = ObjectMarker.cpp; path = Private/SceneGraph/ObjectMarker.cpp; sourceTree = "<group>"; };
+		BDC17A783092EAE30013738D /* HashedStringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = HashedStringId.hpp; path = Public/DataType/HashedStringId.hpp; sourceTree = "<group>"; };
+		BDC17A7E3098325E0013738D /* SoULRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = SoULRender.hpp; path = Public/Render/SoULRender.hpp; sourceTree = "<group>"; };
+		BDC36343309D65050055DC71 /* DeviceBufferDesc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DeviceBufferDesc.hpp; path = Private/Render/Backend/DeviceBufferDesc.hpp; sourceTree = "<group>"; };
+		BDC36346309D6E8D0055DC71 /* DevicePipelineDesc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = DevicePipelineDesc.hpp; path = Private/Render/Backend/DevicePipelineDesc.hpp; sourceTree = "<group>"; };
 		BDC9CB002F94DD580042BF24 /* NativeReadStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = NativeReadStream.hpp; path = Public/FileSystem/NativeReadStream.hpp; sourceTree = "<group>"; };
 		BDC9CB032F94DDB50042BF24 /* NativeWriteStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = NativeWriteStream.hpp; path = Public/FileSystem/NativeWriteStream.hpp; sourceTree = "<group>"; };
 		BDC9CB062F94DE020042BF24 /* NativeWriteStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = NativeWriteStream.cpp; path = Private/FileSystem/NativeWriteStream.cpp; sourceTree = "<group>"; };
@@ -576,6 +664,7 @@
 				BD0E41242F7BC7F400CFA766 /* Matrix3x4.hpp */,
 				BD0E41272F7BC83D00CFA766 /* Matrix4x4.hpp */,
 				BDA8961F2F714B9400B0683B /* Quaternion.hpp */,
+				BD1F52BD309E9D8700FD10A0 /* TypedResourceId.hpp */,
 			);
 			name = DataType;
 			sourceTree = "<group>";
@@ -771,6 +860,7 @@
 		BD58B0B82F5973A10024C670 /* Hashing */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F52F130ABF67400FD10A0 /* HashUtilities.cpp */,
 				BD58B0DB2F5B97BA0024C670 /* RuntimeHash.cpp */,
 				BD58B0D52F5B97750024C670 /* RuntimeXXHash32.hpp */,
 				BD58B0D62F5B97750024C670 /* RuntimeXXHash64.hpp */,
@@ -781,6 +871,7 @@
 		BD58B0B92F5973B00024C670 /* Hashing */ = {
 			isa = PBXGroup;
 			children = (
+				BD1F52C0309EA16800FD10A0 /* HashUtilities.hpp */,
 				BD58B0BD2F5974630024C670 /* RuntimeHash.hpp */,
 				BD58B0D22F5B93F30024C670 /* StaticStringHash.hpp */,
 				BD58B0CD2F5B93B90024C670 /* StaticXXHash32.hpp */,
@@ -882,6 +973,7 @@
 			children = (
 				BD8FB80A2F7F6EF000EE67B4 /* RenderMeshId.hpp */,
 				BDA3D21430288E1D001075BB /* RenderTextureId.hpp */,
+				BDC17A7E3098325E0013738D /* SoULRender.hpp */,
 			);
 			name = Render;
 			sourceTree = "<group>";
@@ -890,6 +982,7 @@
 			isa = PBXGroup;
 			children = (
 				BD8FB8242F8127C400EE67B4 /* Document */,
+				BDAB102030F4000100A00001 /* Backend */,
 				BD8FB8172F7FD27700EE67B4 /* VertexLayout */,
 				BD8FB8212F81047F00EE67B4 /* IndexedTriangle.hpp */,
 				BD8FB8262F822DC900EE67B4 /* RenderMesh.hpp */,
@@ -900,7 +993,10 @@
 				BDA3D229303711B1001075BB /* RenderTexture.cpp */,
 				BDA3D22F303711EB001075BB /* RenderTextureDepot.hpp */,
 				BDA3D22C303711D8001075BB /* RenderTextureDepot.cpp */,
+				BD9C100230F0000100A00001 /* SoULRender.cpp */,
 				BDA3D21730288E9D001075BB /* TextureDataType.hpp */,
+				BD1F52D530A2D65300FD10A0 /* TextureUtilities.hpp */,
+				BD1F52F430ADB90B00FD10A0 /* TextureUtilities.cpp */,
 				BD8FB84A2F8512EE00EE67B4 /* VertexDataType.hpp */,
 			);
 			name = Render;
@@ -929,6 +1025,19 @@
 				BDC9CB392F98D65F0042BF24 /* IcoSphere_vertex_layout.png */,
 			);
 			name = Document;
+			sourceTree = "<group>";
+		};
+		BD9D200830F1000100A00001 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				BD1F52E430A316B100FD10A0 /* MetalRenderDevice.hpp */,
+				BD9D200730F1000100A00001 /* MetalRenderDevice.mm */,
+				BDAC100430A0000100A00001 /* MetalShaderTypes.h */,
+				BD1F52DE30A3138900FD10A0 /* MetalTextureUtility.hpp */,
+				BD1F52E130A3148D00FD10A0 /* MetalTextureUtility.mm */,
+				BD9D200530F1000100A00001 /* SoULShaders.metal */,
+			);
+			name = Metal;
 			sourceTree = "<group>";
 		};
 		BD9FAFB12F6E526F000B085D /* Math */ = {
@@ -1008,6 +1117,31 @@
 				BDA896322F74F6E900B0683B /* Quaternion_derivation.txt */,
 			);
 			name = Document;
+			sourceTree = "<group>";
+		};
+		BDAB102030F4000100A00001 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D200830F1000100A00001 /* Metal */,
+				BD1F52D230A012E400FD10A0 /* RenderDevice.hpp */,
+				BD9D200430F1000100A00001 /* RenderDevice.cpp */,
+				BDBE04DC309C930200731DC4 /* RenderDeviceDesc.hpp */,
+				BDBE04D9309C358A00731DC4 /* RenderDeviceFactory.hpp */,
+				BD9E100330F2000100A00001 /* RenderDeviceFactory.cpp */,
+				BDC36343309D65050055DC71 /* DeviceBufferDesc.hpp */,
+				BD1F52C9309F39A300FD10A0 /* DeviceBufferId.hpp */,
+				BD1F52CF30A0117B00FD10A0 /* DeviceDrawCall.hpp */,
+				BD1F52C3309EEA3700FD10A0 /* DeviceMeshId.hpp */,
+				BDC36346309D6E8D0055DC71 /* DevicePipelineDesc.hpp */,
+				BD1F52CC309F39FD00FD10A0 /* DevicePipelineId.hpp */,
+				BD1F52BA309E9CB100FD10A0 /* DeviceResourceType.hpp */,
+				BD1F52B7309D916B00FD10A0 /* DeviceTextureDesc.hpp */,
+				BD1F52D830A2DD7300FD10A0 /* DeviceTextureFormat.hpp */,
+				BD1F52C6309EEAAB00FD10A0 /* DeviceTextureId.hpp */,
+				BD1F52E730A317CF00FD10A0 /* DeviceTextureUtilities.hpp */,
+				BD1F52EA30A3187100FD10A0 /* DeviceTextureUtilities.cpp */,
+			);
+			name = Backend;
 			sourceTree = "<group>";
 		};
 		BDB47A93304ECB6900BE2867 /* Geometry */ = {
@@ -1129,20 +1263,24 @@
 				BD58B0D72F5B97750024C670 /* RuntimeXXHash32.hpp in Headers */,
 				BDA3D230303711EB001075BB /* RenderTextureDepot.hpp in Headers */,
 				BDA3D21E30370EEF001075BB /* HalfUtilities.hpp in Headers */,
+				BD1F52C4309EEA3700FD10A0 /* DeviceMeshId.hpp in Headers */,
 				BDA3D1CE300111CC001075BB /* PointLight.hpp in Headers */,
 				BDA3D22430371145001075BB /* LdrGrayscale.hpp in Headers */,
 				BD326EE62F41773A007EE8EC /* MathUtilities.hpp in Headers */,
 				BDC9CB552FA0CD620042BF24 /* SoULFileHead.hpp in Headers */,
 				BDB47ABB306A737800BE2867 /* HemiSphereSampler.hpp in Headers */,
 				BD3F049C2FE799EB0062ACC2 /* MessageDefines.hpp in Headers */,
+				BD1F52BE309E9D8700FD10A0 /* TypedResourceId.hpp in Headers */,
 				BD0E412B2F7BC88E00CFA766 /* MathDefines.hpp in Headers */,
 				BD8FB8392F85109100EE67B4 /* TextEncoding.hpp in Headers */,
+				BD1F52D930A2DD7300FD10A0 /* DeviceTextureFormat.hpp in Headers */,
 				BDA8962D2F74F4C100B0683B /* X2TeaCodec.hpp in Headers */,
 				BDA3D236303C218C001075BB /* RTextureFile.hpp in Headers */,
 				BD58B0EB2F5BA1790024C670 /* StaticStringDepot.hpp in Headers */,
 				BD8FB80B2F7F6EF000EE67B4 /* RenderMeshId.hpp in Headers */,
 				BDC05CAD2FC56EF4005CCA1C /* GameScene.hpp in Headers */,
 				BDA896202F714B9400B0683B /* Quaternion.hpp in Headers */,
+				BD1F52D330A012E400FD10A0 /* RenderDevice.hpp in Headers */,
 				BDC9CB0D2F96324D0042BF24 /* FileHandle.hpp in Headers */,
 				BD326ED82F3C24A5007EE8EC /* RuntimeAssert.hpp in Headers */,
 				BD58B08A2F519C4A0024C670 /* ArenaAllocator.hpp in Headers */,
@@ -1150,6 +1288,7 @@
 				BDA3D1E03015D71D001075BB /* Layout_Pos_Norm_Uv.hpp in Headers */,
 				BDA3D22730371176001075BB /* EndianUtilities.hpp in Headers */,
 				BD5510012FB91E0000110001 /* ObjectMarker.hpp in Headers */,
+				BD1F52C7309EEAAB00FD10A0 /* DeviceTextureId.hpp in Headers */,
 				BD5510042FB91E0000110001 /* SceneObject.hpp in Headers */,
 				BD72C0CA2FCFEFBA00491766 /* TransformType.hpp in Headers */,
 				BD5510072FB91E0000110001 /* TransformMarker.hpp in Headers */,
@@ -1158,6 +1297,7 @@
 				BDA3D233303C2171001075BB /* RTextureHead_v1.0.hpp in Headers */,
 				BD326EDB2F3C2625007EE8EC /* CompilerDefines.hpp in Headers */,
 				BD3F04AC2FEBE7520062ACC2 /* OrthogonalCamera.hpp in Headers */,
+				BD1F52B8309D916B00FD10A0 /* DeviceTextureDesc.hpp in Headers */,
 				BD58B0CA2F5AD4BF0024C670 /* StaticStringId.hpp in Headers */,
 				BD4477A42FB8205B003DBF3C /* BlockAllocatorImpl.hpp in Headers */,
 				BD0E41252F7BC7F400CFA766 /* Matrix3x4.hpp in Headers */,
@@ -1170,7 +1310,9 @@
 				BDA3D2043022F2E1001075BB /* LdrColor.hpp in Headers */,
 				BDB47AB5306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */,
 				BDD403572F9385090019BE16 /* NativeFile.hpp in Headers */,
+				BD1F52D030A0117B00FD10A0 /* DeviceDrawCall.hpp in Headers */,
 				BDB47AB8306A730900BE2867 /* PointSampler.hpp in Headers */,
+				BDC17A7F3098325E0013738D /* SoULRender.hpp in Headers */,
 				BD0E41312F7BC95900CFA766 /* RandomNumber.hpp in Headers */,
 				BDB47AC2306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */,
 				BDC9CB042F94DDB50042BF24 /* NativeWriteStream.hpp in Headers */,
@@ -1186,6 +1328,7 @@
 				BDC9CB012F94DD580042BF24 /* NativeReadStream.hpp in Headers */,
 				BDA3D2073022F3AB001075BB /* ExrFile.hpp in Headers */,
 				BDA3D1B82FFA5FE6001075BB /* LightType.hpp in Headers */,
+				BDC36347309D6E8D0055DC71 /* DevicePipelineDesc.hpp in Headers */,
 				BDC9CB232F978AB60042BF24 /* Layout_Pos_Colr_Norm_Uv.hpp in Headers */,
 				BDC9CB492F9C7F410042BF24 /* RMeshFile.hpp in Headers */,
 				BD58B0982F56DCDC0024C670 /* ClockTime.hpp in Headers */,
@@ -1205,22 +1348,33 @@
 				BDA3D1C23000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB342F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2A2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
+				BD1F52E830A317CF00FD10A0 /* DeviceTextureUtilities.hpp in Headers */,
+				BDBE04DD309C930200731DC4 /* RenderDeviceDesc.hpp in Headers */,
 				BDB47ABE306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8482F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFB92F6E7430000B085D /* Float4D.hpp in Headers */,
 				BDC17A793092EAE40013738D /* HashedStringId.hpp in Headers */,
 				BD58B0802F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
+				BDC36344309D65050055DC71 /* DeviceBufferDesc.hpp in Headers */,
+				BD1F52E530A316B100FD10A0 /* MetalRenderDevice.hpp in Headers */,
 				BD58B0BE2F5974630024C670 /* RuntimeHash.hpp in Headers */,
 				BD8FB8332F850FA800EE67B4 /* AABB.hpp in Headers */,
 				BD8FB8462F8512B100EE67B4 /* Layout_Pos_Colr.hpp in Headers */,
 				BDA8960E2F6F6F0300B0683B /* Float3D.hpp in Headers */,
 				BD8FB80F2F7F701800EE67B4 /* RenderMeshDepot.hpp in Headers */,
+				BD1F52C1309EA16800FD10A0 /* HashUtilities.hpp in Headers */,
 				BD44779E2FB732F1003DBF3C /* BlockAllocator.hpp in Headers */,
+				BD1F52DF30A3138900FD10A0 /* MetalTextureUtility.hpp in Headers */,
 				BD326ECC2F3BFC80007EE8EC /* CommonDefines.hpp in Headers */,
+				BD1F52CA309F39A400FD10A0 /* DeviceBufferId.hpp in Headers */,
+				BD1F52CD309F39FD00FD10A0 /* DevicePipelineId.hpp in Headers */,
+				BD1F52BB309E9CB100FD10A0 /* DeviceResourceType.hpp in Headers */,
 				BDA3D21830288E9D001075BB /* TextureDataType.hpp in Headers */,
 				BD8FB8362F850FFD00EE67B4 /* AxisType.hpp in Headers */,
+				BDBE04DA309C358A00731DC4 /* RenderDeviceFactory.hpp in Headers */,
 				BD8FB84B2F8512EE00EE67B4 /* VertexDataType.hpp in Headers */,
 				BD58B0E12F5B9C930024C670 /* StaticString.hpp in Headers */,
+				BD1F52D630A2D65300FD10A0 /* TextureUtilities.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,20 +1394,24 @@
 				BD58B0D82F5B97750024C670 /* RuntimeXXHash32.hpp in Headers */,
 				BDA3D231303711EB001075BB /* RenderTextureDepot.hpp in Headers */,
 				BDA3D21F30370EEF001075BB /* HalfUtilities.hpp in Headers */,
+				BD1F52C5309EEA3700FD10A0 /* DeviceMeshId.hpp in Headers */,
 				BDA3D1CF300111CC001075BB /* PointLight.hpp in Headers */,
 				BDA3D22530371145001075BB /* LdrGrayscale.hpp in Headers */,
 				BD326EE72F41773B007EE8EC /* MathUtilities.hpp in Headers */,
 				BDC9CB562FA0CD620042BF24 /* SoULFileHead.hpp in Headers */,
 				BDB47ABC306A737800BE2867 /* HemiSphereSampler.hpp in Headers */,
 				BD3F049D2FE799EB0062ACC2 /* MessageDefines.hpp in Headers */,
+				BD1F52BF309E9D8700FD10A0 /* TypedResourceId.hpp in Headers */,
 				BD0E412C2F7BC88E00CFA766 /* MathDefines.hpp in Headers */,
 				BD8FB83A2F85109100EE67B4 /* TextEncoding.hpp in Headers */,
+				BD1F52DA30A2DD7300FD10A0 /* DeviceTextureFormat.hpp in Headers */,
 				BDA8962E2F74F4C100B0683B /* X2TeaCodec.hpp in Headers */,
 				BDA3D237303C218C001075BB /* RTextureFile.hpp in Headers */,
 				BD58B0EC2F5BA1790024C670 /* StaticStringDepot.hpp in Headers */,
 				BD8FB80C2F7F6EF000EE67B4 /* RenderMeshId.hpp in Headers */,
 				BDC05CAE2FC56EF4005CCA1C /* GameScene.hpp in Headers */,
 				BDA896212F714B9400B0683B /* Quaternion.hpp in Headers */,
+				BD1F52D430A012E400FD10A0 /* RenderDevice.hpp in Headers */,
 				BDC9CB0E2F96324D0042BF24 /* FileHandle.hpp in Headers */,
 				BD326ED92F3C24A5007EE8EC /* RuntimeAssert.hpp in Headers */,
 				BD58B08B2F519C4A0024C670 /* ArenaAllocator.hpp in Headers */,
@@ -1261,6 +1419,7 @@
 				BDA3D1E13015D71D001075BB /* Layout_Pos_Norm_Uv.hpp in Headers */,
 				BDA3D22830371176001075BB /* EndianUtilities.hpp in Headers */,
 				BD5510022FB91E0000110001 /* ObjectMarker.hpp in Headers */,
+				BD1F52C8309EEAAB00FD10A0 /* DeviceTextureId.hpp in Headers */,
 				BD5510052FB91E0000110001 /* SceneObject.hpp in Headers */,
 				BD72C0CB2FCFEFBA00491766 /* TransformType.hpp in Headers */,
 				BD5510082FB91E0000110001 /* TransformMarker.hpp in Headers */,
@@ -1269,6 +1428,7 @@
 				BDA3D234303C2171001075BB /* RTextureHead_v1.0.hpp in Headers */,
 				BD326EDC2F3C2625007EE8EC /* CompilerDefines.hpp in Headers */,
 				BD3F04AD2FEBE7520062ACC2 /* OrthogonalCamera.hpp in Headers */,
+				BD1F52B9309D916B00FD10A0 /* DeviceTextureDesc.hpp in Headers */,
 				BD58B0CB2F5AD4BF0024C670 /* StaticStringId.hpp in Headers */,
 				BD4477A52FB8205B003DBF3C /* BlockAllocatorImpl.hpp in Headers */,
 				BD0E41262F7BC7F400CFA766 /* Matrix3x4.hpp in Headers */,
@@ -1281,7 +1441,9 @@
 				BDA3D2053022F2E1001075BB /* LdrColor.hpp in Headers */,
 				BDB47AB6306A629C00BE2867 /* UnitSquareSampler.hpp in Headers */,
 				BDD403582F9385090019BE16 /* NativeFile.hpp in Headers */,
+				BD1F52D130A0117B00FD10A0 /* DeviceDrawCall.hpp in Headers */,
 				BDB47AB9306A730900BE2867 /* PointSampler.hpp in Headers */,
+				BDC17A803098325E0013738D /* SoULRender.hpp in Headers */,
 				BD0E41322F7BC95900CFA766 /* RandomNumber.hpp in Headers */,
 				BDB47AC3306D163C00BE2867 /* HammersleySamplePointsData.hpp in Headers */,
 				BDC9CB052F94DDB50042BF24 /* NativeWriteStream.hpp in Headers */,
@@ -1297,6 +1459,7 @@
 				BDC9CB022F94DD580042BF24 /* NativeReadStream.hpp in Headers */,
 				BDA3D2083022F3AB001075BB /* ExrFile.hpp in Headers */,
 				BDA3D1B92FFA5FE6001075BB /* LightType.hpp in Headers */,
+				BDC36348309D6E8D0055DC71 /* DevicePipelineDesc.hpp in Headers */,
 				BDC9CB242F978AB60042BF24 /* Layout_Pos_Colr_Norm_Uv.hpp in Headers */,
 				BDC9CB4A2F9C7F410042BF24 /* RMeshFile.hpp in Headers */,
 				BD58B0992F56DCDC0024C670 /* ClockTime.hpp in Headers */,
@@ -1316,22 +1479,33 @@
 				BDA3D1C33000F5C9001075BB /* Interpolator.hpp in Headers */,
 				BDC9CB352F978C0E0042BF24 /* PlyFile.hpp in Headers */,
 				BD326F2B2F431CD5007EE8EC /* MemoryUtilities.hpp in Headers */,
+				BD1F52E930A317CF00FD10A0 /* DeviceTextureUtilities.hpp in Headers */,
+				BDBE04DE309C930200731DC4 /* RenderDeviceDesc.hpp in Headers */,
 				BDB47ABF306CD0A300BE2867 /* HammersleySamplePointsDefines.hpp in Headers */,
 				BD8FB8492F8512B100EE67B4 /* Layout_Pos_Uv.hpp in Headers */,
 				BD9FAFBA2F6E7430000B085D /* Float4D.hpp in Headers */,
 				BDC17A7A3092EAE40013738D /* HashedStringId.hpp in Headers */,
 				BD58B0812F4DA6D40024C670 /* WorkerThread.hpp in Headers */,
+				BDC36345309D65050055DC71 /* DeviceBufferDesc.hpp in Headers */,
+				BD1F52E630A316B100FD10A0 /* MetalRenderDevice.hpp in Headers */,
 				BD58B0BF2F5974630024C670 /* RuntimeHash.hpp in Headers */,
 				BD8FB8342F850FA800EE67B4 /* AABB.hpp in Headers */,
 				BD8FB8472F8512B100EE67B4 /* Layout_Pos_Colr.hpp in Headers */,
 				BDA8960F2F6F6F0300B0683B /* Float3D.hpp in Headers */,
 				BD8FB8102F7F701800EE67B4 /* RenderMeshDepot.hpp in Headers */,
+				BD1F52C2309EA16800FD10A0 /* HashUtilities.hpp in Headers */,
 				BD44779F2FB732F1003DBF3C /* BlockAllocator.hpp in Headers */,
+				BD1F52E030A3138900FD10A0 /* MetalTextureUtility.hpp in Headers */,
 				BD326EC72F3B32F0007EE8EC /* CommonDefines.hpp in Headers */,
+				BD1F52CB309F39A400FD10A0 /* DeviceBufferId.hpp in Headers */,
+				BD1F52CE309F39FD00FD10A0 /* DevicePipelineId.hpp in Headers */,
+				BD1F52BC309E9CB100FD10A0 /* DeviceResourceType.hpp in Headers */,
 				BDA3D21930288E9D001075BB /* TextureDataType.hpp in Headers */,
 				BD8FB8372F850FFD00EE67B4 /* AxisType.hpp in Headers */,
+				BDBE04DB309C358A00731DC4 /* RenderDeviceFactory.hpp in Headers */,
 				BD8FB84C2F8512EE00EE67B4 /* VertexDataType.hpp in Headers */,
 				BD58B0E22F5B9C930024C670 /* StaticString.hpp in Headers */,
+				BD1F52D730A2D65300FD10A0 /* TextureUtilities.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1415,9 +1589,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA896242F72A05D00B0683B /* Quaternion.cpp in Sources */,
+				BD1F52F630ADB90B00FD10A0 /* TextureUtilities.cpp in Sources */,
 				BDA3D1D830024448001075BB /* RangedLight.cpp in Sources */,
 				BD3F04AA2FE7F37D0062ACC2 /* PerspectiveCamera.cpp in Sources */,
 				BD326EE32F3C7F9A007EE8EC /* RuntimeAssert.cpp in Sources */,
+				BD1F52F330ABF67400FD10A0 /* HashUtilities.cpp in Sources */,
 				BDA3D23A303C21B5001075BB /* RTextureFile.cpp in Sources */,
 				BD4477A82FB83CE4003DBF3C /* BlockAllocatorImpl.cpp in Sources */,
 				BDA3D2223037111C001075BB /* EndianUtilities.cpp in Sources */,
@@ -1435,6 +1611,11 @@
 				BDA8962A2F74F48400B0683B /* X2TeaCodec.cpp in Sources */,
 				BDB47AC6306D168F00BE2867 /* PointSampler.cpp in Sources */,
 				BD8FB82B2F8230E300EE67B4 /* RenderMesh.cpp in Sources */,
+				BD9D201730F1000100A00001 /* RenderDevice.cpp in Sources */,
+				BD9E100930F2000100A00001 /* RenderDeviceFactory.cpp in Sources */,
+				BD9C100630F0000100A00001 /* SoULRender.cpp in Sources */,
+				BD9D201930F1000100A00001 /* SoULShaders.metal in Sources */,
+				BD9D201D30F1000100A00001 /* MetalRenderDevice.mm in Sources */,
 				BDA3D1C02FFA61C7001075BB /* LightMarker.cpp in Sources */,
 				BDA3D22E303711D8001075BB /* RenderTextureDepot.cpp in Sources */,
 				BD3F04A72FE7F23E0062ACC2 /* CameraMarker.cpp in Sources */,
@@ -1449,9 +1630,11 @@
 				BD58B09D2F56DE1D0024C670 /* ClockTime.cpp in Sources */,
 				BD58B0882F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB42F6E528C000B085D /* MathUtilities.cpp in Sources */,
+				BD1F52E330A3148D00FD10A0 /* MetalTextureUtility.mm in Sources */,
 				BD8FB83D2F8510D600EE67B4 /* AABB.cpp in Sources */,
 				BDB47ACC3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */,
 				BDB47A9A304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
+				BD1F52EC30A3187100FD10A0 /* DeviceTextureUtilities.cpp in Sources */,
 				BD326F2F2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8132F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
 				BD0E41202F79245600CFA766 /* Ray3D.cpp in Sources */,
@@ -1482,9 +1665,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA896232F72A05D00B0683B /* Quaternion.cpp in Sources */,
+				BD1F52F530ADB90B00FD10A0 /* TextureUtilities.cpp in Sources */,
 				BDA3D1D730024448001075BB /* RangedLight.cpp in Sources */,
 				BD3F04A92FE7F37D0062ACC2 /* PerspectiveCamera.cpp in Sources */,
 				BD326EE22F3C7F9A007EE8EC /* RuntimeAssert.cpp in Sources */,
+				BD1F52F230ABF67400FD10A0 /* HashUtilities.cpp in Sources */,
 				BDA3D239303C21B5001075BB /* RTextureFile.cpp in Sources */,
 				BD4477A72FB83CE4003DBF3C /* BlockAllocatorImpl.cpp in Sources */,
 				BDA3D2213037111C001075BB /* EndianUtilities.cpp in Sources */,
@@ -1502,6 +1687,11 @@
 				BDA896292F74F48400B0683B /* X2TeaCodec.cpp in Sources */,
 				BDB47AC5306D168F00BE2867 /* PointSampler.cpp in Sources */,
 				BD8FB82A2F8230E300EE67B4 /* RenderMesh.cpp in Sources */,
+				BD9D201630F1000100A00001 /* RenderDevice.cpp in Sources */,
+				BD9E100830F2000100A00001 /* RenderDeviceFactory.cpp in Sources */,
+				BD9C100530F0000100A00001 /* SoULRender.cpp in Sources */,
+				BD9D201830F1000100A00001 /* SoULShaders.metal in Sources */,
+				BD9D201C30F1000100A00001 /* MetalRenderDevice.mm in Sources */,
 				BDA3D1BF2FFA61C7001075BB /* LightMarker.cpp in Sources */,
 				BDA3D22D303711D8001075BB /* RenderTextureDepot.cpp in Sources */,
 				BD3F04A62FE7F23E0062ACC2 /* CameraMarker.cpp in Sources */,
@@ -1516,9 +1706,11 @@
 				BD58B09C2F56DE1D0024C670 /* ClockTime.cpp in Sources */,
 				BD58B0872F4EF27D0024C670 /* WorkerThread.cpp in Sources */,
 				BD9FAFB32F6E528C000B085D /* MathUtilities.cpp in Sources */,
+				BD1F52E230A3148D00FD10A0 /* MetalTextureUtility.mm in Sources */,
 				BD8FB83C2F8510D600EE67B4 /* AABB.cpp in Sources */,
 				BDB47ACB3071F86F00BE2867 /* HemiSphereSampler.cpp in Sources */,
 				BDB47A99304ECBAA00BE2867 /* GeometryData.cpp in Sources */,
+				BD1F52EB30A3187100FD10A0 /* DeviceTextureUtilities.cpp in Sources */,
 				BD326F2E2F431F39007EE8EC /* MemoryUtilities.cpp in Sources */,
 				BD8FB8122F7F7C6A00EE67B4 /* RenderMeshDepot.cpp in Sources */,
 				BD0E411F2F79245600CFA766 /* Ray3D.cpp in Sources */,

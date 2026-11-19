@@ -143,8 +143,12 @@ public:
         const char * const  abs_file_name,
         const RenderMeshIdT mesh_id) const;
 
-    /// 将指定Id的RenderMesh的数据保存在指定的RenderMesh文件中
-    void
+    /// 将指定Id的RenderMesh的数据保存到在指定的RenderMesh文件中
+    ///
+    /// @return
+    ///     True,  如果保存成功
+    ///     False, 如果保存失败
+    bool
     write_to_mesh_file (
         const char * const  abs_file_name,
         const RenderMeshIdT mesh_id) const;

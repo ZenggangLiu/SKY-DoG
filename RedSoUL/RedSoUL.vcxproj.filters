@@ -112,6 +112,9 @@
     <Filter Include="Private\Render">
       <UniqueIdentifier>{8bd6e7ed-aa60-48bd-9f12-5b32245c88b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Private\Render\Backend">
+      <UniqueIdentifier>{331ecf14-25b9-42db-b242-00950922f2ec}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Private\Render\VertexLayout">
       <UniqueIdentifier>{a61dab69-b8d5-4aa0-8649-9566a73cbbd6}</UniqueIdentifier>
     </Filter>
@@ -144,131 +147,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Public\Assert\RuntimeAssert.hpp">
-      <Filter>Public\Assert</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Common\CommonDefines.hpp">
-      <Filter>Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Common\CompilerDefines.hpp">
-      <Filter>Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Common\PlatformDefines.hpp">
-      <Filter>Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Container\RingBuffer.hpp">
-      <Filter>Public\Container</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Codec\X2TeaCodec.hpp">
-      <Filter>Public\Codec</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Collision\AABB.hpp">
-      <Filter>Public\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Collision\Ray3D.hpp">
-      <Filter>Public\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Collision\Triangle3D.hpp">
-      <Filter>Public\Collision</Filter>
-    <ClInclude Include="Public\DataType\AxisType.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Float2D.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Float3D.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Half.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
     <ClInclude Include="Private\DataType\HalfFloatConversionTable.hpp">
       <Filter>Private\DataType</Filter>
     </ClInclude>
     <ClInclude Include="Private\DataType\HalfUtilities.hpp">
       <Filter>Private\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\HashedStringId.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\HdrColor.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\LdrColor.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\LdrGrayscale.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Matrix3x4.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Matrix4x4.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Quaternion.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Math\MathUtilities.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Memory\ArenaAllocator.hpp">
-      <Filter>Public\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Memory\MemoryUtilities.hpp">
-      <Filter>Public\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Runtime\GameLogic.hpp">
-      <Filter>Public\Runtime</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Thread\ThreadDefines.hpp">
-      <Filter>Public\Thread</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Thread\WorkerThread.hpp">
-      <Filter>Public\Thread</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Time\ClockTime.hpp">
-      <Filter>Public\Time</Filter>
-    </ClInclude>
-    <ClInclude Include="Private\Runtime\GameMainLoop.hpp">
-      <Filter>Private\Runtime</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Text\StaticString.hpp">
-      <Filter>Public\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Text\StaticStringId.hpp">
-      <Filter>Public\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="Private\Text\StaticStringDepot.hpp">
-      <Filter>Private\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Hashing\RuntimeHash.hpp">
-      <Filter>Public\Hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="Private\Hashing\RuntimeXXHash32.hpp">
-      <Filter>Private\Hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="Private\Hashing\RuntimeXXHash64.hpp">
-      <Filter>Private\Hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Hashing\StaticXXHash32.hpp">
-      <Filter>Public\Hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Hashing\StaticXXHash64.hpp">
-      <Filter>Public\Hashing</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\DataType\Float4D.hpp">
-      <Filter>Public\DataType</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Math\MathDefines.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
-    </ClInclude>
-    <ClInclude Include="Public\FileSystem\FileHandle.hpp">
-      <Filter>Public\FileSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\FileSystem\FileName.hpp">
-      <Filter>Public\FileSystem</Filter>
     </ClInclude>
     <ClInclude Include="Private\FileSystem\MiSoft\WCharHelper.hpp">
       <Filter>Private\FileSysterm</Filter>
@@ -276,20 +159,11 @@
     <ClInclude Include="Private\FileSystem\MiSoft\WinFileHandle.hpp">
       <Filter>Private\FileSysterm</Filter>
     </ClInclude>
-    <ClInclude Include="Public\FileSystem\NativeDirectory.hpp">
-      <Filter>Public\FileSystem</Filter>
+    <ClInclude Include="Private\Hashing\RuntimeXXHash32.hpp">
+      <Filter>Private\Hashing</Filter>
     </ClInclude>
-    <ClInclude Include="Public\FileSystem\NativeFile.hpp">
-      <Filter>Public\FileSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\FileSystem\NativeReadStream.hpp">
-      <Filter>Public\FileSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\FileSystem\NativeWriteStream.hpp">
-      <Filter>Public\FileSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Hashing\StaticStringHash.hpp">
-      <Filter>Public\Hashing</Filter>
+    <ClInclude Include="Private\Hashing\RuntimeXXHash64.hpp">
+      <Filter>Private\Hashing</Filter>
     </ClInclude>
     <ClInclude Include="Private\IO\ImageFile\ExrFile.hpp">
       <Filter>Private\IO\ImageFile</Filter>
@@ -315,26 +189,53 @@
     <ClInclude Include="Private\IO\SoULFileHead.hpp">
       <Filter>Private\IO</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Math\BitOperationUtilities.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Math\EndianUtilities.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Math\Interpolator.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Math\RandomNumber.hpp">
-      <Filter>Public\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Private\Memory\BlockAllocatorImpl.hpp">
       <Filter>Private\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Memory\BlockAllocator.hpp">
-      <Filter>Public\Memory</Filter>
+    <ClInclude Include="Private\Render\Backend\DeviceBufferDesc.hpp">
+      <Filter>Private\Render\Backend</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Message\MessageDefines.hpp">
-      <Filter>Public\Message</Filter>
+    <ClInclude Include="Private\Render\Backend\DeviceBufferId.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceDrawCall.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceMeshId.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DevicePipelineDesc.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DevicePipelineId.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceResourceType.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceTextureDesc.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceTextureFormat.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceTextureId.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\DeviceTextureUtilities.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\RenderDevice.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\RenderDeviceDesc.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\Backend\RenderDeviceFactory.hpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\IndexedTriangle.hpp">
+      <Filter>Private\Render</Filter>
     </ClInclude>
     <ClInclude Include="Private\Render\RenderMesh.hpp">
       <Filter>Private\Render</Filter>
@@ -342,19 +243,16 @@
     <ClInclude Include="Private\Render\RenderMeshDepot.hpp">
       <Filter>Private\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Render\RenderMeshId.hpp">
-      <Filter>Public\Render</Filter>
-    </ClInclude>
     <ClInclude Include="Private\Render\RenderTexture.hpp">
       <Filter>Private\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Render\RenderTextureId.hpp">
-      <Filter>Public\Render</Filter>
     </ClInclude>
     <ClInclude Include="Private\Render\RenderTextureDepot.hpp">
       <Filter>Private\Render</Filter>
     </ClInclude>
     <ClInclude Include="Private\Render\TextureDataType.hpp">
+      <Filter>Private\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Render\TextureUtilities.hpp">
       <Filter>Private\Render</Filter>
     </ClInclude>
     <ClInclude Include="Private\Render\VertexDataType.hpp">
@@ -369,6 +267,9 @@
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Colr_Norm.hpp">
       <Filter>Private\Render\VertexLayout</Filter>
     </ClInclude>
+    <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Colr_Norm_Uv.hpp">
+      <Filter>Private\Render\VertexLayout</Filter>
+    </ClInclude>
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Colr_Uv.hpp">
       <Filter>Private\Render\VertexLayout</Filter>
     </ClInclude>
@@ -381,35 +282,173 @@
     <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Uv.hpp">
       <Filter>Private\Render\VertexLayout</Filter>
     </ClInclude>
-    <ClInclude Include="Private\Render\IndexedTriangle.hpp">
-      <Filter>Private\Render</Filter>
+    <ClInclude Include="Private\Runtime\GameMainLoop.hpp">
+      <Filter>Private\Runtime</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Text\TextEncoding.hpp">
-      <Filter>Public\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="Private\Render\VertexLayout\Layout_Pos_Colr_Norm_Uv.hpp">
-      <Filter>Private\Render\VertexLayout</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\SceneGraph\GameScene.hpp">
-      <Filter>Public\SceneGraph</Filter>
+    <ClInclude Include="Private\Sampler\HammersleySamplePointsData.hpp">
+      <Filter>Private\Sampler</Filter>
     </ClInclude>
     <ClInclude Include="Private\SceneGraph\MarkerTypeDepot.hpp">
       <Filter>Private\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\SceneGraph\ObjectMarker.hpp">
-      <Filter>Public\SceneGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\SceneGraph\SceneObject.hpp">
-      <Filter>Public\SceneGraph</Filter>
-    </ClInclude>
     <ClInclude Include="Private\SceneGraph\TransformData.hpp">
       <Filter>Private\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\SceneGraph\TransformMarker.hpp">
-      <Filter>Public\SceneGraph</Filter>
+    <ClInclude Include="Private\Text\StaticStringDepot.hpp">
+      <Filter>Private\Text</Filter>
     </ClInclude>
-    <ClInclude Include="Public\SceneGraph\TransformType.hpp">
-      <Filter>Public\SceneGraph</Filter>
+    <ClInclude Include="Public\Assert\RuntimeAssert.hpp">
+      <Filter>Public\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Codec\X2TeaCodec.hpp">
+      <Filter>Public\Codec</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Collision\AABB.hpp">
+      <Filter>Public\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Collision\Ray3D.hpp">
+      <Filter>Public\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Collision\Triangle3D.hpp">
+      <Filter>Public\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Common\CommonDefines.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Common\CompilerDefines.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Common\PlatformDefines.hpp">
+      <Filter>Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Container\RingBuffer.hpp">
+      <Filter>Public\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\AxisType.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Float2D.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Float3D.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Float4D.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Half.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\HashedStringId.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\HdrColor.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\LdrColor.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\LdrGrayscale.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Matrix3x4.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Matrix4x4.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\Quaternion.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\DataType\TypedResourceId.hpp">
+      <Filter>Public\DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\FileHandle.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\FileName.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\NativeDirectory.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\NativeFile.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\NativeReadStream.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\FileSystem\NativeWriteStream.hpp">
+      <Filter>Public\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Hashing\HashUtilities.hpp">
+      <Filter>Public\Hashing</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Hashing\RuntimeHash.hpp">
+      <Filter>Public\Hashing</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Hashing\StaticStringHash.hpp">
+      <Filter>Public\Hashing</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Hashing\StaticXXHash32.hpp">
+      <Filter>Public\Hashing</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Hashing\StaticXXHash64.hpp">
+      <Filter>Public\Hashing</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\BitOperationUtilities.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\EndianUtilities.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\Interpolator.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\MathDefines.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\MathUtilities.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Math\RandomNumber.hpp">
+      <Filter>Public\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Memory\ArenaAllocator.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Memory\BlockAllocator.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Memory\MemoryUtilities.hpp">
+      <Filter>Public\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Message\MessageDefines.hpp">
+      <Filter>Public\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Render\RenderMeshId.hpp">
+      <Filter>Public\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Render\RenderTextureId.hpp">
+      <Filter>Public\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Render\SoULRender.hpp">
+      <Filter>Public\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Runtime\GameLogic.hpp">
+      <Filter>Public\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\HammersleySamplePointsDefines.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\HemiSphereSampler.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\PointSampler.hpp">
+      <Filter>Public\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Sampler\UnitSquareSampler.hpp">
+      <Filter>Public\Sampler</Filter>
     </ClInclude>
     <ClInclude Include="Public\SceneGraph\Camera\CameraMarker.hpp">
       <Filter>Public\SceneGraph\Camera</Filter>
@@ -422,6 +461,9 @@
     </ClInclude>
     <ClInclude Include="Public\SceneGraph\Camera\PerspectiveCamera.hpp">
       <Filter>Public\SceneGraph\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\SceneGraph\GameScene.hpp">
+      <Filter>Public\SceneGraph</Filter>
     </ClInclude>
     <ClInclude Include="Public\SceneGraph\Geometry\GeometryData.hpp">
       <Filter>Public\SceneGraph\Geometry</Filter>
@@ -444,20 +486,35 @@
     <ClInclude Include="Public\SceneGraph\Light\SunLight.hpp">
       <Filter>Public\SceneGraph\Light</Filter>
     </ClInclude>
-    <ClInclude Include="Private\Sampler\HammersleySamplePointsData.hpp">
-      <Filter>Private\Sampler</Filter>
+    <ClInclude Include="Public\SceneGraph\ObjectMarker.hpp">
+      <Filter>Public\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Sampler\HammersleySamplePointsDefines.hpp">
-      <Filter>Public\Sampler</Filter>
+    <ClInclude Include="Public\SceneGraph\SceneObject.hpp">
+      <Filter>Public\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Sampler\HemiSphereSampler.hpp">
-      <Filter>Public\Sampler</Filter>
+    <ClInclude Include="Public\SceneGraph\TransformMarker.hpp">
+      <Filter>Public\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Sampler\PointSampler.hpp">
-      <Filter>Public\Sampler</Filter>
+    <ClInclude Include="Public\SceneGraph\TransformType.hpp">
+      <Filter>Public\SceneGraph</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Sampler\UnitSquareSampler.hpp">
-      <Filter>Public\Sampler</Filter>
+    <ClInclude Include="Public\Text\StaticString.hpp">
+      <Filter>Public\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Text\StaticStringId.hpp">
+      <Filter>Public\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Text\TextEncoding.hpp">
+      <Filter>Public\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Thread\ThreadDefines.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Thread\WorkerThread.hpp">
+      <Filter>Public\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Time\ClockTime.hpp">
+      <Filter>Public\Time</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -560,6 +617,15 @@
     <ClCompile Include="Private\Memory\MemoryUtilities.cpp">
       <Filter>Private\Memory</Filter>
     </ClCompile>
+    <ClCompile Include="Private\Render\Backend\DeviceTextureUtilities.cpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Render\Backend\RenderDevice.cpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Render\Backend\RenderDeviceFactory.cpp">
+      <Filter>Private\Render\Backend</Filter>
+    </ClCompile>
     <ClCompile Include="Private\Render\RenderMesh.cpp">
       <Filter>Private\Render</Filter>
     </ClCompile>
@@ -570,6 +636,12 @@
       <Filter>Private\Render</Filter>
     </ClCompile>
     <ClCompile Include="Private\Render\RenderTextureDepot.cpp">
+      <Filter>Private\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Render\SoULRender.cpp">
+      <Filter>Private\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Render\TextureUtilities.cpp">
       <Filter>Private\Render</Filter>
     </ClCompile>
     <ClCompile Include="Private\Runtime\GameMainLoop.cpp">
@@ -602,10 +674,10 @@
     <ClCompile Include="Private\SceneGraph\Light\LightMarker.cpp">
       <Filter>Private\SceneGraph\Light</Filter>
     </ClCompile>
-    <ClCompile Include="Private\SceneGraph\Light\RangedLight.cpp">
+    <ClCompile Include="Private\SceneGraph\Light\PointLight.cpp">
       <Filter>Private\SceneGraph\Light</Filter>
     </ClCompile>
-    <ClCompile Include="Private\SceneGraph\Light\PointLight.cpp">
+    <ClCompile Include="Private\SceneGraph\Light\RangedLight.cpp">
       <Filter>Private\SceneGraph\Light</Filter>
     </ClCompile>
     <ClCompile Include="Private\SceneGraph\Light\SpotLight.cpp">
@@ -629,17 +701,17 @@
     <ClCompile Include="Private\SceneGraph\TransformMarker.cpp">
       <Filter>Private\SceneGraph</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Thread\WorkerThread.cpp">
-      <Filter>Private\Thread</Filter>
-    </ClCompile>
-    <ClCompile Include="Private\Time\ClockTime.cpp">
-      <Filter>Private\Time</Filter>
-    </ClCompile>
     <ClCompile Include="Private\Text\StaticString.cpp">
       <Filter>Private\Text</Filter>
     </ClCompile>
     <ClCompile Include="Private\Text\StaticStringDepot.cpp">
       <Filter>Private\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Thread\WorkerThread.cpp">
+      <Filter>Private\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Time\ClockTime.cpp">
+      <Filter>Private\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

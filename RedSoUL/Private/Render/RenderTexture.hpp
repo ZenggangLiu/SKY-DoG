@@ -72,7 +72,9 @@ struct RenderTexture
     const TextureDataType  texture_data_type;
     /// 标记贴图是否为CubeMap(True)
     const bool             is_cube_map;
-    /// 标记Texel数据是否使用Linear Rgb空间(True), 还是使用Gamma encoded Rgb空间(False)
+    /// 标记LdrColor Texel(RGBA8)数据是否使用Linear Rgb空间(True),
+    /// 还是使用Gamma encoded Rgb空间(False)
+    /// NOTE: HdrColor/LdrGrayscale Texel数据始终使用Linear Rgb空间(True)
     const bool             is_linear_rgb;
     /// 标记Texel数据是否否为动态分配(True)
     const bool             is_dyn_allocated;
