@@ -8,8 +8,11 @@
 /// Library headers
 #include "Common/CommonDefines.hpp"
 #include "DataType/HashedStringId.hpp"
+#include "DataType/TypedResourceId.hpp"
 #include "Hashing/StaticStringHash.hpp"
 #include "Hashing/RuntimeHash.hpp"
+#include "Render/RenderMeshId.hpp"
+#include "Render/RenderTextureId.hpp"
 
 
 #define CHECK_STATIC_HASH_32(string_array, idx)                                   \
@@ -355,6 +358,98 @@ TEST_CASE("Checking Hashed String Id", "[Hashed String Id]")
     REQUIRE((id_table.find(runtime_id)->second == 7));
 
     std::printf("--- Checking Hashed String Id: OK!\n");
+}
+
+
+TEST_CASE("Checking Render Resource Id", "[Render Resource Id]")
+{
+    static constexpr const char * const RESOURCE_NAME = "UnitResource";
+    constexpr RenderMeshIdT buildtime_mesh_id =
+        RenderMeshIdT::buildtime_id(RESOURCE_NAME);
+    constexpr RenderTextureIdT buildtime_texture_id =
+        RenderTextureIdT::buildtime_id(RESOURCE_NAME);
+
+    std::printf("--- Checking Render Resource Id...\n");
+
+#if defined(USE_64BITS_ID)
+    static_assert(
+        buildtime_mesh_id.value ==
+            STATIC_STRING_HASH_64(FOUR_CC_32('R', 'N', 'D', 'M'), RESOURCE_NAME),
+        "Render mesh Id seed changed");
+    static_assert(
+        buildtime_texture_id.value ==
+            STATIC_STRING_HASH_64(FOUR_CC_32('R', 'N', 'D', 'T'), RESOURCE_NAME),
+        "Render texture Id seed changed");
+#else
+    static_assert(
+        buildtime_mesh_id.value ==
+            STATIC_STRING_HASH_32(FOUR_CC_32('R', 'N', 'D', 'M'), RESOURCE_NAME),
+        "Render mesh Id seed changed");
+    static_assert(
+        buildtime_texture_id.value ==
+            STATIC_STRING_HASH_32(FOUR_CC_32('R', 'N', 'D', 'T'), RESOURCE_NAME),
+        "Render texture Id seed changed");
+#endif
+
+    const RenderMeshIdT runtime_mesh_id =
+        RenderMeshIdT::runtime_id((const uint8_t*)RESOURCE_NAME);
+    const RenderTextureIdT runtime_texture_id =
+        RenderTextureIdT::runtime_id((const uint8_t*)RESOURCE_NAME);
+
+    REQUIRE((runtime_mesh_id == buildtime_mesh_id));
+    REQUIRE((runtime_texture_id == buildtime_texture_id));
+    REQUIRE((runtime_mesh_id.value != runtime_texture_id.value));
+
+    std::printf("--- Checking Render Resource Id: OK!\n");
+}
+
+
+TEST_CASE("Checking Typed Resource Id", "[Typed Resource Id]")
+{
+    using MeshIdT    = TypedResourceId<0x12>;
+    using TextureIdT = TypedResourceId<0x34>;
+
+    static constexpr MeshIdT::ValueTypeT RESOURCE_ID = 0x00ABCDEF;
+    const MeshIdT mesh_id(RESOURCE_ID);
+    const TextureIdT texture_id(RESOURCE_ID);
+    const MeshIdT overwritten_type_id(
+        MeshIdT::TYPE_MASK | (MeshIdT::ValueTypeT)0x1234);
+    const MeshIdT invalid_id = MeshIdT::invalid_typed_id();
+
+    std::printf("--- Checking Typed Resource Id...\n");
+
+    REQUIRE((mesh_id.type() == 0x12));
+    REQUIRE((texture_id.type() == 0x34));
+    REQUIRE((mesh_id.id() == RESOURCE_ID));
+    REQUIRE((
+        overwritten_type_id.type() == 0x12 &&
+        overwritten_type_id.id() == 0x1234));
+    REQUIRE((
+        invalid_id.type() == MeshIdT::INVALID_TYPE && invalid_id.is_not_valid()));
+
+    REQUIRE((mesh_id.is_valid()));
+    REQUIRE((texture_id.is_valid()));
+    REQUIRE((mesh_id.value != texture_id.value));
+    REQUIRE((MeshIdT().is_not_valid()));
+
+    MeshIdT mismatched_type_id(0x1234);
+    mismatched_type_id.value =
+        MeshIdT::make_typed_value(texture_id.type(), mismatched_type_id.value);
+    REQUIRE((mismatched_type_id.is_not_valid()));
+
+    MeshIdT incremented_id(0);
+    incremented_id.next_id();
+    REQUIRE((incremented_id.type() == 0x12));
+    REQUIRE((incremented_id.id() == 1));
+    REQUIRE((incremented_id.is_valid()));
+
+    MeshIdT exhausted_id(~MeshIdT::TYPE_MASK);
+    exhausted_id.next_id();
+    REQUIRE((exhausted_id.type() == 0x12));
+    REQUIRE((exhausted_id.id() == 0));
+    REQUIRE((exhausted_id.is_valid()));
+
+    std::printf("--- Checking Typed Resource Id: OK!\n");
 }
 
 #endif /// (HASHING_CHECKING == 1)

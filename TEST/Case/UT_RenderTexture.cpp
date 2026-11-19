@@ -9,6 +9,7 @@
 /// Library headers
 #include "DataType/HdrColor.hpp"
 #include "DataType/LdrColor.hpp"
+#include "DataType/LdrGrayscale.hpp"
 #include "FileSystem/NativeDirectory.hpp"
 #include "FileSystem/NativeFile.hpp"
 #include "Render/RenderTexture.hpp"
@@ -36,6 +37,38 @@ debug_cubemap_slice_color (
 /// TEST_CASE( name [, tags ] )
 TEST_CASE("Checking Render Texture", "[Render Texture]")
 {
+
+    SECTION("Checking HDR texture color space")
+    {
+        static const HdrColor texel = HdrColor::make(1.0f, 1.0f, 1.0f, 1.0f);
+        static const RenderTextureIdT texture_id =
+            RenderTextureIdT::runtime_id(
+                (const uint8_t *)"UNIT_TEST:HDR_LINEAR_TEXTURE");
+
+        const RenderTexture texture(
+            texture_id, 1, 1, 1, false, true,
+            TextureDataType::HALF_RGBA_TEXTURE,
+            sizeof(HdrColor), false,
+            (const uint8_t *)&texel, sizeof(HdrColor));
+
+        REQUIRE((texture.is_linear_rgb == true));
+    }
+
+    SECTION("Checking grayscale texture color space")
+    {
+        static const LdrGrayscale texel = { 65535 };
+        static const RenderTextureIdT texture_id =
+            RenderTextureIdT::runtime_id(
+                (const uint8_t *)"UNIT_TEST:GRAYSCALE_LINEAR_TEXTURE");
+
+        const RenderTexture texture(
+            texture_id, 1, 1, 1, false, true,
+            TextureDataType::LDR_GRAYSCALE_TEXTURE,
+            sizeof(LdrGrayscale), false,
+            (const uint8_t *)&texel, sizeof(LdrGrayscale));
+
+        REQUIRE((texture.is_linear_rgb == true));
+    }
 
     SECTION("Checking checker board texture")
     {
