@@ -1,0 +1,273 @@
++-------------------------------------------+
+|                                           |
+|                    C++                    |
+|                                           |
++-------------------------------------------+
+1. constexpr定义的函数表示他可以在Compile/Build时计算。
+例如: Constructor定义为constexpr, 表示可以定义constexpr的此类型的Object
+struct Some
+{
+    constexpr Some(){...}
+};
+constexpr Some obj_some{};
+2. 从C++11开始, 可以使用Raw String Literal来输入多行, 无转义字符的字符串
+   const char * const Multiple_Lines = R"(
+   First Line
+   Second Line: "STRING")";
+
+
+
++-------------------------------------------+
+|                                           |
+|               OJBECTIVE - C               |
+|                                           |
++-------------------------------------------+
+1. 即使@interface没有Method, 也要有对应的@implementation
+2. Objective-C不支持Class Member(类变量), 可以在@implmentation文件中使用Global static变量实现
+3. Objective-C不支持Method Overloading(函数重载)
+4. 如果Method有参数, 它的名称必须带有':'. 例如, - (id) SomeFunc: (int)param1 WithScale:(float)param2
+   此处Method名称为"SomeFunc:WithScale:"
+5. raw_pointer = (__bridge void*)mtk_view:
+   此处的__bridge表示不转移所有权. 即在存入raw_pointer之前, 不增加参考计数(无Retain)
+   __bridge_retained表示在存入raw_pointer之前, 增加参考计数。
+6. NSInteger/NSUInteger分别使用%li/%lu Format Specifier。
+   最大最小的NSInteger使用NSIntegerMin, NSIntegerMax来获得。
+   最大NSUInteger使用NSUIntegerMax来获得。
+7. BOOL对应的数值为YES/NO。使用%I Format Specifier。
+8. ".m"文件中可以使用: @import Foundation; --> #import <Foundation/Foundation.h>
+9. @property (Attributes) PropertyType PropertyName;
+   + (weak)表示:
+   如果Property释放时(无任何STRONG参考), 此处的Property参考设置为nil。
+   + (noatomic)表示:
+   此Property不是ThreadSafe
+10.@synthesize PropertyName = iVariable;
+   + iVariable为Instance Variable
+   + 使用iVariable来保存合成的Property
+   + 如果定义@property, 但无@synthesize, 编译器将执行: @synthesize PropertyName = _PropertyName;
+   + 如果没有定义iVariable, 编译器自动添加它
+   + 如果使用@synthesize PropertyName, 编译器自动添加_PropertyName来作为iVariable
+   + iVariable将初始化为nil。如果我们希望iVariable, 我们必须在PropertyName的Getter中alloc, init它
+11.NSArray: Immutable-Array
+   + NSArray * integer_array = @[ 1, 3, 4];
+   + NSArray * string_array  = @[ @"1", @"3", @"4" ];
+12.init函数的返回类型为: instancetype
+   由于任何Class可以OverWrite这个函数, 但是它在NSObject中定义, 所以无法在NSObject定义具体/真正的返回类型
+   - (instancetype) init
+   {
+       self = [super init];
+       if (self)
+       {
+           ...
+       }
+       return self;
+   }
+
+
++-------------------------------------------+
+|                                           |
+|                   SWIFT                   |
+|                                           |
++-------------------------------------------+
+1. 使用"""。。。"""来表示多行无转义字符的字符串
+
+
+
++-------------------------------------------+
+|                                           |
+|                   PYTHON                  |
+|                                           |
++-------------------------------------------+
+1. 空语句:      'pass'
+2. 注释:        '#'                 <-- //, /**/
+3. 布尔值:      'True', 'False'     <-- true, false
+4. 字符串类型:   'str'               <-- std::string
+                'r "C:\xxxx'       <-- 原始字符串
+                ';'.join(['a', 'b', 'c']) <-- 字符串链接
+5. 空值:        'None'              <-- nullptr
+6. 类型查询:     'type(x)'           <-- decltype(x), typeid(x)
+7. 类型判断:     'isinstance(x, str)
+8. 类型变换:     'int(x), str(x)'
+9. 向下取整:     '//'. 例如 '5//2' = 2, 而 5/2 = 2.5
+10.取幂:        '**'. 例如 ‘2**3’ = 8 <-- std::pow(2, 3)
+11.逻辑运算:     'and', 'or', 'not'   <-- &&, ||, !
+12.实例比较:     'is', 'is not'       <-- 对两个实例进行地址比较
+13.成员包含:     'in', 'not in'. 例如 'if 2 in [1, 3, 4]:'
+14.区间比较:     '0 < x < 10'         <-- 0 < x && x < 10
+15.三目运算:     'a if Cond else b'   <-- Cond ? a : b
+16.逻辑False:    '[]', '{}, '0.0', None
+17.遍历容器:      'for x in items'    <-- for (auto & x : items)
+18.遍历整数:      'for x in range(10)' <-- for (int x = 0; x < 10; x++)
+19.索引数值:      'for i, v in enumerate(["a", "b])' i为[0, 1], v为"["a", "b"]
+20.数据类型:      list: [1, 2, 3]     <-- std::vector
+                 tuple: (1, True)    <-- std::tuple
+                 dict: {"name" : "Value"} <-- std::unordered_map
+                 set: {1, 2, 3}      <-- std::unordered_set
+21.变量绑定:      'x, y = (10, 20)'    <-- auto [x, y] = ...
+22.函数定义:      'def add(a:int, b:int=0) -> int:', 无返回值类型为'None'
+                 def min_max(values): 返回多个数值
+                     return min(values), max(values)
+23.类型定义:
+                  class Actor:
+                      count = 0  <-- 类变量/属性
+
+                      def __init__(self, name): <-- 构造器
+                          self.name = name      <-- 定义实例变量/属性
+                          Actor.count += 1
+                  
+                      def update(self, dt):     <-- 实例函数
+                          print(self.name, dt)
+
+                      class Player(Actor):      <-- Actor的子类
+                          def __init__(self, name, health):
+                              super().__init__(name) <-- super()调用基类
+                              self.health = health
+                      
+                          def update(self, dt):
+                              super().update(dt)
+                              print(self.health)
+24.列表推导:      'squares = [x * x for x in range(10)]'
+25.索引切片:      '[start: stop: step]' <-- array[: 3: 2], 从第一个元素开始, Stride为2, 到索引为2的元素
+                 注意: stop的索引不包括
+
+low, high = min_max([3, 1, 8])
+count: int = 10   # Type Annotation
+if x > 5:
+    print("large")
+    print(count)
+
+
+
++-------------------------------------------+
+|                                           |
+|                 METAL API                 |
+|                                           |
++-------------------------------------------+
+1. Metal的NDC坐标系: [-1, +1] x [-1, +1] x [0, +1]
+                      ^ y
+                      |      / z
+     (-1, +1, +1) +---|---------+ (+1, +1, +1)
+                 /|   |    /   /|
+                / |   |   .   / |
+               +------+------+  |
+               |  |   | /    |  |
+               |  |   |/     |  |
+               |  |   o------+-------->
+               |  +----------|- +
+               | /           | /
+  (-1, -1, +0) +-------------+ (+1, -1, +0)
+2. 昂贵资源: CommandQueue, PipelineState, VertexBuffer, ShaderFunction: App启动时创建
+3. 廉价资源: CommandBuffer, CommandEncoder: 每Frame创建
+4. PipelineState:
+   定义一个GPU的Constant状态, 这样GPU可以非常有效的进行渲染。
+   由于PipelineState的创建基于Shader代码, 所以对于不同Shader代码的组合, 我们必须创建不同的PipelineState物体。
+   + 创建: Time Consuming
+   + 切换: Fast/Efficient
+   + Pipeline State Object(PSO):
+     * Render Pipeline State Object
+     * Compute Pipeline State Object
+5. RenderPassDescriptor:
+   + 最多可以使用8个Color Attachment。在Metal Feature Set中定义。
+6. 每个RenderPass对应一个RenderCommandEncoder,
+   每个ComputePass对应一个ComputeCommandEncoder。
+   它们都使用Descriptor定义
+7. RenderCommandEncoder:
+   + setRenderPipelineState:
+   + setVertexBuffer:offset:atIndex: 绑定一个MTLBuffer为Vertex Buffer
+   + setTriangleFillMode: 设置使用哪种模式渲染三角面
+     * WireFrame模式(MTLTriangleFillModeLines)
+     * Fill模式(MTLTriangleFillModeFill)
+   + setFragmentTexture:atIndex:
+     在Fragment Shader Texture Argument Table指定Index处设置MTLTexture
+     在Fragment Shader中对应[[texture(?)]]
+   + setFragmentBuffer:offset:atIndex:
+     在Fragment Shader Buffer Argument Table指定Index处设置MTLBuffer
+     在Fragment Shader中对应[[buffer(?)]]
+8. CommandQueue:
+   + 同一个CommandQueue按照CommandBuffer的创建顺序依次执行每一个CommandBuffer中的指令
+     Execute CommandBuffer in the order when it is enqueued
+9. CommandBuffer:
+   + 保持对Resource的强参考。如果可以保证所有Resource存在, 在CommandQueue创建CommandBuffer时
+     可以使用commandBufferWithUnretainedReferences函数。
+10.RenderPassDescriptor:
+   + LoadAction:   表示在渲染开始前, 如何处理当前RenderTarget中的内容
+   + StoreActioin: 表示在渲染完成后, 如何处理渲染出来的内容
+11.VertexDescriptor:
+   + attributes[].format/offet/bufferIndex:描述每个Vertex属性的BufferIndex, 数据类型
+   + layouts[].stride:描述每个Vertex数据(所有属性)占有的字节数
+12.DepthStencilState:
+   + 使用Descriptor创建: 确定CompareFunc, DepthWritable
+13.SamplerState:
+   + OverSampling:  小的Texture映射到大的平面上。即每一个Texel被采样多次。
+   + UnderSampling: 大的Texture映射到小的平面上。即每几个Texel被采样一次。
+   + 使用SamplerDescriptor创建
+   + 使用RenderEncoder的setVertex/FragmentSamplerState设定
+   + 使用ComputeEncoder的setSamplerState设定
+?. Present:
+   + 结束所有Encoder: endEncoding
+   + [MTLCommandBuffer presentDrawable:]
+   + [MTLCommandBuffer commit]
+?. GPU:
+   + ThroughPut(吞吐量): 单位时间处理的数据量
+   + Latency(等待期): 指令发出到完成之间的时间
+   +
+?. MSL中的Semantic:
+   + [[point_size]]:如果渲染Point, 此处指定Point的大小
+     VertexOut
+     {
+        float4 position [[position]];
+        float  point_size [[point_size]];
+     };
+   + [[attribute(?)]]:表示是哪个(?)Vertex属性
+?. MSL资源绑定:
+   Resource    Shader Attribute    Encoder API
+   Buffer      [[buffer(N)]]       setFragmentBuffer:offset:atIndex:
+   Texture     [[texture(N)]]      setFragmentTexture:atIndex:
+   Sampler     [[sampler(N)]]      setFragmentSamplerState:atIndex:
+?. MSL函数说明：
+   + mix(x, y, a): [0:x --> 1:y]: a从0到1
+
++-----------------------+
+|VertexBuffer:MTLBuffer |
++-----------------------+
+| Vertex Descriptor:    +--------------------------+
+| - Attribute[0].foramt |                          |
+| - Attribute[0].offset |                          |
+| - Attribute[0].Index  |     struct VertexIn      |
++-----------------------+     {                    v
+                                  float4 pos [[attribute(0)]];
+                              };
+
+struct VertexOut
+{
+    float4 pos [[position]];  <--- Vertex的Position数据
+    float4 color;
+};
+
+VertexOut vertex_main(
+    const VertexIn vertex_in [[stage_in]],
+                                   ^
+                                   |
+                              哪个Vertex
+    constant float & timer [[buffer(11)]]) {...}
+        ^                         ^
+        |                         |
+    Constant Mem              Buffer 11号
+
+
+let shader = ..
+#include <metal_stdlib>
+using namespace metal;
+
+struct Vertexln
+{
+    float4 position [ [attribute(0) ] ];
+};
+
+vertex float4 vertex_main(const Vertexln vertex_in [[stage_in]])
+{
+	return vertex_in.position;
+}
+
+fragment float4 fragment_main() {
+	return float4(l, 0, 0, 1);
+}
